@@ -1,0 +1,51 @@
+[user]
+    name = Frank Lazzarini
+    email = flazzarini@gmail.com
+
+;
+; Automatically colorize console output
+;
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    branchdfh = auto
+    grep = auto
+
+;
+; Aliases
+;
+[alias]
+    ; simple shortcuts
+    st = status -s
+    co = checkout
+    ci = commit
+
+    ; Show abbreviated log with a branch graph
+    lg = log --all -n20 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+    ; Show abbreviated log with timestamps
+    sl = log --pretty=format:'%Cgreen%ai%Cblue %h%Creset %s'
+
+[core]
+    ; my global ignores file
+    excludesfile = ~/.gitignore
+
+    ; Let's use vim as the default editor
+    editor=vim
+
+
+[diff]
+    ; ... and vimdiff as diff tool
+    tool=vimdiff
+
+
+[difftool]
+    ; don't always ask for confirmation to open the diff tool
+    prompt = false
+
+
+[push]
+    ; By default, push to the tracking remote.
+    default = tracking
