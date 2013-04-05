@@ -2,21 +2,15 @@
     name = Frank Lazzarini
     email = flazzarini@gmail.com
 
-;
-; Automatically colorize console output
-;
 [color]
+    ui = auto
     diff = auto
     status = auto
     branch = auto
     branchdfh = auto
     grep = auto
 
-;
-; Aliases
-;
 [alias]
-    ; simple shortcuts
     st = status -s
     co = checkout
     ci = commit
@@ -29,15 +23,11 @@
     sl = log --pretty=format:'%Cgreen%ai%Cblue %h%Creset %s'
 
 [core]
-    ; my global ignores file
     excludesfile = ~/.gitignore
-
-    ; Let's use vim as the default editor
     editor=vim
 
 
 [diff]
-    ; ... and vimdiff as diff tool
     tool=vimdiff
 
 
