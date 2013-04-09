@@ -49,7 +49,7 @@ clean_git_home:
 	rm -Rf ~/.gitconfig
 
 install_i3: clean_i3
-	ln -sf `pwd`/.Xdefaults ~/.Xdefaults
+	ln -sf `pwd`/Xdefaults ~/.Xdefaults
 	ln -sf `pwd`/i3 ~/.i3
 
 clean_i3:
