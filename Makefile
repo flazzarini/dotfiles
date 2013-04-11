@@ -35,6 +35,8 @@ clean_bash:
 	rm -Rf ~/.bashrc
 
 install_vim: clean_vim
+	@echo Installing vundle for vim
+	git clone https://github.com/gmarik/vundle.git `pwd`/vim/bundle/vundle
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
 
