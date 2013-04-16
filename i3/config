@@ -45,12 +45,11 @@ for_window [class="dolphin"]            floating enabled
 for_window [class="winff"]              floating enabled
 for_window [class="winamp.exe"]         floating enabled
 
+
 # General settings
 # ------------------------------------------------------------------------------
-
 set $term urxvt
 set $mod Mod4
-
 
 
 # Bindings
@@ -59,7 +58,6 @@ set $mod Mod4
 #   sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
 #
 # ------------------------------------------------------------------------------
-
 bindsym $mod+d exec dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
@@ -69,6 +67,12 @@ bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
 
 
+# Workspace Names
+# ------------------------------------------------------------------------------
+workspace "1: dev"
+workspace "2: www"
+workspace "3: chat"
+workspace "4: misc"
 
 # Autostart stuff
 # ------------------------------------------------------------------------------
@@ -137,10 +141,10 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+1 workspace "1: dev"
+bindsym $mod+2 workspace "2: www"
+bindsym $mod+3 workspace "3: chat"
+bindsym $mod+4 workspace "4: misc"
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
