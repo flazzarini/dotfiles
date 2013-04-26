@@ -176,8 +176,10 @@ export GPGKEY=C502163F
 # Execute Keychain ssh
 # -----------------------------------------------------------------------------
 #
-/usr/bin/keychain $HOME/.ssh/id_rsa
-. ~/.keychain/$HOSTNAME-sh
+if [ $HOSTNAME != "BBS-nexus.ipsw.dt.ept.lu" ]; then
+    /usr/bin/keychain $HOME/.ssh/id_rsa
+    . ~/.keychain/$HOSTNAME-sh
+fi
 
 
 # My Prompt
@@ -191,3 +193,11 @@ export GPGKEY=C502163F
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
                             --enable-internal-flash"
+
+# Proxy
+# -----------------------------------------------------------------------------
+#
+if [[ $HOSTNAME == *.ipsw.dt.ept.lu ]]; then
+    export http_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
+    export https_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
+fi
