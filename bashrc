@@ -176,7 +176,7 @@ export GPGKEY=C502163F
 # Execute Keychain ssh
 # -----------------------------------------------------------------------------
 #
-if [ $HOSTNAME != "*.ipsw.dt.ept.lu" ]; then
+if [[ $HOSTNAME != *.ipsw.dt.ept.lu ]]; then
     /usr/bin/keychain $HOME/.ssh/id_rsa
     . ~/.keychain/$HOSTNAME-sh
 fi
