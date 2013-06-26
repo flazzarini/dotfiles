@@ -44,6 +44,7 @@ for_window [class="Stream"]             floating enabled
 for_window [class="dolphin"]            floating enabled
 for_window [class="winff"]              floating enabled
 for_window [class="winamp.exe"]         floating enabled
+for_window [class="owncloud"]           floating enabled
 
 
 # General settings
@@ -61,6 +62,7 @@ set $mod Mod4
 bindsym $mod+d exec dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
+bindsym $mod+l exec --no-startup-id ~/.i3/scripts/i3lockscreen.sh
 
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
@@ -151,6 +153,9 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
