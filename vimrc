@@ -6,11 +6,14 @@ Bundle 'gmarik/vundle'
 
 "  Colorschemes
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'flazz/vim-colorschemes'
 
 "  Plugins
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
+Bundle 'klen/python-mode'
+Bundle 'NrrwRgn'
 
 
 " Display
@@ -64,6 +67,7 @@ set smartcase                   " Override the ignorecase when search
                                 " contains upper letters
 vnoremap < <gv                  " indent '>' multiple times in visual mode
 vnoremap > >gv                  " indent '<' multiple times in visual mode
+nnoremap n nzz                  " on next find center screen
 
 
 
@@ -85,6 +89,13 @@ vmap <C-Up>   xkP`[V`]          " Visual mode multiple lines up
 vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 
 
+
+" python-mode settings
+" -----------------------------------------------------------------------------
+let g:pymode_folding = 1
+
+
+
 " Keyboard maps
 " -----------------------------------------------------------------------------
 set pastetoggle=<F2>              " F2 for paste mode
@@ -92,6 +103,7 @@ nnoremap <F3> :set hlsearch!<CR>  " Activate or disactive Search Highlighting
 let mapleader = ","               " , is easier to reach than the default
 map <Leader>a ggVG                " select all
 vmap Q gq                         " wrap 80col paragraph vertically
+
 
 
 " Compile RestructeredText with rst2html
