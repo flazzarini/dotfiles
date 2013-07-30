@@ -24,9 +24,10 @@
     ; Show abbreviated log with a branch graph
     lg = log --all -n20 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
     ; Show abbreviated log with timestamps
     sl = log --pretty=format:'%Cgreen%ai%Cblue %h%Creset %s'
+    ; Show log detailed history
+    lgd = log --stat --abbrev-commit
 
 [core]
     ; my global ignores file
@@ -49,3 +50,6 @@
 [push]
     ; By default, push to the tracking remote.
     default = tracking
+
+
+# vi: ft=gitconfig
