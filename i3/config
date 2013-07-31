@@ -71,10 +71,10 @@ bindcode 123 exec amixer -q sset Master 5%+
 
 # Workspace Names
 # ------------------------------------------------------------------------------
-workspace "1: dev"
-workspace "2: www"
-workspace "3: chat"
-workspace "4: misc"
+workspace "1: dev"  output LVDS1
+workspace "2: www"  output LVDS1
+workspace "3: chat" output LVDS1
+workspace "4: misc" output LVDS1
 
 # Autostart stuff
 # ------------------------------------------------------------------------------
@@ -90,13 +90,6 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+Shift+Q kill
-
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
