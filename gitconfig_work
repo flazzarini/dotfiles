@@ -52,4 +52,4 @@
     default = tracking
 
 
-# vi: ft=gitconfig
+; vi: ft=gitconfig
