@@ -186,6 +186,11 @@ fi
 # -----------------------------------------------------------------------------
 #
 #source ~/dotfiles/bashfunctions.sh
+PS1="\n\[\e[30;1m\]\[\016\]l\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[34;1m\]\j\[\e[30;1m\])-(\[\e[34;1m\]\@ \d\[\e[30;1m\])->\[\e[30;1m\]\n\[\016\]m\[\017\]-(\[\[\e[32;1m\]\w\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') files, \$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')b\[\e[30;1m\])--> \[\e[0m\]"
+
+# Custom bash prompt via kirsle.net/wizards/ps1.html
+#export PS1="\[$(tput bold)\]\[$(tput setaf 3)\]┌(\[$(tput setaf 4)\]\u@\[$(tput setaf 2)\]\h\[$(tput setaf 3)\])-(\[$(tput setaf 4)\]\W\[$(tput setaf 3)\])-(\[$(tput setaf 5)\]@ \d\[$(tput setaf 3)\])\n└>\[$(tput sgr0)\]"
+
 
 
 # Other global environment variables
