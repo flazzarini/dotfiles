@@ -41,5 +41,5 @@
     ; By default, push to the tracking remote.
     default = tracking
 
-# vi: ft=gitconfig
 
+; vi: ft=gitconfig
