@@ -13,6 +13,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'klen/python-mode'
+Bundle 'ervandew/supertab'
 
 
 " Display
@@ -66,7 +67,7 @@ set smartcase                   " Override the ignorecase when search
                                 " contains upper letters
 vnoremap < <gv                  " indent '>' multiple times in visual mode
 vnoremap > >gv                  " indent '<' multiple times in visual mode
-nnoremap n nzz                  " on next find center screen
+"nnoremap n nzz                  " on next find center screen
 
 
 
