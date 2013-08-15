@@ -14,6 +14,26 @@
 #
 
 
+help:
+	@echo 'Makefile for dotfiles                                                  '
+	@echo '                                                                       '
+	@echo 'Usage:                                                                 '
+	@echo '   make all                         install everything                 '
+	@echo '   make install_fonts               install custom fonts               '
+	@echo '   make install_bash                install bashrc                     '
+	@echo '   make install_vim                 installs vim files                 '
+	@echo '   make install_git_home            install git home files             '
+	@echo '   make install_i3                  install i3 files                   '
+	@echo '   make install_python              install ipython files              '
+	@echo '   make install_irssi               installs irssi --irssipassword=X   '
+	@echo '   make install_tmux                install tmux conf files            '
+	@echo '   make install_sqlite              install sqlite conf files          '
+	@echo '                                                                       '
+	@echo 'All install commands are also available as clean commands to remove    '
+	@echo 'installed files                                                        '
+	@echo '                                                                       '
+
+
 all: install_fonts install_bash install_vim install_git_home install_i3 \
 	 install_irssi install_python install_tmux
 	@echo ""
