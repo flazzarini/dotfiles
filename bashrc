@@ -176,7 +176,7 @@ export GPGKEY=C502163F
 # Execute Keychain ssh
 # -----------------------------------------------------------------------------
 #
-if [[ $HOSTNAME != *.ipsw.dt.ept.lu ]]; then
+if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu ]]; then
     /usr/bin/keychain $HOME/.ssh/id_rsa
     . ~/.keychain/$HOSTNAME-sh
 fi
@@ -202,8 +202,15 @@ export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
 # Proxy
 # -----------------------------------------------------------------------------
 #
-if [[ $HOSTNAME == *.ipsw.dt.ept.lu ]]; then
+if [[ $HOSTNAME == BBS*.ipsw.dt.ept.lu ]]; then
     export http_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
     export https_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
     export no_proxy="localhost .ipsw.dt.ept.lu"
+fi
+
+# Path adaptations
+# -----------------------------------------------------------------------------
+#
+if [[ -d ~/bin ]]; then
+    export PATH=~/bin:$PATH
 fi
