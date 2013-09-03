@@ -1,4 +1,7 @@
-# Standard bash color definitions
+# Bash colors
+#  http://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+# Standard 8 color definitions
 ESC="\[\e["
 GREEN="${ESC}01;32m\]"
 RED="${ESC}01;31m\]"
@@ -9,14 +12,14 @@ WHITE="${ESC}01;37m\]"
 YELLOW="${ESC}01;33m\]"
 RESET="\[\033[0m\]"
 
-# 256 Color picks
+# 256 Color definitions
 YELLOW142="${ESC}38;05;142m\]"
 GREEN113="${ESC}38;05;113m\]"
 GREEN112="${ESC}38;05;112m\]"
 GRAY242="${ESC}38;05;242m\]"
 GRAY247="${ESC}38;05;247m\]"
 
-# PS1 Configurations
+# PS1 Variables
 BAR=${GRAY242}
 
 # vim: set ft=bash
