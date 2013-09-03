@@ -2,7 +2,8 @@
 #  http://misc.flogisoft.com/bash/tip_colors_and_formatting
 
 # Standard 8 color definitions
-ESC="\[\e["
+RESET="\[\033[0m\]"
+ESC="${RESET}\[\e["
 GREEN="${ESC}01;32m\]"
 RED="${ESC}01;31m\]"
 BLUE="${ESC}01;34m\]"
@@ -10,16 +11,19 @@ CYAN="${ESC}01;36m\]"
 PURPLE="${ESC}01;35m\]"
 WHITE="${ESC}01;37m\]"
 YELLOW="${ESC}01;33m\]"
-RESET="\[\033[0m\]"
 
 # 256 Color definitions
 YELLOW142="${ESC}38;05;142m\]"
+YELLOW220="${ESC}38;05;220m\]"
+YELLOW229="${ESC}38;05;229m\]"
 GREEN113="${ESC}38;05;113m\]"
 GREEN112="${ESC}38;05;112m\]"
+BLUE111="${ESC}38;05;111m\]"
+GRAY241="${ESC}38;05;241m\]"
 GRAY242="${ESC}38;05;242m\]"
 GRAY247="${ESC}38;05;247m\]"
 
 # PS1 Variables
-BAR=${GRAY242}
+BAR=${GRAY241}
 
 # vim: set ft=bash
