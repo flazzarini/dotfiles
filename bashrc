@@ -161,12 +161,22 @@ fi
 # My Prompt
 # -----------------------------------------------------------------------------
 #
-if [ "$color_prompt" = yes ]; then
-    source ~/dotfiles/lib/bash_colors
+function prompt_command_function() {
     GIT_BRANCH="$(~/dotfiles/bin/gitbranch.sh)"
-    PS1="${RESET}${BAR}┌─[${YELLOW142}\t${BAR}]─[${GREEN}\u@\h${WHITE}:${BLUE}\w${BAR}] ${RED}${GIT_BRANCH}${RESET} \n${BAR}└─[${BLUE}\j${BAR}] ${RESET}$ "
+    SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
 
-    #PS1="${debian_chroot:+($debian_chroot)}${GREEN}\u@\h${RESET}:${BLUE}\w${RESET}$ "
+    PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})─> ${RED}${GIT_BRANCH}${RESET}"
+    PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})──> ${RESET}$ "
+    PS1="$PS1_LINE1\n$PS1_LINE2"
+}
+
+if [ "$color_prompt" = yes ]; then
+    . ~/dotfiles/lib/bash_colors
+    PROMPT_COMMAND=prompt_command_function
+
+    #PS1_LINE1="${RESET}${BAR}┌(${WHITE}\u@\h${BAR})─(${WHITE}\j${BAR})─(${WHITE}\t${BAR})─>"
+    #PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN113}${FILES}, ${SIZE}${BAR})──>"
+    #PS1="$PS1_LINE1\n$PS1_LINE2"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
