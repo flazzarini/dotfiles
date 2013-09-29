@@ -28,6 +28,8 @@ help:
 	@echo '   make install_irssi               installs irssi --irssipassword=X   '
 	@echo '   make install_tmux                install tmux conf files            '
 	@echo '   make install_sqlite              install sqlite conf files          '
+	@echo '   make install_conky               installs conky config              '
+	@echo '   make install_conky_work          installs conky work config         '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
 	@echo 'installed files                                                        '
@@ -108,3 +110,9 @@ install_sqlite: clean_sqlite
 
 clean_sqlite:
 	rm -Rf ~/.sqliterc
+
+install_conky:
+	ln -sf `pwd`/conky/conky.conf ~/.conkyrc
+
+install_conky_work:
+	ln -sf `pwd`/conky/conky_work.conf ~/.conkyrc
