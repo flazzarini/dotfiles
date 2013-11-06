@@ -23,6 +23,7 @@ help:
 	@echo '   make install_bash                install bashrc                     '
 	@echo '   make install_vim                 installs vim files                 '
 	@echo '   make install_git_home            install git home files             '
+	@echo '   make install_git_work            install git work files             '
 	@echo '   make install_i3                  install i3 files                   '
 	@echo '   make install_python              install ipython files              '
 	@echo '   make install_irssi               installs irssi --irssipassword=X   '
@@ -70,6 +71,12 @@ install_git_home: clean_git_home
 	ln -sf `pwd`/gitconfig_home ~/.gitconfig
 
 clean_git_home:
+	rm -Rf ~/.gitconfig
+
+install_git_work: clean_git_work
+	ln -sf `pwd`/gitconfig_work ~/.gitconfig
+
+clean_git_work:
 	rm -Rf ~/.gitconfig
 
 install_i3: clean_i3
