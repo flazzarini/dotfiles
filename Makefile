@@ -87,12 +87,15 @@ clean_i3:
 	rm -Rf ~/.Xdefaults
 	rm -Rf ~/.i3
 
-install_irssi: clean_irssi
+install_irssi:
+ifneq "$(FREENODEPASS)" ""
+	cp `pwd`/irssi ~/.irssi -R
+	sed -i 's/__irssipassword__/$(FREENODEPASS)/g' ~/.irssi/config
+else
 	@echo ""
 	@echo "Make sure to specific FREENODEPASS=somepass argument."
 	@echo ""
-	cp `pwd`/irssi ~/.irssi -R;
-	sed -i 's/__irssipassword__/$(FREENODEPASS)/g' ~/.irssi/config
+endif
 
 clean_irssi:
 	rm -Rf ~/.irssi
