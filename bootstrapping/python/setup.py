@@ -20,7 +20,7 @@ setup(
     install_requires=[
     ],
     entry_points={
-        'console_sciprts': []
+        'console_scripts': []
     },
     dependency_links=[],
     packages=find_packages(exclude=["tests.*", "tests"]),
