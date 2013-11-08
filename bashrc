@@ -99,9 +99,10 @@ alias aupgrade='sudo aptitude update && sudo aptitude upgrade'
 # Python stuff
 # -----------------------------------------------------------------------------
 #
-alias pyserve='python -m SimpleHTTPServer 5002'         # server cwd via http
+export PYTHONWARNINGS=default                       # Give more python warnings
+alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
 alias venv='virtualenv env && \
-            ./env/bin/pip install ipython'              # prepare virtual env
+            ./env/bin/pip install ipython'          # prepare virtual env
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
