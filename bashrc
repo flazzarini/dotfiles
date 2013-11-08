@@ -134,7 +134,8 @@ esac
 
 # If we have a colorful terminal set color_prompt to yes
 case "$TERM" in
-    xterm-256color) color_prompt=yes;;
+    xterm-256color) color_prompt=yes ;;
+    screen-256color) color_prompt=yes ;;
 esac
 
 
