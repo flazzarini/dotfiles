@@ -29,6 +29,8 @@
     sl = log --pretty=format:'%Cgreen%ai%Cblue %h%Creset %s'
     ; Show log detailed history
     lgd = log --stat --abbrev-commit
+    ; Show summary (git tags/branches)
+    lgs = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --simplify-by-decoration
 
 [core]
     ; my global ignores file
