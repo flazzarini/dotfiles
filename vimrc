@@ -93,6 +93,8 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 " python-mode settings
 " -----------------------------------------------------------------------------
 let g:pymode_folding = 1
+let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+let g:pymode_lint_mccabe_complexity = 9
 
 
 
@@ -114,3 +116,12 @@ function! Compilerst()
     execute 'redraw!'
 endfunction
 nnoremap <F7> :call Compilerst()<CR>
+
+
+
+" Spell check per filetype
+" -----------------------------------------------------------------------------
+autocmd BufRead,BufNewFile *.md  setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.rst setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
+autocmd FileType gitcommit setlocal spell spelllang=en_us
