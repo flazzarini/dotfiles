@@ -18,10 +18,13 @@
     ; Show abbreviated log with a branch graph
     lg = log --all -n20 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lgl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     ; Show abbreviated log with timestamps
     sl = log --pretty=format:'%Cgreen%ai%Cblue %h%Creset %s'
     ; Show log detailed history
     lgd = log --stat --abbrev-commit
+    ; Show summary (git tags/branches)
+    lgs = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --simplify-by-decoration
 
 [core]
     excludesfile = ~/.gitignore
