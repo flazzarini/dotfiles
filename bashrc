@@ -14,43 +14,7 @@ shopt -s checkwinsize                         # Check window size after each
                                               # command update LINES COLUMNS
 
 # make less more friendly
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)" 
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# force xterm-256color TERM
-if [ "$TERM" == "xterm" ]; then
-    export TERM="xterm-256color"
-elif [ "$TERM" == "rxvt-unicode-256color" ]; then
-    export TERM="xterm-256color"
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -68,7 +32,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
 
 
 
@@ -132,12 +95,14 @@ alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
 alias aupdate='sudo aptitude update'
 alias aupgrade='sudo aptitude update && sudo aptitude upgrade'
 
+
 # Python stuff
 # -----------------------------------------------------------------------------
 #
-alias pyserve='python -m SimpleHTTPServer 5002'         # server cwd via http
+export PYTHONWARNINGS=default                       # Give more python warnings
+alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
 alias venv='virtualenv env && \
-            ./env/bin/pip install ipython'              # prepare virtual env
+            ./env/bin/pip install ipython'          # prepare virtual env
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
@@ -161,6 +126,21 @@ fi
 # My Prompt
 # -----------------------------------------------------------------------------
 #
+source ~/dotfiles/lib/bash_colors
+
+# Remap TERM environment variable
+case "$TERM" in
+    xterm*|rvvt-unicode*) TERM="xterm-256color" ;;
+esac
+
+# If we have a colorful terminal set color_prompt to yes
+case "$TERM" in
+    xterm-256color) color_prompt=yes ;;
+    screen-256color) color_prompt=yes ;;
+    rxvt-unicode-256color) color_prompt=yes ;;
+esac
+
+
 function prompt_command_function() {
     GIT_BRANCH="$(~/dotfiles/bin/gitbranch.sh)"
     SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
@@ -171,17 +151,11 @@ function prompt_command_function() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    . ~/dotfiles/lib/bash_colors
     PROMPT_COMMAND=prompt_command_function
-
-    #PS1_LINE1="${RESET}${BAR}┌(${WHITE}\u@\h${BAR})─(${WHITE}\j${BAR})─(${WHITE}\t${BAR})─>"
-    #PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN113}${FILES}, ${SIZE}${BAR})──>"
-    #PS1="$PS1_LINE1\n$PS1_LINE2"
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
 unset color_prompt force_color_prompt
-
 
 
 # Other global environment variables
@@ -189,6 +163,7 @@ unset color_prompt force_color_prompt
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
                             --enable-internal-flash"
+
 
 # Proxy
 # -----------------------------------------------------------------------------
@@ -199,7 +174,8 @@ if [[ $HOSTNAME == BBS*.ipsw.dt.ept.lu ]]; then
     export no_proxy="localhost .ipsw.dt.ept.lu"
 fi
 
-# Path adaptations
+
+# Add local binaries to path
 # -----------------------------------------------------------------------------
 #
 if [[ -d ~/bin ]]; then

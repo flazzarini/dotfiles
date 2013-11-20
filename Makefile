@@ -23,6 +23,7 @@ help:
 	@echo '   make install_bash                install bashrc                     '
 	@echo '   make install_vim                 installs vim files                 '
 	@echo '   make install_git_home            install git home files             '
+	@echo '   make install_git_work            install git work files             '
 	@echo '   make install_i3                  install i3 files                   '
 	@echo '   make install_python              install ipython files              '
 	@echo '   make install_irssi               installs irssi --irssipassword=X   '
@@ -72,6 +73,12 @@ install_git_home: clean_git_home
 clean_git_home:
 	rm -Rf ~/.gitconfig
 
+install_git_work: clean_git_work
+	ln -sf `pwd`/gitconfig_work ~/.gitconfig
+
+clean_git_work:
+	rm -Rf ~/.gitconfig
+
 install_i3: clean_i3
 	ln -sf `pwd`/Xdefaults ~/.Xdefaults
 	ln -sf `pwd`/i3 ~/.i3
@@ -80,12 +87,15 @@ clean_i3:
 	rm -Rf ~/.Xdefaults
 	rm -Rf ~/.i3
 
-install_irssi: clean_irssi
+install_irssi:
+ifneq "$(FREENODEPASS)" ""
+	cp `pwd`/irssi ~/.irssi -R
+	sed -i 's/__irssipassword__/$(FREENODEPASS)/g' ~/.irssi/config
+else
 	@echo ""
 	@echo "Make sure to specific FREENODEPASS=somepass argument."
 	@echo ""
-	cp `pwd`/irssi ~/.irssi -R;
-	sed -i 's/__irssipassword__/$(FREENODEPASS)/g' ~/.irssi/config
+endif
 
 clean_irssi:
 	rm -Rf ~/.irssi
