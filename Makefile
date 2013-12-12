@@ -31,6 +31,7 @@ help:
 	@echo '   make install_sqlite              install sqlite conf files          '
 	@echo '   make install_conky               installs conky config              '
 	@echo '   make install_conky_work          installs conky work config         '
+	@echo '   make install_psql                installs psqlrc                    '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
 	@echo 'installed files                                                        '
@@ -38,7 +39,7 @@ help:
 
 
 all: install_fonts install_bash install_vim install_git_home install_i3 \
-	 install_irssi install_python install_tmux
+	 install_irssi install_python install_tmux install_psql
 	@echo ""
 	@echo "dotfiles - Making yourself at home"
 	@echo "=================================="
@@ -126,3 +127,6 @@ install_conky:
 
 install_conky_work:
 	ln -sf `pwd`/conky/conky_work.conf ~/.conkyrc
+
+install_psql:
+	ln -sf `pwd`/psqlrc ~/.psqlrc
