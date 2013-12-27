@@ -103,7 +103,7 @@ export PYTHONWARNINGS=default                       # Give more python warnings
 alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
-alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
+alias inotebook='./env/bin/ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
 # Launchpad.net stuff
