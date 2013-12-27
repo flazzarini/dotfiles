@@ -43,6 +43,11 @@ channels = (
     autojoin = "Yes";
   },
   {
+    name = "##closure-tools";
+    chatnet = "Freenode";
+    autojoin = "Yes";
+  },
+  {
     name = "#i3";
     chatnet = "Twice";
     autojoin = "Yes";
