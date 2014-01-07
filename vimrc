@@ -126,3 +126,9 @@ autocmd BufRead,BufNewFile *.md  setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.rst setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
 autocmd FileType gitcommit setlocal spell spelllang=en_us
+
+
+
+" Specific settings for filetypes
+" -----------------------------------------------------------------------------
+autocmd FileType javascript set tabstop=2 sw=2
