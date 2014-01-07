@@ -92,6 +92,7 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 
 " python-mode settings
 " -----------------------------------------------------------------------------
+set completeopt-=preview        " Do not pop up pydoc on completing
 let g:pymode_folding = 1
 let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_mccabe_complexity = 9
