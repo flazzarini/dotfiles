@@ -95,6 +95,7 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 let g:pymode_folding = 1
 let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_mccabe_complexity = 9
+let g:pymode_doc = 0
 
 
 
