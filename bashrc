@@ -167,16 +167,6 @@ export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
                             --enable-internal-flash"
 
 
-# Proxy
-# -----------------------------------------------------------------------------
-#
-if [[ $HOSTNAME == BBS*.ipsw.dt.ept.lu ]]; then
-    export http_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
-    export https_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
-    export no_proxy="localhost .ipsw.dt.ept.lu"
-fi
-
-
 # Add local binaries to path
 # -----------------------------------------------------------------------------
 #
