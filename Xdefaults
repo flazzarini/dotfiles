@@ -11,7 +11,7 @@ Xft.rgba:               rgb
 ! ------------------------------------------------------------------------------
 
 ! Urxvt fonts
-URxvt.font:             xft:Anonymous Pro for Powerline:size=10:antialiasing=true
+URxvt.font:             xft:Anonymous Pro for Powerline:size=11:antialias=true
 URxvt.allow_bold:       true
 URxvt*inheritPixmap:    true
 URxvt*transparent:      true
@@ -31,10 +31,9 @@ URxvt*secondaryScroll:  true
 URxvt*scrollBar:        false
 URxvt*scrollTtyKeypress:true
 URxvt*scrollWithBuffer: true
-URxvt*urlLauncher:      /usr/bin/x-www-browser
+URxvt*urlLauncher:      /usr/bin/chromium-browser
 URxvt*colorUL:          #c5f779
 URxvt*underlineColor:   #c5f779
-! 
 URxvt*cursorColor:      gray
 URxvt*background:       #0F0F0F
 URxvt*foreground:       #F5DEB3
@@ -57,5 +56,15 @@ URxvt*color15:          #efefef
 
 URxvt.iso14755:         false
 URxvt.iso14755_52:      false
+
+
+! Xft configuration
+!
+! ------------------------------------------------------------------------------
+Xft.dpi:                96
+Xft.antialias:          true
+Xft.rgba:               rgb
+Xft.hinting:            true
+Xft.hintstyle:          hintslight
 
 ! vim: set filetype=xdefaults
