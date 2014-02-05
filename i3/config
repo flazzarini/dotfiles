@@ -36,7 +36,9 @@ bar {
 }
 
 # Window class settings
+for_window [class="xterm"]              border 1pixel
 for_window [class="URxvt"]              border 1pixel
+for_window [class="mplayer"]            border none
 for_window [class="Chromium-browser"]   border none
 for_window [class="VirtualBox"]         floating enabled
 for_window [class="Wicd-client.py"]     floating enabled
