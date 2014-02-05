@@ -1,9 +1,3 @@
-Xft.dpi:                96
-Xft.antialias:          true
-Xft.hinting:            full
-Xft.hintstyle:          hintslight
-Xft.rgba:               rgb
-
 
 ! URxvt configuration
 !
@@ -54,8 +48,8 @@ URxvt*color13:          #cf9ebe
 URxvt*color14:          #71bebe
 URxvt*color15:          #efefef
 
-URxvt.iso14755:         false
-URxvt.iso14755_52:      false
+URxvt*iso14755:         false
+URxvt*iso14755_52:      false
 
 
 ! Xft configuration
@@ -66,5 +60,31 @@ Xft.antialias:          true
 Xft.rgba:               rgb
 Xft.hinting:            true
 Xft.hintstyle:          hintslight
+
+
+
+! Xterm -- xcolors.net (Zenburn)
+!
+! ------------------------------------------------------------------------------
+xterm*.faceName:         Anonymous Pro for Powerline:antialias=true
+xterm*.faceSize:         12
+xterm*.eightBitInput:    false
+xterm*.locale:           true
+xterm*.color0:           #0F0F0F
+xterm*.color1:           #9e1828
+xterm*.color2:           #aece92
+xterm*.color3:           #968a38
+xterm*.color4:           #414171
+xterm*.color5:           #963c59
+xterm*.color6:           #418179
+xterm*.color7:           #bebebe
+xterm*.color8:           #666666
+xterm*.color9:           #cf6171
+xterm*.color10:          #c5f779
+xterm*.color11:          #fff796
+xterm*.color12:          #4186be
+xterm*.color13:          #cf9ebe
+xterm*.color14:          #71bebe
+xterm*.color15:          #efefef
 
 ! vim: set filetype=xdefaults
