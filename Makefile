@@ -29,9 +29,10 @@ help:
 	@echo '   make install_irssi               install irssi --irssipassword=X    '
 	@echo '   make install_tmux                install tmux conf files            '
 	@echo '   make install_sqlite              install sqlite conf files          '
-	@echo '   make install_conky               install conky config               '
-	@echo '   make install_conky_work          install conky work config          '
-	@echo '   make install_psql                install psqlrc                     '
+	@echo '   make install_conky               installs conky config              '
+	@echo '   make install_conky_work          installs conky work config         '
+	@echo '   make install_psql                installs psqlrc                    '
+	@echo '   make install_urxvt               compile urxvt with apt-get         '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
 	@echo 'installed files                                                        '
@@ -131,3 +132,13 @@ install_conky_work:
 
 install_psql:
 	ln -sf `pwd`/psqlrc ~/.psqlrc
+
+install_urxvt:
+	cd `mktemp -d /tmp/rxvt.XXXXXX`
+	apt-get source rxvt-unicode
+	sudo apt-get build-dep rxvt-unicode
+	cd rxvt-unicode-*/
+	perl -pi -e 's/--enable-iso14755/--disable-iso14755/g' debian/rules
+	dch -n 'ISO 14755/Keycap mode SUCKS!!!'
+	fakeroot debian/rules binary
+	sudo dpkg -i ../rxvt-unicode-lite*deb
