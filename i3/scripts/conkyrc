@@ -1,0 +1,59 @@
+background        no
+out_to_console    yes
+out_to_x          no
+update_interval   1
+total_run_times   0
+short_units       yes
+pad_percents      3
+
+override_utf8_locale yes
+
+TEXT
+
+,[
+    {
+        "full_text": "${exec python ~/.i3/scripts/jukebox_playing.py}",
+        "color": "\#D28C3D"
+    },
+
+    {
+        "full_text": "♪ ${exec amixer get Master | egrep -o "[0-9]+%"}",
+        "color": "\#268BD2"
+    },
+
+    {
+        "full_text": "≈ ${if_existing /sys/class/net/wlan0/operstate up}wlan0 ${addr wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}eth0 ${addr eth0}${endif}",
+        "color": "\#268BD2"
+    },
+
+    {
+        "full_text": " ▲ ${totalup}",
+        "color": "\#268BD2"
+    },
+
+    {
+        "full_text": " ▼ ${totaldown}",
+        "color": "\#268BD2"
+    },
+
+    {
+        "full_text": "CPU ${cpubar}",
+        "color": "\#268BD2"
+    },
+
+    {
+        "full_text": "MEM ${membar}",
+        "color": "\#268BD2"
+    },
+
+    {
+        "full_text": "⌇ ${battery}",
+        "color": ${if_match ${batter_percent} <= 30}"\#ff7a63"${else}"\#268BD2"${endif}
+    },
+
+    {
+        "full_text": "⌚ ${time %a %d %b} ${time %H:%M}",
+        "color": "\#D1D1D1"
+    }
+
+]
