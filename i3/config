@@ -8,36 +8,38 @@
 # Apparence
 # ------------------------------------------------------------------------------
 
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font xft:Droid Sans Mono 9
 
-# Class                 border  backgr. text
-client.focused          #525252 #1E1E1E #F5DEB3
-client.focused_inactive #333333 #0F0F0F #E3CCA1
-client.unfocused        #333333 #010101 #85753A
-client.urgent           #856E23 #900000 #F5DEB3
+# Colors                 border   backgrd  text
+client.focused           #9fbc00  #9fbc00  #111111
+client.unfocused         #444444  #444444  #315858
+client.focused_inactive  #444444  #444444  #2c2c2f
+client.urgent            #383a3b  #383a3b  #ee000
+
 
 # i3Bar Settings
 bar {
-    status_command i3status -c ~/.i3/i3status.conf
-    #status_command ~/.i3/scripts/conky-wrapper.sh
+    #status_command i3status -c ~/.i3/i3status.conf
+    status_command ~/.i3/scripts/conky-wrapper.sh
     position bottom
-    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    font xft:Droid Sans Mono 9
     workspace_buttons yes
 
     colors {
-        background #0F0F0F
-        statusline #F5DEB3
+        statusline      #999999
+        background      #252525
 
-        focused_workspace  #F5DEB3 #666666
-        active_workspace   #F5DEB3 #0F0F0F
-        inactive_workspace #F5DEB3 #1E1E1E
-        urgent_workspace   #ffffff #900000
+        # class            border    backgrd  text
+        focused_workspace  #292929   #292929  #cccccc
+        active_workspace   #252525   #252525  #696f89
+        inactive_workspace #252525   #252525  #6b6b6b
+        urgent_workspace   #252525   #252525  #c7a551
     }
 }
 
 # Window class settings
-for_window [class="xterm"]              border 1pixel
-for_window [class="URxvt"]              border 1pixel
+for_window [class="XTerm"]              border none
+for_window [class="URxvt"]              border none
 for_window [class="mplayer"]            border none
 for_window [class="Chromium-browser"]   border none
 for_window [class="VirtualBox"]         floating enabled
@@ -65,6 +67,8 @@ bindsym $mod+d exec dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
 bindsym $mod+l exec --no-startup-id ~/.i3/scripts/i3lockscreen.sh
+bindsym $mod+p exec ~/.i3/scripts/jukebox_listen.sh
+
 
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
@@ -73,17 +77,17 @@ bindcode 123 exec amixer -q sset Master 5%+
 
 # Workspace Names
 # ------------------------------------------------------------------------------
-workspace "1: dev"  output LVDS1
-workspace "2: www"  output LVDS1
-workspace "3: chat" output LVDS1
-workspace "4: misc" output LVDS1
+workspace "» dev"  output LVDS1
+workspace "» www"  output LVDS1
+workspace "» chat" output LVDS1
+workspace "» misc" output LVDS1
 
 # Autostart stuff
 # ------------------------------------------------------------------------------
 exec --no-startup-id wicd-client -t
-exec --no-startup-id insync --set-files-path=~/insync/
 exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
+#exec --no-startup-id exec cvlc -L -I oldrc --rc-unix "/tmp/vlc.socket" --rc-fake-tty -L http://mixer.gefoo.org:8000/jukebox.ogg
 
 
 
@@ -138,10 +142,10 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace "1: dev"
-bindsym $mod+2 workspace "2: www"
-bindsym $mod+3 workspace "3: chat"
-bindsym $mod+4 workspace "4: misc"
+bindsym $mod+1 workspace "» dev"
+bindsym $mod+2 workspace "» www"
+bindsym $mod+3 workspace "» chat"
+bindsym $mod+4 workspace "» misc"
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
