@@ -8,7 +8,7 @@ if [ -n $VLC ]; then
     if [ -e "/tmp/vlc.socket" ]; then
 
         # Running so pause vlc
-        echo -n "pause" | nc -U /tmp/vlc.socket
+        echo -n "quit" | nc -U /tmp/vlc.socket
 
     else
         # Start vlc
