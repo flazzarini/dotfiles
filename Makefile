@@ -21,16 +21,18 @@ help:
 	@echo '   make all                         install everything                 '
 	@echo '   make install_fonts               install custom fonts               '
 	@echo '   make install_bash                install bashrc                     '
-	@echo '   make install_vim                 installs vim files                 '
+	@echo '   make install_vim                 install vim files                  '
 	@echo '   make install_git_home            install git home files             '
 	@echo '   make install_git_work            install git work files             '
 	@echo '   make install_i3                  install i3 files                   '
 	@echo '   make install_python              install ipython files              '
-	@echo '   make install_irssi               installs irssi --irssipassword=X   '
+	@echo '   make install_irssi               install irssi --irssipassword=X    '
 	@echo '   make install_tmux                install tmux conf files            '
 	@echo '   make install_sqlite              install sqlite conf files          '
 	@echo '   make install_conky               installs conky config              '
 	@echo '   make install_conky_work          installs conky work config         '
+	@echo '   make install_psql                installs psqlrc                    '
+	@echo '   make install_urxvt               compile urxvt with apt-get         '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
 	@echo 'installed files                                                        '
@@ -38,7 +40,7 @@ help:
 
 
 all: install_fonts install_bash install_vim install_git_home install_i3 \
-	 install_irssi install_python install_tmux
+	 install_irssi install_python install_tmux install_psql
 	@echo ""
 	@echo "dotfiles - Making yourself at home"
 	@echo "=================================="
@@ -53,6 +55,7 @@ clean_fonts:
 
 install_bash: clean_bash
 	ln -sf `pwd`/bashrc ~/.bashrc
+	ln -sf `pwd`/htop ~/.config/htop
 
 clean_bash:
 	rm -Rf ~/.bashrc
@@ -81,6 +84,9 @@ clean_git_work:
 
 install_i3: clean_i3
 	ln -sf `pwd`/Xdefaults ~/.Xdefaults
+	ln -sf `pwd`/Xdefaults ~/.Xresources
+	ln -sf `pwd`/xinitrc ~/.xinitrc
+	ln -sf `pwd`/xinitrc ~/.xsession
 	ln -sf `pwd`/i3 ~/.i3
 
 clean_i3:
@@ -126,3 +132,16 @@ install_conky:
 
 install_conky_work:
 	ln -sf `pwd`/conky/conky_work.conf ~/.conkyrc
+
+install_psql:
+	ln -sf `pwd`/psqlrc ~/.psqlrc
+
+install_urxvt:
+	cd `mktemp -d /tmp/rxvt.XXXXXX`
+	apt-get source rxvt-unicode
+	sudo apt-get build-dep rxvt-unicode
+	cd rxvt-unicode-*/
+	perl -pi -e 's/--enable-iso14755/--disable-iso14755/g' debian/rules
+	dch -n 'ISO 14755/Keycap mode SUCKS!!!'
+	fakeroot debian/rules binary
+	sudo dpkg -i ../rxvt-unicode-lite*deb

@@ -92,9 +92,11 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 
 " python-mode settings
 " -----------------------------------------------------------------------------
+set completeopt-=preview        " Do not pop up pydoc on completing
 let g:pymode_folding = 1
 let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_mccabe_complexity = 9
+let g:pymode_doc = 0
 
 
 
@@ -125,3 +127,9 @@ autocmd BufRead,BufNewFile *.md  setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.rst setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
 autocmd FileType gitcommit setlocal spell spelllang=en_us
+
+
+
+" Specific settings for filetypes
+" -----------------------------------------------------------------------------
+autocmd FileType javascript set tabstop=2 sw=2

@@ -103,7 +103,7 @@ export PYTHONWARNINGS=default                       # Give more python warnings
 alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
-alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
+alias inotebook='./env/bin/ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
 # Launchpad.net stuff
@@ -118,8 +118,10 @@ export GPGKEY=C502163F
 # -----------------------------------------------------------------------------
 #
 if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != gefoo.org ]]; then
-    /usr/bin/keychain $HOME/.ssh/id_rsa
-    . ~/.keychain/$HOSTNAME-sh
+    if [ -f "$HOME/.ssh/id_rsa" ]; then
+        /usr/bin/keychain $HOME/.ssh/id_rsa
+        . ~/.keychain/$HOSTNAME-sh
+    fi
 fi
 
 
@@ -163,16 +165,6 @@ unset color_prompt force_color_prompt
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
                             --enable-internal-flash"
-
-
-# Proxy
-# -----------------------------------------------------------------------------
-#
-if [[ $HOSTNAME == BBS*.ipsw.dt.ept.lu ]]; then
-    export http_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
-    export https_proxy="http://bbs-pylon.ipsw.dt.ept.lu:3128"
-    export no_proxy="localhost .ipsw.dt.ept.lu"
-fi
 
 
 # Add local binaries to path

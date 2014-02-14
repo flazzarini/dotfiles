@@ -1,9 +1,3 @@
-Xft.dpi:                96
-Xft.antialias:          true
-Xft.hinting:            full
-Xft.hintstyle:          hintslight
-Xft.rgba:               rgb
-
 
 ! URxvt configuration
 !
@@ -11,7 +5,7 @@ Xft.rgba:               rgb
 ! ------------------------------------------------------------------------------
 
 ! Urxvt fonts
-URxvt.font:             xft:Anonymous Pro for Powerline:size=10:antialiasing=true
+URxvt.font:             xft:Anonymous Pro for Powerline:size=11:antialias=true
 URxvt.allow_bold:       true
 URxvt*inheritPixmap:    true
 URxvt*transparent:      true
@@ -31,10 +25,9 @@ URxvt*secondaryScroll:  true
 URxvt*scrollBar:        false
 URxvt*scrollTtyKeypress:true
 URxvt*scrollWithBuffer: true
-URxvt*urlLauncher:      /usr/bin/x-www-browser
+URxvt*urlLauncher:      /usr/bin/chromium-browser
 URxvt*colorUL:          #c5f779
 URxvt*underlineColor:   #c5f779
-! 
 URxvt*cursorColor:      gray
 URxvt*background:       #0F0F0F
 URxvt*foreground:       #F5DEB3
@@ -55,7 +48,52 @@ URxvt*color13:          #cf9ebe
 URxvt*color14:          #71bebe
 URxvt*color15:          #efefef
 
-URxvt.iso14755:         false
-URxvt.iso14755_52:      false
+URxvt*iso14755:         false
+URxvt*iso14755_52:      false
+
+
+! Xft configuration
+!
+! ------------------------------------------------------------------------------
+Xft.dpi:                96
+Xft.antialias:          true
+Xft.rgba:               rgb
+Xft.hinting:            true
+Xft.hintstyle:          hintslight
+
+
+
+! Xterm -- xcolors.net (Zenburn)
+!
+! ------------------------------------------------------------------------------
+xterm*faceName:         Anonymous Pro for Powerline
+xterm*faceSize:         11
+xterm*locale:           true
+
+xterm*ScrollBar:        off
+xterm*TitleBar:         off
+xterm*Border:           off
+xterm*AllowIconInput:   on
+!xterm*termtype:         vt100
+xterm*Title:            off
+xterm*Border:           off
+xterm*clientDecoration: none
+
+xterm*color0:           #0F0F0F
+xterm*color1:           #9e1828
+xterm*color2:           #aece92
+xterm*color3:           #968a38
+xterm*color4:           #414171
+xterm*color5:           #963c59
+xterm*color6:           #418179
+xterm*color7:           #bebebe
+xterm*color8:           #666666
+xterm*color9:           #cf6171
+xterm*color10:          #c5f779
+xterm*color11:          #fff796
+xterm*color12:          #4186be
+xterm*color13:          #cf9ebe
+xterm*color14:          #71bebe
+xterm*color15:          #efefef
 
 ! vim: set filetype=xdefaults
