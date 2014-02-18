@@ -106,6 +106,14 @@ alias venv='virtualenv env && \
 alias inotebook='./env/bin/ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
+# Some functions
+# -----------------------------------------------------------------------------
+#
+buf() {
+    cp $1 $(date +%Y%m%d-%H_%M)-$1;
+}
+
+
 # Launchpad.net stuff
 # -----------------------------------------------------------------------------
 #
