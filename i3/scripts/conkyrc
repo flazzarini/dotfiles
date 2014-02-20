@@ -27,12 +27,12 @@ TEXT
     },
 
     {
-        "full_text": " ▲ ${totalup}",
+        "full_text": " ▲ ${if_existing /sys/class/net/wlan0/operstate up}${totalup wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totalup eth0}${endif}",
         "color": "\#268BD2"
     },
 
     {
-        "full_text": " ▼ ${totaldown}",
+        "full_text": " ▼ ${if_existing /sys/class/net/wlan0/operstate up}${totaldown wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totaldown eth0}${endif}",
         "color": "\#268BD2"
     },
 
