@@ -106,6 +106,14 @@ alias venv='virtualenv env && \
 alias inotebook='./env/bin/ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
+# Some functions
+# -----------------------------------------------------------------------------
+#
+buf() {
+    cp $1 $(date +%Y%m%d-%H_%M)-$1;
+}
+
+
 # Launchpad.net stuff
 # -----------------------------------------------------------------------------
 #
@@ -132,7 +140,7 @@ source ~/dotfiles/lib/bash_colors
 
 # Remap TERM environment variable
 case "$TERM" in
-    xterm*|rvvt-unicode*) TERM="xterm-256color" ;;
+    xterm*|rxvt-unicode*) TERM="xterm-256color" ;;
 esac
 
 # If we have a colorful terminal set color_prompt to yes
