@@ -51,6 +51,7 @@ for_window [class="winff"]              floating enabled
 for_window [class="winamp.exe"]         floating enabled
 for_window [class="owncloud"]           floating enabled
 for_window [class="Thunar"]             floating enabled
+for_window [class="Pavucontrol"]        floating enabled
 
 
 # General settings
@@ -70,12 +71,15 @@ bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
 bindsym $mod+l exec --no-startup-id ~/.i3/scripts/i3lockscreen.sh
 bindsym $mod+p exec ~/.i3/scripts/jukebox_listen.sh
+bindsym $mod+m exec ~/.i3/scripts/toggle_touchpad.sh
 bindsym $mod+e exec thunar
 
 
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
+bindsym $mod+a exec "urxvtc -e alsamixer"
+bindsym $mod+Shift+a exec "pavucontrol"
 
 
 # Workspace Names
@@ -137,12 +141,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindcode $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace "» dev"
