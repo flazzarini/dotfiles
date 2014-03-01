@@ -154,6 +154,12 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+# Move window to specific workspace
+bindsym $mod+Shift+1 move workspace "» dev"
+bindsym $mod+Shift+2 move workspace "» www"
+bindsym $mod+Shift+3 move workspace "» chat"
+bindsym $mod+Shift+4 move workspace "» misc"
+
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
