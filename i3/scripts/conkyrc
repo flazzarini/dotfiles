@@ -12,7 +12,7 @@ TEXT
 
 ,[
     {
-        "full_text": "${exec python ~/.i3/scripts/jukebox_playing.py}",
+        "full_text": "${execi 10 python ~/.i3/scripts/jukebox_playing.py}",
         "color": "\#D28C3D"
     },
 
