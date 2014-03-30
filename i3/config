@@ -15,7 +15,7 @@ font xft:Droid Sans Mono 9
 client.focused           #252525  #252525  #cccccc
 client.unfocused         #444444  #444444  #315858
 client.focused_inactive  #444444  #444444  #2c2c2f
-client.urgent            #383a3b  #383a3b  #ee000
+client.urgent            #383a3b  #383a3b  #ee0000
 
 
 # i3Bar Settings
@@ -39,17 +39,16 @@ bar {
 }
 
 # Window class settings
-for_window [class="XTerm"]              border none
-for_window [class="URxvt"]              border none
+for_window [class="XTerm"]              border 1pixel
+for_window [class="URxvt"]              border 1pixel
 for_window [class="mplayer"]            border none
 for_window [class="Chromium-browser"]   border none
+for_window [class="Chromium"]           border none
+for_window [class="vlc"]                border none
 for_window [class="VirtualBox"]         floating enabled
 for_window [class="Wicd-client.py"]     floating enabled
 for_window [class="Stream"]             floating enabled
-for_window [class="dolphin"]            floating enabled
 for_window [class="winff"]              floating enabled
-for_window [class="winamp.exe"]         floating enabled
-for_window [class="owncloud"]           floating enabled
 for_window [class="Thunar"]             floating enabled
 for_window [class="Pavucontrol"]        floating enabled
 
@@ -78,6 +77,8 @@ bindsym $mod+e exec thunar
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
+bindcode 232 exec "xbacklight -dec 5"
+bindcode 233 exec "xbacklight -inc 5"
 bindsym $mod+a exec "urxvtc -e alsamixer"
 bindsym $mod+Shift+a exec "pavucontrol"
 
