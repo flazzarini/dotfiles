@@ -96,6 +96,13 @@ alias aupdate='sudo aptitude update'
 alias aupgrade='sudo aptitude update && sudo aptitude upgrade'
 
 
+# Archlinux Stuff
+# -----------------------------------------------------------------------------
+#
+#complete -cf sudo   # Autocompletion for sudo
+#complete -cf man    # Autocompletion for man
+
+
 # Python stuff
 # -----------------------------------------------------------------------------
 #
@@ -181,3 +188,6 @@ export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
+
+
+
