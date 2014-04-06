@@ -94,9 +94,10 @@ clean_i3:
 	rm -Rf ~/.i3
 
 install_irssi:
-ifneq "$(FREENODEPASS)" ""
+ifneq "$(IRSSIUSER)" ""
 	cp `pwd`/irssi ~/.irssi -R
-	sed -i 's/__irssipassword__/$(FREENODEPASS)/g' ~/.irssi/config
+	sed -i 's/__irssiuser__/$(IRSSIUSER)/g' ~/.irssi/config
+	sed -i 's/__irssipass__/$(IRSSIPASS)/g' ~/.irssi/config
 else
 	@echo ""
 	@echo "Make sure to specific FREENODEPASS=somepass argument."

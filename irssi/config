@@ -4,7 +4,7 @@ servers = (
     chatnet = "Gefoo";
     port = "5555";
     autoconnect = "yes";
-    password = "__irssiuser__:__irssipassword_";
+    password = "__irssiuser__:__irssipass_";
     autoconnect = "yes";
   },
 );
@@ -12,7 +12,7 @@ servers = (
 chatnets = {
   Freenode = {
     type = "IRC";
-    autosendcmd = "/msg Nickserv identify __irssifreenodepassword__";
+    autosendcmd = "/msg Nickserv identify __irssipass__";
     max_kicks = "4";
     max_msgs = "5";
     max_whois = "4";
