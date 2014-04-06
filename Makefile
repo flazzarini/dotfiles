@@ -85,8 +85,7 @@ clean_git_work:
 install_i3: clean_i3
 	ln -sf `pwd`/Xdefaults ~/.Xdefaults
 	ln -sf `pwd`/Xdefaults ~/.Xresources
-	ln -sf `pwd`/xinitrc ~/.xinitrc
-	ln -sf `pwd`/xinitrc ~/.xsession
+	ln -sf `pwd`/xession ~/.xsession
 	ln -sf `pwd`/i3 ~/.i3
 
 clean_i3:
