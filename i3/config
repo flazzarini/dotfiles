@@ -11,10 +11,11 @@
 font xft:Droid Sans Mono 9
 
 # Colors                 border   backgrd  text
-client.focused           #9fbc00  #9fbc00  #111111
+#client.focused           #9fbc00  #9fbc00  #111111
+client.focused           #252525  #252525  #cccccc
 client.unfocused         #444444  #444444  #315858
 client.focused_inactive  #444444  #444444  #2c2c2f
-client.urgent            #383a3b  #383a3b  #ee000
+client.urgent            #383a3b  #383a3b  #ee0000
 
 
 # i3Bar Settings
@@ -38,18 +39,18 @@ bar {
 }
 
 # Window class settings
-for_window [class="XTerm"]              border none
-for_window [class="URxvt"]              border none
+for_window [class="XTerm"]              border 1pixel
+for_window [class="URxvt"]              border 1pixel
 for_window [class="mplayer"]            border none
 for_window [class="Chromium-browser"]   border none
+for_window [class="Chromium"]           border none
+for_window [class="vlc"]                border none
 for_window [class="VirtualBox"]         floating enabled
 for_window [class="Wicd-client.py"]     floating enabled
 for_window [class="Stream"]             floating enabled
-for_window [class="dolphin"]            floating enabled
 for_window [class="winff"]              floating enabled
-for_window [class="winamp.exe"]         floating enabled
-for_window [class="owncloud"]           floating enabled
 for_window [class="Thunar"]             floating enabled
+for_window [class="Pavucontrol"]        floating enabled
 
 
 # General settings
@@ -69,12 +70,17 @@ bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
 bindsym $mod+l exec --no-startup-id ~/.i3/scripts/i3lockscreen.sh
 bindsym $mod+p exec ~/.i3/scripts/jukebox_listen.sh
+bindsym $mod+m exec ~/.i3/scripts/toggle_touchpad.sh
 bindsym $mod+e exec thunar
 
 
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
+bindcode 232 exec "xbacklight -dec 5"
+bindcode 233 exec "xbacklight -inc 5"
+bindsym $mod+a exec "urxvtc -e alsamixer"
+bindsym $mod+Shift+a exec "pavucontrol"
 
 
 # Workspace Names
@@ -88,8 +94,8 @@ workspace "» misc" output LVDS1
 # ------------------------------------------------------------------------------
 exec --no-startup-id wicd-client -t
 exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
+exec --no-startup-id xscreensaver -no-splash
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
-#exec --no-startup-id exec cvlc -L -I oldrc --rc-unix "/tmp/vlc.socket" --rc-fake-tty -L http://mixer.gefoo.org:8000/jukebox.ogg
 
 
 
@@ -137,12 +143,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindcode $mod+d focus child
-
 # switch to workspace
 bindsym $mod+1 workspace "» dev"
 bindsym $mod+2 workspace "» www"
@@ -154,6 +154,12 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+# Move window to specific workspace
+bindsym $mod+Shift+1 move workspace "» dev"
+bindsym $mod+Shift+2 move workspace "» www"
+bindsym $mod+Shift+3 move workspace "» chat"
+bindsym $mod+Shift+4 move workspace "» misc"
 
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev

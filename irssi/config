@@ -1,14 +1,10 @@
 servers = (
   {
-    address = "irc.freenode.org";
-    chatnet = "Freenode";
-    port = "6667";
+    address = "gefoo.org";
+    chatnet = "Gefoo";
+    port = "5555";
     autoconnect = "yes";
-  },
-  {
-    address = "irc.twice-irc.de";
-    chatnet = "Twice";
-    port = "6667";
+    password = "__irssiuser__:__irssipass_";
     autoconnect = "yes";
   },
 );
@@ -16,7 +12,7 @@ servers = (
 chatnets = {
   Freenode = {
     type = "IRC";
-    autosendcmd = "/msg Nickserv identify __irssipassword__";
+    autosendcmd = "/msg Nickserv identify __irssipass__";
     max_kicks = "4";
     max_msgs = "5";
     max_whois = "4";
@@ -34,22 +30,22 @@ chatnets = {
 channels = (
   {
     name = "#linux-ha";
-    chatnet = "Freenode";
+    chatnet = "Gefoo";
     autojoin = "Yes";
   },
   {
     name = "#fosdem";
-    chatnet = "Freenode";
+    chatnet = "Gefoo";
     autojoin = "Yes";
   },
   {
     name = "##closure-tools";
-    chatnet = "Freenode";
+    chatnet = "Gefoo";
     autojoin = "Yes";
   },
   {
     name = "#i3";
-    chatnet = "Twice";
+    chatnet = "Gefoo";
     autojoin = "Yes";
   },
 );

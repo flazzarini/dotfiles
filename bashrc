@@ -96,6 +96,13 @@ alias aupdate='sudo aptitude update'
 alias aupgrade='sudo aptitude update && sudo aptitude upgrade'
 
 
+# Archlinux Stuff
+# -----------------------------------------------------------------------------
+#
+#complete -cf sudo   # Autocompletion for sudo
+#complete -cf man    # Autocompletion for man
+
+
 # Python stuff
 # -----------------------------------------------------------------------------
 #
@@ -104,6 +111,14 @@ alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
 alias inotebook='./env/bin/ipython notebook --notebook-dir ~/workspace/notebooks/'
+
+
+# Some functions
+# -----------------------------------------------------------------------------
+#
+buf() {
+    cp $1 $(date +%Y%m%d-%H_%M)-$1;
+}
 
 
 # Launchpad.net stuff
@@ -173,3 +188,6 @@ export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
+
+
+
