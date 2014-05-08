@@ -99,7 +99,7 @@ ifneq "$(IRSSIUSER)" ""
 	sed -i 's/__irssipass__/$(IRSSIPASS)/g' ~/.irssi/config
 else
 	@echo ""
-	@echo "Make sure to specific FREENODEPASS=somepass argument."
+	@echo "Make sure to specific IRSSIUSER=somevalue environment variable."
 	@echo ""
 endif
 
