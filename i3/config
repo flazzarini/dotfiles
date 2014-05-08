@@ -77,18 +77,18 @@ bindsym $mod+e exec thunar
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
-bindcode 232 exec "xbacklight -dec 5"
-bindcode 233 exec "xbacklight -inc 5"
+#bindcode 232 exec "xbacklight -dec 5"
+#bindcode 233 exec "xbacklight -inc 5"
 bindsym $mod+a exec "urxvtc -e alsamixer"
 bindsym $mod+Shift+a exec "pavucontrol"
 
 
 # Workspace Names
 # ------------------------------------------------------------------------------
-workspace "» dev"  output LVDS1
-workspace "» www"  output LVDS1
-workspace "» chat" output LVDS1
-workspace "» misc" output LVDS1
+workspace "[1] dev"  output LVDS1
+workspace "[2] www"  output LVDS1
+workspace "[3] chat" output LVDS1
+workspace "[4] misc" output LVDS1
 
 # Autostart stuff
 # ------------------------------------------------------------------------------
@@ -144,10 +144,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # switch to workspace
-bindsym $mod+1 workspace "» dev"
-bindsym $mod+2 workspace "» www"
-bindsym $mod+3 workspace "» chat"
-bindsym $mod+4 workspace "» misc"
+bindsym $mod+1 workspace "[1] dev"
+bindsym $mod+2 workspace "[2] www"
+bindsym $mod+3 workspace "[3] chat"
+bindsym $mod+4 workspace "[4] misc"
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -156,10 +156,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # Move window to specific workspace
-bindsym $mod+Shift+1 move workspace "» dev"
-bindsym $mod+Shift+2 move workspace "» www"
-bindsym $mod+Shift+3 move workspace "» chat"
-bindsym $mod+Shift+4 move workspace "» misc"
+bindsym $mod+Shift+1 move workspace "[1] dev"
+bindsym $mod+Shift+2 move workspace "[2] www"
+bindsym $mod+Shift+3 move workspace "[3] chat"
+bindsym $mod+Shift+4 move workspace "[4] misc"
 
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
