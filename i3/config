@@ -14,7 +14,7 @@ font xft:Droid Sans Mono 9
 #client.focused           #9fbc00  #9fbc00  #111111
 client.focused           #252525  #252525  #cccccc
 client.unfocused         #444444  #444444  #315858
-client.focused_inactive  #444444  #444444  #2c2c2f
+client.focused_inactive  #444444  #444444  #9b9bab
 client.urgent            #383a3b  #383a3b  #ee0000
 
 
