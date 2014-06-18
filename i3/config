@@ -44,6 +44,7 @@ for_window [class="URxvt"]              border 1pixel
 for_window [class="mplayer"]            border none
 for_window [class="Chromium-browser"]   border none
 for_window [class="Chromium"]           border none
+for_window [class="Firefox"]            border none
 for_window [class="vlc"]                border none
 for_window [class="VirtualBox"]         floating enabled
 for_window [class="Wicd-client.py"]     floating enabled
@@ -68,7 +69,7 @@ set $mod Mod4
 bindsym $mod+d exec dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
-bindsym $mod+l exec --no-startup-id ~/.i3/scripts/i3lockscreen.sh
+bindsym $mod+l exec xscreensaver-command -lock
 bindsym $mod+p exec ~/.i3/scripts/jukebox_listen.sh
 bindsym $mod+m exec ~/.i3/scripts/toggle_touchpad.sh
 bindsym $mod+e exec thunar
@@ -81,6 +82,7 @@ bindcode 123 exec amixer -q sset Master 5%+
 #bindcode 233 exec "xbacklight -inc 5"
 bindsym $mod+a exec "urxvtc -e alsamixer"
 bindsym $mod+Shift+a exec "pavucontrol"
+bindsym $mod+Shift+s exec "arandr"
 
 
 # Workspace Names
