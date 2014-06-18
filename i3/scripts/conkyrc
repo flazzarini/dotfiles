@@ -11,10 +11,6 @@ override_utf8_locale yes
 TEXT
 
 ,[
-    {
-        "full_text": "${execi 15 python ~/.i3/scripts/jukebox_playing.py}",
-        "color": "\#D28C3D"
-    },
 
     {
         "full_text": " ♪ ${exec amixer get Master | egrep -o "[0-9]+%" | head -n1}",
