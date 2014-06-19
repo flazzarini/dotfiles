@@ -32,6 +32,8 @@ help:
 	@echo '   make install_conky               installs conky config              '
 	@echo '   make install_conky_work          installs conky work config         '
 	@echo '   make install_psql                installs psqlrc                    '
+	@echo '   make install_roxterm             installs roxterm files             '
+	@echo '   make install_beets               installs beets files               '
 	@echo '   make install_urxvt               compile urxvt with apt-get         '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
@@ -129,11 +131,35 @@ clean_sqlite:
 install_conky:
 	ln -sf `pwd`/conky/conky.conf ~/.conkyrc
 
+clean_conky:
+	rm -Rf ~/.conkyrc
+
 install_conky_work:
 	ln -sf `pwd`/conky/conky_work.conf ~/.conkyrc
 
+clean_conky_work:
+	rm -Rf ~/.conkyrc
+
 install_psql:
 	ln -sf `pwd`/psqlrc ~/.psqlrc
+
+clean_psql:
+	rm -Rf ~/.psqlrc
+
+install_roxterm:
+	ln -sf `pwd`/roxterm ~/.config/roxterm.sourceforge.net
+
+clean_roxterm:
+	rm -Rf ~/.config/roxterm.sourceforge.net
+
+install_beets:
+	[ -d ~/.config/beets ] || mkdir ~/.config/beets
+	ln -sf `pwd`/beets/config.yaml ~/.config/beets/config.yaml
+	ln -sf `pwd`/beets/whitelist.txt ~/.config/beets/whitelist.txt
+
+clean_beets:
+	rm -Rf ~/.config/beets/config.yaml
+	rm -Rf ~/.config/beets/whitelist.txt
 
 install_urxvt:
 	cd `mktemp -d /tmp/rxvt.XXXXXX`
