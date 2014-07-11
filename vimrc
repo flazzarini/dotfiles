@@ -9,11 +9,12 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'flazz/vim-colorschemes'
 
 "  Plugins
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'  " Disabled due to vim crashes
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'klen/python-mode'
 Bundle 'ervandew/supertab'
+Bundle 'sirver/ultisnips'
 
 
 " Display
