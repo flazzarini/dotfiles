@@ -1,7 +1,22 @@
 \set AUTOCOMMIT OFF
-\set PROMPT1 '%[%033[0;33m%]%M %[%033[0;34m%]%n%[%033[0m%]@%[%033[1;32m%]%~%[%033[0;37m%]%R%[%033[1;36m%]%x%[%033[0m%]%#%[%033[0m%]% '
-\set PROMPT2 '%[%033[1m%][%[%033[0m%]more%[%033[1m%]]%[%033[0m%] %R > '
+
+\timing
+
+-- Prompt
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+--\set PROMPT1 '%[%033[1m%]%M/%/%R%[%033[0m%]%# '
+\set PROMPT2 '[more] %R > '
+
+
 -- Use a separate history file per-database.
 \set HISTFILE ~/.psql_history/ :DBNAME
 \set HISTCONTROL ignoredups
 \set COMP_KEYWORD_CASE upper
+
+
+-- Some helpful queries
+\set uptime 'SELECT now() - pg_postmaster_start_time() AS uptime;'
+
+\set tablesize 'SELECT nspname || \'.\' || relname AS \"relation\", pg_size_pretty(pg_relation_size(C.oid)) AS "size" FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\') ORDER BY pg_relation_size(C.oid) DESC LIMIT 40;'
+
+\set dbsize 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY db_size;'
