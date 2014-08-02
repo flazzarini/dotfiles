@@ -39,6 +39,7 @@ bar {
 }
 
 # Window class settings
+for_window [class="Roxterm"]            border none
 for_window [class="XTerm"]              border 1pixel
 for_window [class="URxvt"]              border 1pixel
 for_window [class="mplayer"]            border none
@@ -56,7 +57,7 @@ for_window [class="Pavucontrol"]        floating enabled
 
 # General settings
 # ------------------------------------------------------------------------------
-set $term urxvt
+set $term roxterm
 set $mod Mod4
 
 
