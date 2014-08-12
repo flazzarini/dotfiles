@@ -189,5 +189,9 @@ if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
 
+if [[ -d ~/.nix-profile/bin ]]; then
+    export PATH=~/.nix-profile/bin:$PATH
+fi
+
 
 
