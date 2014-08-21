@@ -89,11 +89,24 @@ alias less='less -r'
 alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
 
 
-# Uubuntu Stuff
+# Ubuntu Stuff
 # -----------------------------------------------------------------------------
 #
 alias aupdate='sudo aptitude update'
 alias aupgrade='sudo aptitude update && sudo aptitude upgrade'
+
+
+# Exim Aliases (http://bradthemad.org/tech/notes/exim_cheatsheet.php)
+# -----------------------------------------------------------------------------
+#
+alias eximqueue='sudo exim -bp'             # Show list of messages in queue
+alias eximshow='sudo exim -Mvb'             # Show body of a message
+alias eximlog='sudo exim -Mvl'              # Show log of a message
+alias eximremove='sudo exim -Mrm'           # Removes a message from the queue
+alias eximdeliver='sudo exim -M'            # Deliver a message wether its
+                                            # frozen or not
+alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
+                                                           # messages
 
 
 # Archlinux Stuff
