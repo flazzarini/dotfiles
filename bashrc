@@ -123,7 +123,7 @@ export PYTHONWARNINGS=ignore                        # Give no python warnings
 alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
-alias inotebook='./env/bin/ipython notebook --notebook-dir ~/workspace/notebooks/'
+alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
 # Some functions
