@@ -1,0 +1,6 @@
+[roxterm options]
+profile=MyProfile
+colour_scheme=Mine
+warn_close=1
+edit_shortcuts=1
+encoding=UTF-8

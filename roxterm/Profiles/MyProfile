@@ -1,0 +1,15 @@
+[roxterm profile]
+colour_scheme=Mine
+hide_menubar=1
+background_type=2
+saturation=0.043228
+disable_menu_access=1
+show_add_tab_btn=0
+always_show_tabs=0
+show_resize_grip=1
+scrollbar_pos=0
+font=Source Code Pro Semi-Bold 10
+maximise=1
+scroll_on_keystroke=1
+cursor_shape=0
+cursor_blink_mode=1
