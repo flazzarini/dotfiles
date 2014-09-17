@@ -1,0 +1,236 @@
+# i3 config
+#
+# --> https://gist.github.com/1817571
+# --> http://i3wm.org/docs/userguide.html
+#
+
+
+# Apparence
+# ------------------------------------------------------------------------------
+
+font xft:Droid Sans Mono 9
+
+# Colors                 border   backgrd  text
+#client.focused           #9fbc00  #9fbc00  #111111
+client.focused           #252525  #252525  #cccccc
+client.unfocused         #444444  #444444  #315858
+client.focused_inactive  #444444  #444444  #9b9bab
+client.urgent            #383a3b  #383a3b  #ee0000
+
+
+# i3Bar Settings
+bar {
+    #status_command i3status -c ~/.i3/i3status.conf
+    status_command ~/.i3/scripts/conky-wrapper.sh
+    position bottom
+    font xft:Droid Sans Mono 9
+    workspace_buttons yes
+
+    colors {
+        statusline      #999999
+        background      #252525
+
+        # class            border    backgrd  text
+        focused_workspace  #292929   #292929  #cccccc
+        active_workspace   #252525   #252525  #696f89
+        inactive_workspace #252525   #252525  #6b6b6b
+        urgent_workspace   #252525   #252525  #c7a551
+    }
+}
+
+# Window class settings
+for_window [class="Roxterm"]            border none
+for_window [class="XTerm"]              border 1pixel
+for_window [class="URxvt"]              border 1pixel
+for_window [class="mplayer"]            border none
+for_window [class="Chromium-browser"]   border none
+for_window [class="Google-chrome"]      border none
+for_window [class="Chromium"]           border none
+for_window [class="Firefox"]            border none
+for_window [class="Thunderbird"]        border none
+for_window [class="vlc"]                border none
+for_window [class="VirtualBox"]         floating enabled
+for_window [class="Wicd-client.py"]     floating enabled
+for_window [class="Stream"]             floating enabled
+for_window [class="winff"]              floating enabled
+for_window [class="Thunar"]             floating enabled
+for_window [class="Pavucontrol"]        floating enabled
+for_window [class="jive"]               floating enabled
+for_window [class="libreoffice"]        floating enabled
+for_window [class="Wfica"]              floating enabled
+
+
+# General settings
+# ------------------------------------------------------------------------------
+set $term roxterm
+set $mod Mod4
+
+
+# Bindings
+#
+#   xev | grep -A2 --line-buffered '^KeyRelease' | \
+#   sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
+#
+# ------------------------------------------------------------------------------
+bindsym $mod+d exec dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
+bindsym $mod+c exec $term
+bindsym $mod+Return exec $term
+bindsym $mod+l exec xscreensaver-command -lock
+bindsym $mod+p exec ~/.i3/scripts/jukebox_listen.sh
+bindsym $mod+m exec ~/.i3/scripts/toggle_touchpad.sh
+bindsym $mod+e exec thunar
+
+
+bindcode 121 exec amixer -q sset Master toggle
+bindcode 122 exec amixer -q sset Master 5%-
+bindcode 123 exec amixer -q sset Master 5%+
+bindsym $mod+a exec "urxvtc -e alsamixer"
+bindsym $mod+Shift+a exec "pavucontrol"
+bindsym $mod+Shift+s exec "arandr"
+bindsym $mod+Shift+m exec "~/.i3/scripts/jukebox.sh"
+
+
+# Workspace Names
+# ------------------------------------------------------------------------------
+#workspace "[1] dev"  output LVDS1
+#workspace "[2] www"  output LVDS1
+#workspace "[3] chat" output LVDS1
+#workspace "[4] misc" output LVDS1
+workspace "[1] dev"  output VGA-1-1
+workspace "[2] dev"  output DVI-I-1
+workspace "[3] www"  output HDMI-1-1
+workspace "[4] mail" output VGA-1
+
+
+# Autostart stuff
+# ------------------------------------------------------------------------------
+exec --no-startup-id wicd-client -t
+exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
+exec --no-startup-id xscreensaver -no-splash
+#exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
+
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+J move left
+bindsym $mod+Shift+K move down
+bindsym $mod+Shift+L move up
+bindsym $mod+Shift+colon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace "[1] dev"
+bindsym $mod+2 workspace "[2] dev"
+bindsym $mod+3 workspace "[3] www"
+bindsym $mod+4 workspace "[4] mail"
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move window to specific workspace
+bindsym $mod+Shift+1 move workspace "[1] dev"
+bindsym $mod+Shift+2 move workspace "[2] dev"
+bindsym $mod+Shift+3 move workspace "[3] www"
+bindsym $mod+Shift+4 move workspace "[4] mail"
+
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move workspace 1
+bindsym $mod+Shift+quotedbl move workspace 2
+bindsym $mod+Shift+sterling move workspace 3
+bindsym $mod+Shift+dollar move workspace 4
+bindsym $mod+Shift+percent move workspace 5
+bindsym $mod+Shift+asciicircum move workspace 6
+bindsym $mod+Shift+ampersand move workspace 7
+bindsym $mod+Shift+asterisk move workspace 8
+bindsym $mod+Shift+parenleft move workspace 9
+bindsym $mod+Shift+parenright move workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+E exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # They resize the border in the direction you pressed, e.g.
+        # when pressing left, the window is resized so that it has
+        # more space on its left
+
+bindsym j resize shrink left 10 px or 10 ppt
+bindsym Shift+J resize grow   left 10 px or 10 ppt
+
+bindsym k resize shrink down 10 px or 10 ppt
+bindsym Shift+K resize grow   down 10 px or 10 ppt
+
+bindsym l resize shrink up 10 px or 10 ppt
+bindsym Shift+L resize grow   up 10 px or 10 ppt
+
+bindsym semicolon resize shrink right 10 px or 10 ppt
+bindsym Shift+colon resize grow   right 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+bindsym Left resize shrink left 10 px or 10 ppt
+bindsym Shift+Left resize grow   left 10 px or 10 ppt
+
+bindsym Down resize shrink down 10 px or 10 ppt
+bindsym Shift+Down resize grow   down 10 px or 10 ppt
+
+bindsym Up resize shrink up 10 px or 10 ppt
+bindsym Shift+Up resize grow   up 10 px or 10 ppt
+
+bindsym Right resize shrink right 10 px or 10 ppt
+bindsym Shift+Right resize grow   right 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
