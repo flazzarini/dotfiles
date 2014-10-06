@@ -14,7 +14,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'klen/python-mode'
 Bundle 'ervandew/supertab'
-Bundle 'sirver/ultisnips'
+" Bundle 'sirver/ultisnips'
+" Bundle 'Rykka/riv.vim'
 
 
 " Display
@@ -126,8 +127,6 @@ nnoremap <F7> :call Compilerst()<CR>
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.md  setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.rst setlocal spell spelllang=en_us
-autocmd BufRead,BufNewFile *.rst setlocal formatoptions+=w
-autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
 autocmd FileType gitcommit setlocal spell spelllang=en_us
 
@@ -135,4 +134,5 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 
 " Specific settings for filetypes
 " -----------------------------------------------------------------------------
+autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
