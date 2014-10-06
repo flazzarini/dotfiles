@@ -1,0 +1,20 @@
+directory: /home/frank/downloads/__tagged/
+move: yes
+
+paths:
+    default: $genre/$albumartist/$album/$track - $title
+    comp: Soundtracks/$album%aunique{}/$track - $title
+
+color: yes
+per_disc_numbering: no
+
+plugins: embedart lastgenre info
+
+embedart:
+    auto: yes
+
+lastgenre:
+    whitelist: ~/dotfiles/beets/whitelist.txt
+    count: 1
+
+
