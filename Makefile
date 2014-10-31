@@ -67,10 +67,12 @@ install_vim: clean_vim
 	git clone https://github.com/gmarik/vundle.git `pwd`/vim/bundle/vundle
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
+	ln -sf `pwd`/vimdb ~/.vimdb
 
 clean_vim:
 	rm -Rf ~/.vimrc
 	rm -Rf ~/.vim
+	rm -Rf ~/.vimdb
 
 install_git_home: clean_git_home
 	ln -sf `pwd`/gitconfig_home ~/.gitconfig
