@@ -120,7 +120,7 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 # -----------------------------------------------------------------------------
 #
 export PYTHONWARNINGS=ignore                        # Give no python warnings
-alias pyserve='python -m SimpleHTTPServer 5015'     # server cwd via http
+alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
