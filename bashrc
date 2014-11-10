@@ -34,6 +34,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
+# Environment Variables
+# -----------------------------------------------------------------------------
+#
+export EDITOR="vim"
 
 
 # Colorize man pages
@@ -124,6 +128,12 @@ alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
+
+
+# Perl stuff
+# -----------------------------------------------------------------------------
+#
+alias perlshell='perl -d -e 1'
 
 
 # Some functions
