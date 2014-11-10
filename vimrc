@@ -9,13 +9,14 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'flazz/vim-colorschemes'
 
 "  Plugins
-" Bundle 'scrooloose/syntastic'  " Disabled due to vim crashes
+" Bundle 'scrooloose/syntastic'  " Should no longer need it
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'klen/python-mode'
 Bundle 'ervandew/supertab'
 " Bundle 'sirver/ultisnips'
 " Bundle 'Rykka/riv.vim'
+Bundle 'vim-scripts/dbext.vim'
 
 
 " Display
@@ -58,6 +59,7 @@ set list                        " EOL, trailing spaces, tabs: show them.
 set lcs=tab:├─                  " Tabs are shown as ├──
 set lcs+=trail:␣                " Show trailing spaces as ␣
 set expandtab                   " always expand tabs to spaces
+set backspace=2                 " make backspace behave like in most other apps
 
 
 
@@ -99,6 +101,8 @@ let g:pymode_folding = 1
 let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_mccabe_complexity = 9
 let g:pymode_doc = 0
+let g:pymode_rope = 0
+let g:pymode_rope_complete_on_dot = 0
 
 
 
@@ -136,3 +140,6 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
+
+
+source ~/.vimdb
