@@ -39,21 +39,24 @@ bar {
 }
 
 # Window class settings
-for_window [class="Roxterm"]            border none
-for_window [class="XTerm"]              border 1pixel
-for_window [class="URxvt"]              border 1pixel
-for_window [class="mplayer"]            border none
-for_window [class="Chromium-browser"]   border none
-for_window [class="Chromium"]           border none
-for_window [class="Firefox"]            border none
-for_window [class="vlc"]                border none
-for_window [class="VirtualBox"]         floating enabled
-for_window [class="Wicd-client.py"]     floating enabled
-for_window [class="Stream"]             floating enabled
-for_window [class="winff"]              floating enabled
-for_window [class="Thunar"]             floating enabled
-for_window [class="Pavucontrol"]        floating enabled
-for_window [class="jive"]               floating enabled
+for_window [class="Roxterm"]                 border none
+for_window [class="XTerm"]                   border 1pixel
+for_window [class="URxvt"]                   border 1pixel
+for_window [class="mplayer"]                 border none
+for_window [class="Chromium-browser"]        border none
+for_window [class="Chromium"]                border none
+for_window [class="Firefox"]                 border none
+for_window [class="vlc"]                     border none
+for_window [class="VirtualBox"]              floating enabled
+for_window [class="Wicd-client.py"]          floating enabled
+for_window [class="Stream"]                  floating enabled
+for_window [class="winff"]                   floating enabled
+for_window [class="Thunar"]                  floating enabled
+for_window [class="Pavucontrol"]             floating enabled
+for_window [class="jive"]                    floating enabled
+for_window [title="Hangouts"]                move container to workspace "[3] hangouts"
+for_window [window_role="pop-up"]            floating enabled
+
 
 
 # General settings
@@ -89,10 +92,11 @@ bindsym $mod+Shift+s exec "arandr"
 
 # Workspace Names
 # ------------------------------------------------------------------------------
-workspace "[1] dev"  output LVDS1
-workspace "[2] www"  output LVDS1
-workspace "[3] chat" output LVDS1
-workspace "[4] misc" output LVDS1
+workspace "[1] dev"      output LVDS1
+workspace "[2] www"      output LVDS1
+workspace "[3] hangouts" output LVDS1
+workspace "[4] misc"     output LVDS1
+workspace "[5] dwld"     output LVDS1
 
 # Autostart stuff
 # ------------------------------------------------------------------------------
@@ -152,9 +156,9 @@ bindsym $mod+space focus mode_toggle
 # switch to workspace
 bindsym $mod+1 workspace "[1] dev"
 bindsym $mod+2 workspace "[2] www"
-bindsym $mod+3 workspace "[3] chat"
+bindsym $mod+3 workspace "[3] hangouts"
 bindsym $mod+4 workspace "[4] misc"
-bindsym $mod+5 workspace 5
+bindsym $mod+5 workspace "[5] dwld"
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -164,8 +168,10 @@ bindsym $mod+0 workspace 10
 # Move window to specific workspace
 bindsym $mod+Shift+1 move workspace "[1] dev"
 bindsym $mod+Shift+2 move workspace "[2] www"
-bindsym $mod+Shift+3 move workspace "[3] chat"
+bindsym $mod+Shift+3 move workspace "[3] hangouts"
 bindsym $mod+Shift+4 move workspace "[4] misc"
+bindsym $mod+Shift+5 move workspace "[5] dwld"
+
 
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
