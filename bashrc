@@ -155,10 +155,12 @@ export GPGKEY=C502163F
 # Execute Keychain ssh
 # -----------------------------------------------------------------------------
 #
+
 if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != gefoo.org ]]; then
-    if [ -f "$HOME/.ssh/id_rsa" ]; then
-        /usr/bin/keychain $HOME/.ssh/id_rsa
+    if [[ -n $(pidof ssh-agent) && -n $(pidof gpg-agent) ]]; then
         . ~/.keychain/$HOSTNAME-sh
+    else
+        /usr/bin/keychain $HOME/.ssh/id_rsa
     fi
 fi
 
