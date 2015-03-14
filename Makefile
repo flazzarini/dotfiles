@@ -57,10 +57,12 @@ clean_fonts:
 
 install_bash: clean_bash
 	ln -sf `pwd`/bashrc ~/.bashrc
+	ln -sf `pwd`/bash_profile ~/.bash_profile
 	ln -sf `pwd`/htop ~/.config/htop
 
 clean_bash:
 	rm -Rf ~/.bashrc
+	rm -Rf ~/.bash_profile
 
 install_vim: clean_vim
 	@echo Installing vundle for vim
