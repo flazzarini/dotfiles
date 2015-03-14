@@ -59,11 +59,15 @@ man() {
 # Coloize my logs
 # -----------------------------------------------------------------------------
 #
+
+# Merged to journalctl
+alias lmess='journalctl -f'
+
+
 alias lapache='colortail -f /var/log/apache2/*.log'
 alias lapacheerr='colortail -n 50 -f /var/log/apache2/error.log'
 alias lauth='colortail -n 50 -f /var/log/auth.log'
 alias ldaemon='colortail -n 50 -f /var/log/daemon.log'
-alias lmess='colortail -n 50 -f /var/log/messages'
 alias lsyslog='colortail -n 50 -f /var/log/syslog'
 alias lfetchmail='colortail -n 50 -f /var/log/fetchmail.log'
 alias lfirebird='colortail -n 50 -f /var/log/firebird.log'
@@ -150,19 +154,6 @@ buf() {
 export DEBFULLNAME="Frank Lazzarini"
 export DEBEMAIL="flazzarini@gmail.com"
 export GPGKEY=C502163F
-
-
-# Execute Keychain ssh
-# -----------------------------------------------------------------------------
-#
-
-if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != gefoo.org ]]; then
-    if [[ -n $(pidof ssh-agent) && -n $(pidof gpg-agent) ]]; then
-        . ~/.keychain/$HOSTNAME-sh
-    else
-        /usr/bin/keychain $HOME/.ssh/id_rsa
-    fi
-fi
 
 
 # My Prompt
