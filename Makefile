@@ -35,7 +35,6 @@ help:
 	@echo '   make install_roxterm             installs roxterm files             '
 	@echo '   make install_beets               installs beets files               '
 	@echo '   make install_winbox              downloads and installs winbox      '
-	@echo '   make install_urxvt               compile urxvt with apt-get         '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
 	@echo 'installed files                                                        '
@@ -177,14 +176,3 @@ install_winbox: clean_winbox
 clean_winbox:
 	@echo 'Removing Winbox from /opt/winbox'
 	rm -Rf /opt/winbox
-
-
-install_urxvt:
-	cd `mktemp -d /tmp/rxvt.XXXXXX`
-	apt-get source rxvt-unicode
-	sudo apt-get build-dep rxvt-unicode
-	cd rxvt-unicode-*/
-	perl -pi -e 's/--enable-iso14755/--disable-iso14755/g' debian/rules
-	dch -n 'ISO 14755/Keycap mode SUCKS!!!'
-	fakeroot debian/rules binary
-	sudo dpkg -i ../rxvt-unicode-lite*deb
