@@ -34,6 +34,7 @@ help:
 	@echo '   make install_psql                installs psqlrc                    '
 	@echo '   make install_roxterm             installs roxterm files             '
 	@echo '   make install_beets               installs beets files               '
+	@echo '   make install_winbox              downloads and installs winbox      '
 	@echo '   make install_urxvt               compile urxvt with apt-get         '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
@@ -167,6 +168,16 @@ install_beets:
 clean_beets:
 	rm -Rf ~/.config/beets/config.yaml
 	rm -Rf ~/.config/beets/whitelist.txt
+
+install_winbox: clean_winbox
+	@echo 'Installing Winbox 3.0RC6 to /opt/winbox'
+	sudo install -d -o `whoami` /opt/winbox
+	cd /opt/winbox && wget http://download2.mikrotik.com/routeros/winbox/3.0rc6/winbox.exe
+
+clean_winbox:
+	@echo 'Removing Winbox from /opt/winbox'
+	rm -Rf /opt/winbox
+
 
 install_urxvt:
 	cd `mktemp -d /tmp/rxvt.XXXXXX`
