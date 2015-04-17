@@ -91,6 +91,7 @@ alias rd='rmdir'
 alias rm='rm -i --preserve-root'
 alias less='less -r'
 alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
+alias chmox='chmod +x '
 
 
 # Ubuntu Stuff
