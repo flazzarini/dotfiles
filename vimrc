@@ -1,22 +1,25 @@
 " Vundle Stuff
 " -----------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin("~/.vim/bundle")
+
+" Vundle
+Plugin 'gmarik/Vundle.vim'
 
 "  Colorschemes
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'flazz/vim-colorschemes'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'flazz/vim-colorschemes'
 
 "  Plugins
-" Bundle 'scrooloose/syntastic'  " Should no longer need it
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'klen/python-mode'
-Bundle 'ervandew/supertab'
-" Bundle 'sirver/ultisnips'
-" Bundle 'Rykka/riv.vim'
-Bundle 'vim-scripts/dbext.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
+Plugin 'ervandew/supertab'
+Plugin 'lepture/vim-jinja'
+" Plugin 'sirver/ultisnips'
+" Plugin 'Rykka/riv.vim'
+
+call vundle#end()
 
 
 " Display
