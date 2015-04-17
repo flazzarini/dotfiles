@@ -34,7 +34,7 @@ help:
 	@echo '   make install_psql                installs psqlrc                    '
 	@echo '   make install_roxterm             installs roxterm files             '
 	@echo '   make install_beets               installs beets files               '
-	@echo '   make install_urxvt               compile urxvt with apt-get         '
+	@echo '   make install_winbox              downloads and installs winbox      '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
 	@echo 'installed files                                                        '
@@ -57,10 +57,15 @@ clean_fonts:
 
 install_bash: clean_bash
 	ln -sf `pwd`/bashrc ~/.bashrc
+	ln -sf `pwd`/bash_profile ~/.bash_profile
 	ln -sf `pwd`/htop ~/.config/htop
+	ln -sf `pwd`/bin ~/bin
 
 clean_bash:
 	rm -Rf ~/.bashrc
+	rm -Rf ~/.bash_profile
+	rm -Rf ~/.config/htop
+	rm -Rf ~/bin
 
 install_vim: clean_vim
 	@echo Installing vundle for vim
@@ -163,12 +168,11 @@ clean_beets:
 	rm -Rf ~/.config/beets/config.yaml
 	rm -Rf ~/.config/beets/whitelist.txt
 
-install_urxvt:
-	cd `mktemp -d /tmp/rxvt.XXXXXX`
-	apt-get source rxvt-unicode
-	sudo apt-get build-dep rxvt-unicode
-	cd rxvt-unicode-*/
-	perl -pi -e 's/--enable-iso14755/--disable-iso14755/g' debian/rules
-	dch -n 'ISO 14755/Keycap mode SUCKS!!!'
-	fakeroot debian/rules binary
-	sudo dpkg -i ../rxvt-unicode-lite*deb
+install_winbox: clean_winbox
+	@echo 'Installing Winbox 3.0RC6 to /opt/winbox'
+	sudo install -d -o `whoami` /opt/winbox
+	cd /opt/winbox && wget http://download2.mikrotik.com/routeros/winbox/3.0rc6/winbox.exe
+
+clean_winbox:
+	@echo 'Removing Winbox from /opt/winbox'
+	rm -Rf /opt/winbox
