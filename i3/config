@@ -17,6 +17,9 @@ client.unfocused         #444444  #444444  #315858
 client.focused_inactive  #444444  #444444  #9b9bab
 client.urgent            #383a3b  #383a3b  #ee0000
 
+new_window pixel 1
+new_float pixel 2
+
 
 # i3Bar Settings
 bar {
@@ -27,19 +30,28 @@ bar {
     workspace_buttons yes
 
     colors {
-        statusline      #999999
-        background      #252525
-
-        # class            border    backgrd  text
-        focused_workspace  #292929   #292929  #cccccc
-        active_workspace   #252525   #252525  #696f89
-        inactive_workspace #252525   #252525  #6b6b6b
-        urgent_workspace   #252525   #252525  #c7a551
+        background #161616
+        statusline #605c5a
+        focused_workspace  #161616  #909737  #ffffff
+        active_workspace   #161616  #161616  #a5a5a5
+        inactive_workspace #161616  #545454  #a5a5a5
+        urgent_workspace   #161616  #545454  #a5a5a5
     }
+    #colors {
+    #    statusline      #999999
+    #    background      #252525
+
+    #    # class            border    backgrd  text
+    #    focused_workspace  #292929   #292929  #cccccc
+    #    active_workspace   #252525   #252525  #696f89
+    #    inactive_workspace #252525   #252525  #6b6b6b
+    #    urgent_workspace   #252525   #252525  #c7a551
+    #}
 }
 
+
 # Window class settings
-for_window [class="Roxterm"]                 border none
+for_window [class="Roxterm"]                 border 1pixel
 for_window [class="XTerm"]                   border 1pixel
 for_window [class="URxvt"]                   border 1pixel
 for_window [class="mplayer"]                 border none
@@ -54,6 +66,7 @@ for_window [class="winff"]                   floating enabled
 for_window [class="Thunar"]                  floating enabled
 for_window [class="Pavucontrol"]             floating enabled
 for_window [class="jive"]                    floating enabled
+for_window [class="winbox.exe"]              border pixel 1
 for_window [title="Hangouts"]                move container to workspace "[3] hangouts"
 for_window [window_role="pop-up"]            floating enabled
 
@@ -100,6 +113,8 @@ workspace "[5] dwld"     output LVDS1
 
 # Autostart stuff
 # ------------------------------------------------------------------------------
+exec --no-startup-id compton --config ~/.config/compton.conf
+exec --no-startup-id /usr/bin/volumeicon
 exec --no-startup-id wicd-client -t
 exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
 exec --no-startup-id exec ~/bin/update-grive.sh
