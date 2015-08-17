@@ -92,13 +92,19 @@ clean_git_work:
 	rm -Rf ~/.gitconfig
 
 install_i3: clean_i3
+	ln -sf `pwd`/xinitrc ~/.xinitrc
 	ln -sf `pwd`/Xresources ~/.Xresources
 	ln -sf `pwd`/xession ~/.xsession
 	ln -sf `pwd`/i3 ~/.i3
+	ln -sf `pwd`/comton.conf ~/.config/compton.conf
 
 clean_i3:
+	rm -Rf ~/.xinitrc
+	rm -Rf ~/.xsession
 	rm -Rf ~/.Xdefaults
+	rm -Rf ~/.Xresources
 	rm -Rf ~/.i3
+	rm -Rf ~/.config/compton.conf
 
 install_irssi:
 ifneq "$(IRSSIUSER)" ""
