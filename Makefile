@@ -69,7 +69,7 @@ clean_bash:
 
 install_vim: clean_vim
 	@echo Installing vundle for vim
-	git clone https://github.com/gmarik/vundle.git `pwd`/vim/bundle/vundle
+	git clone https://github.com/gmarik/Vundle.vim.git `pwd`/vim/bundle/Vundle.vim
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
 	ln -sf `pwd`/vimdb ~/.vimdb
