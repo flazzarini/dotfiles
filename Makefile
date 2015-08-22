@@ -69,7 +69,7 @@ clean_bash:
 
 install_vim: clean_vim
 	@echo Installing vundle for vim
-	git clone https://github.com/gmarik/vundle.git `pwd`/vim/bundle/vundle
+	git clone https://github.com/gmarik/Vundle.vim.git `pwd`/vim/bundle/Vundle.vim
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
 	ln -sf `pwd`/vimdb ~/.vimdb
@@ -78,6 +78,16 @@ clean_vim:
 	rm -Rf ~/.vimrc
 	rm -Rf ~/.vim
 	rm -Rf ~/.vimdb
+
+install_nvim: clean_nvim
+	@echo Installing vundle for neovim
+	git clone https://github.com/gmarik/Vundle.vim.git `pwd`/nvim/bundle/Vundle.vim
+	ln -sf `pwd`/nvimrc ~/.nvimrc
+	ln -sf `pwd`/nvim   ~/.nvim
+
+clean_nvim:
+	rm -Rf ~/.nvimrc
+	rm -Rf ~/.nvim
 
 install_git_home: clean_git_home
 	ln -sf `pwd`/gitconfig_home ~/.gitconfig

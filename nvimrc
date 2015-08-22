@@ -1,7 +1,7 @@
 " Vundle Stuff
 " -----------------------------------------------------------------------------
 set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin("~/.vim/bundle")
+call vundle#begin("~/.nvim/bundle")
 
 " Vundle
 Plugin 'gmarik/Vundle.vim'
