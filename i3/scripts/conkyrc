@@ -5,7 +5,6 @@ update_interval   1
 total_run_times   0
 short_units       yes
 pad_percents      3
-
 override_utf8_locale yes
 
 TEXT
@@ -13,22 +12,22 @@ TEXT
 ,[
 
     {
-        "full_text": " ♪ ${exec amixer get Master | egrep -o "[0-9]+%" | head -n1}",
+        "full_text": " ♪ ${exec amixer get Speaker | egrep -o "[0-9]+%" | head -n1}",
         "color": "\#268BD2"
     },
 
     {
-        "full_text": " ≈ ${if_existing /sys/class/net/wlan0/operstate up}wlan0 ${addr wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}eth0 ${addr eth0}${endif}",
+        "full_text": " ≈ ${if_existing /sys/class/net/wlan0/operstate up}wlan0 ${addr wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}eth0 ${addr eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}eth1${endif}",
         "color": "\#268BD2"
     },
 
     {
-        "full_text": " ▲ ${if_existing /sys/class/net/wlan0/operstate up}${totalup wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totalup eth0}${endif}",
+        "full_text": " ▲ ${if_existing /sys/class/net/wlan0/operstate up}${totalup wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totalup eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}${totalup eth1}${endif}",
         "color": "\#268BD2"
     },
 
     {
-        "full_text": " ▼ ${if_existing /sys/class/net/wlan0/operstate up}${totaldown wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totaldown eth0}${endif}",
+        "full_text": " ▼ ${if_existing /sys/class/net/wlan0/operstate up}${totaldown wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totaldown eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}${totaldown eth1}${endif}",
         "color": "\#268BD2"
     },
 
