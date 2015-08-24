@@ -1,6 +1,8 @@
+set nocompatible
+
 " Vundle Stuff
 " -----------------------------------------------------------------------------
-set rtp+=~/.nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin("~/.vim/bundle")
 
 " Vundle
