@@ -96,8 +96,6 @@ bindsym $mod+e exec thunar
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
-#bindcode 232 exec "xbacklight -dec 5"
-#bindcode 233 exec "xbacklight -inc 5"
 bindsym $mod+a exec "urxvtc -e alsamixer"
 bindsym $mod+Shift+a exec "pavucontrol"
 bindsym $mod+Shift+s exec "arandr"
