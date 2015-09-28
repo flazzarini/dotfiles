@@ -18,8 +18,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'ervandew/supertab'
 Plugin 'lepture/vim-jinja'
-" Plugin 'sirver/ultisnips'
-" Plugin 'Rykka/riv.vim'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'sirver/ultisnips'
 
 call vundle#end()
 
