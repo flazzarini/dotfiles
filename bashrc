@@ -33,6 +33,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Helper functions
+# -----------------------------------------------------------------------------
+#
+command_exists() {
+    type "$1" &> /dev/null ;
+}
+
 
 # Environment Variables
 # -----------------------------------------------------------------------------
@@ -43,7 +50,9 @@ export EDITOR="vim"
 # Keychain
 # -----------------------------------------------------------------------------
 #
-eval `keychain --eval --agents ssh id_rsa`
+if command_exists keychain ; then
+    eval `keychain --eval --agents ssh id_rsa`
+fi
 
 
 # Colorize man pages
