@@ -211,8 +211,7 @@ unset color_prompt force_color_prompt
 # Other global environment variables
 # -----------------------------------------------------------------------------
 #
-export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
-                            --enable-internal-flash"
+export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
 
 
 # Add local binaries to path
