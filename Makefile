@@ -58,7 +58,6 @@ clean_fonts:
 install_bash: clean_bash
 	ln -sf `pwd`/bashrc ~/.bashrc
 	ln -sf `pwd`/bash_profile ~/.bash_profile
-	ln -sf `pwd`/htop ~/.config/htop
 	ln -sf `pwd`/bin ~/bin
 
 clean_bash:
