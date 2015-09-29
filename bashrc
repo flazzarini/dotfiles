@@ -33,6 +33,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Helper functions
+# -----------------------------------------------------------------------------
+#
+command_exists() {
+    type "$1" &> /dev/null ;
+}
+
 
 # Environment Variables
 # -----------------------------------------------------------------------------
@@ -43,7 +50,9 @@ export EDITOR="vim"
 # Keychain
 # -----------------------------------------------------------------------------
 #
-eval `keychain --eval --agents ssh id_rsa`
+if command_exists keychain ; then
+    eval `keychain --eval --agents ssh id_rsa`
+fi
 
 
 # Colorize man pages
@@ -135,6 +144,7 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 # -----------------------------------------------------------------------------
 #
 export PYTHONWARNINGS=ignore                        # Give no python warnings
+export FLASKPORT=50020                              # My personal dev port
 alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
