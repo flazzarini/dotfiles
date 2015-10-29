@@ -1,9 +1,7 @@
-set nocompatible
-
 " Vundle Stuff
 " -----------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin("~/.vim/bundle")
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin("~/.nvim/bundle")
 
 " Vundle
 Plugin 'gmarik/Vundle.vim'
@@ -12,13 +10,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
 
+"  Plugins
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'ervandew/supertab'
 Plugin 'lepture/vim-jinja'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'sirver/ultisnips'
+" Plugin 'sirver/ultisnips'
+" Plugin 'Rykka/riv.vim'
 
 call vundle#end()
 
@@ -144,6 +143,3 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
-
-
-source ~/.vimdb

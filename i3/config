@@ -23,7 +23,6 @@ new_float pixel 2
 
 # i3Bar Settings
 bar {
-    #status_command i3status -c ~/.i3/i3status.conf
     status_command ~/.i3/scripts/conky-wrapper.sh
     position bottom
     font xft:Droid Sans Mono 9
@@ -37,16 +36,6 @@ bar {
         inactive_workspace #161616  #545454  #a5a5a5
         urgent_workspace   #161616  #545454  #a5a5a5
     }
-    #colors {
-    #    statusline      #999999
-    #    background      #252525
-
-    #    # class            border    backgrd  text
-    #    focused_workspace  #292929   #292929  #cccccc
-    #    active_workspace   #252525   #252525  #696f89
-    #    inactive_workspace #252525   #252525  #6b6b6b
-    #    urgent_workspace   #252525   #252525  #c7a551
-    #}
 }
 
 
@@ -84,7 +73,7 @@ set $mod Mod4
 #   sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
 #
 # ------------------------------------------------------------------------------
-bindsym $mod+d exec dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
+bindsym $mod+d exec PATH=$PATH:$HOME/bin dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
 bindsym $mod+l exec xscreensaver-command -lock
@@ -96,8 +85,6 @@ bindsym $mod+e exec thunar
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
-#bindcode 232 exec "xbacklight -dec 5"
-#bindcode 233 exec "xbacklight -inc 5"
 bindsym $mod+a exec "urxvtc -e alsamixer"
 bindsym $mod+Shift+a exec "pavucontrol"
 bindsym $mod+Shift+s exec "arandr"

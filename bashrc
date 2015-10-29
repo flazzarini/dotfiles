@@ -33,6 +33,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Helper functions
+# -----------------------------------------------------------------------------
+#
+command_exists() {
+    type "$1" &> /dev/null ;
+}
+
 
 # Environment Variables
 # -----------------------------------------------------------------------------
@@ -43,7 +50,9 @@ export EDITOR="vim"
 # Keychain
 # -----------------------------------------------------------------------------
 #
-eval `keychain --eval --agents ssh id_rsa`
+if command_exists keychain ; then
+    eval `keychain --eval --agents ssh id_rsa`
+fi
 
 
 # Colorize man pages
@@ -101,6 +110,7 @@ alias rd='rmdir'
 alias rm='rm -i --preserve-root'
 alias less='less -r'
 alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
+alias chmox='chmod +x '
 
 
 # Ubuntu Stuff
@@ -134,6 +144,7 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 # -----------------------------------------------------------------------------
 #
 export PYTHONWARNINGS=ignore                        # Give no python warnings
+export FLASKPORT=50020                              # My personal dev port
 alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'          # prepare virtual env
@@ -200,8 +211,7 @@ unset color_prompt force_color_prompt
 # Other global environment variables
 # -----------------------------------------------------------------------------
 #
-export CHROMIUM_USER_FLAGS="--memory-model=low --purge-memory-button \
-                            --enable-internal-flash"
+export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
 
 
 # Add local binaries to path
