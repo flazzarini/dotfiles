@@ -20,6 +20,7 @@ Plugin 'ervandew/supertab'
 Plugin 'lepture/vim-jinja'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'sirver/ultisnips'
+Plugin 'cyberkov/openhab-vim'
 
 call vundle#end()
 
