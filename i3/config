@@ -73,7 +73,7 @@ set $mod Mod4
 #   sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
 #
 # ------------------------------------------------------------------------------
-bindsym $mod+d exec PATH=$PATH:$HOME/bin dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
+bindsym $mod+d exec PATH=$PATH:$HOME/bin dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899" -fn "Droid Sans Mono 9"
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
 bindsym $mod+l exec xscreensaver-command -lock
