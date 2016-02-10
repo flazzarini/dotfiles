@@ -19,6 +19,7 @@ Plugin 'ervandew/supertab'
 Plugin 'lepture/vim-jinja'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'sirver/ultisnips'
+Plugin 'cyberkov/openhab-vim'
 
 call vundle#end()
 
@@ -29,6 +30,7 @@ call vundle#end()
 " set foldcolumn=2              " display up to 4 folds
 " set nowrap                    " Prevent wrapping
 set title                       " display title in X.
+set visualbell t_vb=            " disable visualbells completely
 colorscheme jellybeans
 
 
