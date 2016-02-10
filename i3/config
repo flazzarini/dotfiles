@@ -104,11 +104,10 @@ exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id /usr/bin/volumeicon
 exec --no-startup-id wicd-client -t
 exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
-exec --no-startup-id exec ~/bin/update-grive.sh
 exec --no-startup-id xscreensaver -no-splash
-exec --no-startup-id ~/bin/update-grive.sh
+#exec --no-startup-id ~/bin/update-grive.sh
+#exec --no-startup-id exec ~/bin/update-grive.sh
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
-
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
