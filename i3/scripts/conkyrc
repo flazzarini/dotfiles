@@ -12,7 +12,7 @@ TEXT
 ,[
 
     {
-        "full_text": " ♪ ${exec amixer get Speaker | egrep -o "[0-9]+%" | head -n1}",
+        "full_text": " ♪ ${exec amixer get Master | egrep -o "[0-9]+%" | head -n1}",
         "color": "\#268BD2"
     },
 
