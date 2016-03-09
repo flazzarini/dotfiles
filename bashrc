@@ -217,16 +217,7 @@ export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
 # Add local binaries to path
 # -----------------------------------------------------------------------------
 #
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export PATH=$GEM_HOME:$PATH
 
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
-
-if [[ -d ~/.nix-profile/bin ]]; then
-    export PATH=~/.nix-profile/bin:$PATH
-fi
-
-
-
