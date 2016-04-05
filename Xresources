@@ -58,11 +58,13 @@ xterm*locale:           true
 
 xterm*ScrollBar:        off
 xterm*TitleBar:         off
+xterm*toolBar:          false
 xterm*Border:           off
 xterm*AllowIconInput:   on
 xterm*termtype:         vt100
 xterm*Title:            off
 xterm*clientDecoration: none
+xterm*visualBell:       true
 
 
 
@@ -201,7 +203,7 @@ xscreensaver.passwd.uname: True
 !
 ! Include Xcolors
 ! ------------------------------------------------------------------------------
-#include "/home/frank/dotfiles/Xcolors/gjm"
+#include "Xcolors/gjm"
 
 
 
