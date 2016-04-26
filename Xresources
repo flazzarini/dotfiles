@@ -52,19 +52,23 @@ Xft*hintstyle:          hintslight
 ! Xterm -- xcolors.net (Zenburn)
 !
 ! ------------------------------------------------------------------------------
-xterm*faceName:         Anonymous Pro for Powerline
-xterm*faceSize:         11
-xterm*locale:           true
+xterm*faceName:             Anonymous Pro for Powerline
+xterm*faceSize:             11
+xterm*locale:               true
 
-xterm*ScrollBar:        off
-xterm*TitleBar:         off
-xterm*toolBar:          false
-xterm*Border:           off
-xterm*AllowIconInput:   on
-xterm*termtype:         vt100
-xterm*Title:            off
-xterm*clientDecoration: none
-xterm*visualBell:       true
+xterm*ScrollBar:            off
+xterm*TitleBar:             off
+xterm*toolBar:              false
+xterm*Border:               off
+xterm*AllowIconInput:       on
+xterm*termtype:             vt100
+xterm*Title:                off
+xterm*clientDecoration:     none
+xterm*visualBell:           true
+
+xterm*cutNewLine:           false
+xterm*cutToBeginningOfLine: false
+xterm*charClass:            33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
 
 
 
