@@ -108,6 +108,12 @@ exec --no-startup-id xscreensaver -no-splash
 #exec --no-startup-id exec ~/bin/update-grive.sh
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
 
+# Quake Style Terminal Emulator
+exec --no-startup-id xterm -name qterm
+for_window [instance="qterm"] floating enable;
+for_window [instance="qterm"] move scratchpad; [instance="qterm"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
+bindsym $mod+t [instance="qterm"] scratchpad show
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
