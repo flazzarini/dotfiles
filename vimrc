@@ -14,13 +14,14 @@ Plugin 'flazz/vim-colorschemes'
 
 "  Plugins
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'klen/python-mode'
-Plugin 'ervandew/supertab'
+" Plugin 'kien/ctrlp.vim'
+ Plugin 'klen/python-mode'
+" Plugin 'ervandew/supertab'
 Plugin 'lepture/vim-jinja'
 Plugin 'chase/vim-ansible-yaml'
-Plugin 'sirver/ultisnips'
+" Plugin 'sirver/ultisnips'
 Plugin 'cyberkov/openhab-vim'
+Plugin 'Konfekt/FastFold'
 
 call vundle#end()
 
