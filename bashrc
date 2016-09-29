@@ -218,10 +218,7 @@ export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
 # Add local binaries to path
 # -----------------------------------------------------------------------------
 #
+
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
-fi
-
-if [[ -d ~/.nix-profile/bin ]]; then
-    export PATH=~/.nix-profile/bin:$PATH
 fi

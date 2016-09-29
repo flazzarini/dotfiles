@@ -73,7 +73,7 @@ set $mod Mod4
 #   sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
 #
 # ------------------------------------------------------------------------------
-bindsym $mod+d exec PATH=$PATH:$HOME/bin dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899"
+bindsym $mod+d exec PATH=$PATH:$HOME/bin dmenu_run -p "Run:" -nb "#0F0F0F" -nf "#F5DEB3" -sb "#4C7899" -fn "Droid Sans Mono 9"
 bindsym $mod+c exec $term
 bindsym $mod+Return exec $term
 bindsym $mod+l exec xscreensaver-command -lock
@@ -104,11 +104,10 @@ exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id /usr/bin/volumeicon
 exec --no-startup-id wicd-client -t
 exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
-exec --no-startup-id exec ~/bin/update-grive.sh
 exec --no-startup-id xscreensaver -no-splash
-exec --no-startup-id ~/bin/update-grive.sh
+#exec --no-startup-id ~/bin/update-grive.sh
+#exec --no-startup-id exec ~/bin/update-grive.sh
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
-
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position

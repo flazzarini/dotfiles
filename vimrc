@@ -12,7 +12,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
 
-"  Plugins
 Plugin 'Lokaltog/vim-powerline'
 " Plugin 'kien/ctrlp.vim'
  Plugin 'klen/python-mode'

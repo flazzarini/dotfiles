@@ -5,7 +5,9 @@ paths:
     default: $genre/$albumartist/$album/$track - $title
     comp: Soundtracks/$album%aunique{}/$track - $title
 
-color: yes
+ui:
+    color: yes
+
 per_disc_numbering: no
 
 plugins: embedart lastgenre info
