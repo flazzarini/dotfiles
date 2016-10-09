@@ -71,4 +71,9 @@ $if Bash
   # Insert a space character then performs
   # a history expansion in the line
   #Space: magic-space
+
+  # Improved version of recall 
+  "\e[A": history-search-backward
+  "\e[B": history-search-forward
+
 $endif
