@@ -143,7 +143,7 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 # Python stuff
 # -----------------------------------------------------------------------------
 #
-export PYTHONWARNINGS=ignore                        # Give no python warnings
+export PYTHONWARNINGS=ignore                        # Give python warnings
 export FLASKPORT=50020                              # My personal dev port
 alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
 alias venv='virtualenv env && \
@@ -212,6 +212,7 @@ unset color_prompt force_color_prompt
 # -----------------------------------------------------------------------------
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
+export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
 
 
 # Add local binaries to path
