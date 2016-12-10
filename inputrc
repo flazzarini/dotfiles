@@ -41,6 +41,9 @@
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
+# Disable Visual Bell
+set bell-style none
+
 # Allow 8-bit input/output
 #set meta-flag on
 #set convert-meta off
