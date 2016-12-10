@@ -29,8 +29,8 @@ bar {
     workspace_buttons yes
 
     colors {
-        background #161616
-        statusline #605c5a
+        background         #161616
+        statusline         #605c5a
         focused_workspace  #161616  #909737  #ffffff
         active_workspace   #161616  #161616  #a5a5a5
         inactive_workspace #161616  #545454  #a5a5a5
@@ -40,24 +40,24 @@ bar {
 
 
 # Window class settings
-for_window [class="Roxterm"]                 border 1pixel
-for_window [class="XTerm"]                   border 1pixel
-for_window [class="URxvt"]                   border 1pixel
-for_window [class="mplayer"]                 border none
-for_window [class="Chromium-browser"]        border none
-for_window [class="Chromium"]                border none
-for_window [class="Firefox"]                 border none
-for_window [class="vlc"]                     border none
-for_window [class="VirtualBox"]              floating enabled
-for_window [class="Wicd-client.py"]          floating enabled
-for_window [class="Stream"]                  floating enabled
-for_window [class="winff"]                   floating enabled
-for_window [class="Thunar"]                  floating enabled
-for_window [class="Pavucontrol"]             floating enabled
-for_window [class="jive"]                    floating enabled
-for_window [class="winbox.exe"]              border pixel 1
-for_window [title="Hangouts"]                move container to workspace "[3] hangouts"
-for_window [window_role="pop-up"]            floating enabled
+for_window [class="Roxterm"]                             border 1pixel
+for_window [class="XTerm"]                               border 1pixel
+for_window [class="URxvt"]                               border 1pixel
+for_window [class="mplayer"]                             border none
+for_window [class="Chromium-browser"]                    border none
+for_window [class="Chromium"]                            border none
+for_window [class="Firefox"]                             border none
+for_window [class="vlc"]                                 border none
+for_window [class="VirtualBox"]                          floating enabled
+for_window [class="Wicd-client.py"]                      floating enabled
+for_window [class="Stream"]                              floating enabled
+for_window [class="winff"]                               floating enabled
+for_window [class="Thunar"]                              floating enabled
+for_window [class="Pavucontrol"]                         floating enabled
+for_window [class="jive"]                                floating enabled
+for_window [class="winbox.exe"]                          border pixel 1
+for_window [title="Hangouts - flazzarini@gmail.com"]     move container to workspace "[3] hangouts"
+for_window [window_role="pop-up"]                        floating enabled
 
 
 
@@ -85,7 +85,6 @@ bindsym $mod+e exec thunar
 bindcode 121 exec amixer -q sset Master toggle
 bindcode 122 exec amixer -q sset Master 5%-
 bindcode 123 exec amixer -q sset Master 5%+
-bindsym $mod+a exec "urxvtc -e alsamixer"
 bindsym $mod+Shift+a exec "pavucontrol"
 bindsym $mod+Shift+s exec "arandr"
 
@@ -108,6 +107,12 @@ exec --no-startup-id xscreensaver -no-splash
 #exec --no-startup-id ~/bin/update-grive.sh
 #exec --no-startup-id exec ~/bin/update-grive.sh
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1
+
+# Quake Style Terminal Emulator
+exec --no-startup-id xterm -name qterm
+for_window [instance="qterm"] floating enable;
+for_window [instance="qterm"] move scratchpad; [instance="qterm"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
+bindsym $mod+t [instance="qterm"] scratchpad show
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -198,40 +203,40 @@ bindsym $mod+Shift+E exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # They resize the border in the direction you pressed, e.g.
-        # when pressing left, the window is resized so that it has
-        # more space on its left
+    # They resize the border in the direction you pressed, e.g.
+    # when pressing left, the window is resized so that it has
+    # more space on its left
 
-bindsym j resize shrink left 10 px or 10 ppt
-bindsym Shift+J resize grow   left 10 px or 10 ppt
+    bindsym j resize shrink left 10 px or 10 ppt
+    bindsym Shift+J resize grow   left 10 px or 10 ppt
 
-bindsym k resize shrink down 10 px or 10 ppt
-bindsym Shift+K resize grow   down 10 px or 10 ppt
+    bindsym k resize shrink down 10 px or 10 ppt
+    bindsym Shift+K resize grow   down 10 px or 10 ppt
 
-bindsym l resize shrink up 10 px or 10 ppt
-bindsym Shift+L resize grow   up 10 px or 10 ppt
+    bindsym l resize shrink up 10 px or 10 ppt
+    bindsym Shift+L resize grow   up 10 px or 10 ppt
 
-bindsym semicolon resize shrink right 10 px or 10 ppt
-bindsym Shift+colon resize grow   right 10 px or 10 ppt
+    bindsym semicolon resize shrink right 10 px or 10 ppt
+    bindsym Shift+colon resize grow   right 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-bindsym Left resize shrink left 10 px or 10 ppt
-bindsym Shift+Left resize grow   left 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink left 10 px or 10 ppt
+    bindsym Shift+Left resize grow   left 10 px or 10 ppt
 
-bindsym Down resize shrink down 10 px or 10 ppt
-bindsym Shift+Down resize grow   down 10 px or 10 ppt
+    bindsym Down resize shrink down 10 px or 10 ppt
+    bindsym Shift+Down resize grow   down 10 px or 10 ppt
 
-bindsym Up resize shrink up 10 px or 10 ppt
-bindsym Shift+Up resize grow   up 10 px or 10 ppt
+    bindsym Up resize shrink up 10 px or 10 ppt
+    bindsym Shift+Up resize grow   up 10 px or 10 ppt
 
-bindsym Right resize shrink right 10 px or 10 ppt
-bindsym Shift+Right resize grow   right 10 px or 10 ppt
+    bindsym Right resize shrink right 10 px or 10 ppt
+    bindsym Shift+Right resize grow   right 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"

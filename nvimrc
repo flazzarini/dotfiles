@@ -16,8 +16,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'ervandew/supertab'
 Plugin 'lepture/vim-jinja'
-" Plugin 'sirver/ultisnips'
-" Plugin 'Rykka/riv.vim'
 
 call vundle#end()
 

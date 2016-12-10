@@ -111,6 +111,7 @@ alias rm='rm -i --preserve-root'
 alias less='less -r'
 alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
 alias chmox='chmod +x '
+alias sc='systemctl'
 
 
 # Ubuntu Stuff
@@ -143,7 +144,7 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 # Python stuff
 # -----------------------------------------------------------------------------
 #
-export PYTHONWARNINGS=ignore                        # Give no python warnings
+export PYTHONWARNINGS=ignore                        # Give python warnings
 export FLASKPORT=50020                              # My personal dev port
 alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
 alias venv='virtualenv env && \
@@ -212,7 +213,11 @@ unset color_prompt force_color_prompt
 # -----------------------------------------------------------------------------
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
+<<<<<<< HEAD
 export GOPATH="$HOME/src"
+=======
+export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
+>>>>>>> de578c9e446df9083d49fe6fb25d92c4f7a28872
 
 
 # Add local binaries to path
