@@ -213,11 +213,8 @@ unset color_prompt force_color_prompt
 # -----------------------------------------------------------------------------
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
-<<<<<<< HEAD
 export GOPATH="$HOME/src"
-=======
 export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
->>>>>>> de578c9e446df9083d49fe6fb25d92c4f7a28872
 
 
 # Add local binaries to path
