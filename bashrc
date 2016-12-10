@@ -212,6 +212,7 @@ unset color_prompt force_color_prompt
 # -----------------------------------------------------------------------------
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
+export GOPATH="$HOME/src"
 
 
 # Add local binaries to path
