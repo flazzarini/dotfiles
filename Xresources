@@ -207,7 +207,7 @@ xscreensaver.passwd.uname: True
 !
 ! Include Xcolors
 ! ------------------------------------------------------------------------------
-!#include "dotfiles/Xcolors/gjm"
+#include "/home/frank/dotfiles/Xcolors/gjm"
 
 
 
