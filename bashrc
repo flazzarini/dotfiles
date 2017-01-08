@@ -111,6 +111,7 @@ alias rm='rm -i --preserve-root'
 alias less='less -r'
 alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
 alias chmox='chmod +x '
+alias sc='systemctl'
 
 # Archlinux Stuff
 # -----------------------------------------------------------------------------
@@ -217,6 +218,7 @@ unset color_prompt force_color_prompt
 # -----------------------------------------------------------------------------
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
+export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
 
 
 # Add local binaries to path

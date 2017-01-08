@@ -1,4 +1,4 @@
-ETH0ADD="192.168.10.3"
+ETH0ADD="192.168.11.1"
 ETH0NET="255.255.255.0"
 
 # Deactivate ufw
@@ -12,7 +12,7 @@ sudo ifconfig eth0 $ETH0ADD netmask $ETH0NET
 
 # Next we need to activate IP forwarding, and setup iptables to NAT:
 sudo sysctl -w net.ipv4.ip_forward=1
-sudo iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
 
 # The following may be worth trying if the client gets Host Prohibited responses:
 sudo iptables -F FORWARD
