@@ -64,7 +64,7 @@ xterm*AllowIconInput:       on
 xterm*termtype:             vt100
 xterm*Title:                off
 xterm*clientDecoration:     none
-xterm*visualBell:           true
+xterm*visualBell:           false
 
 xterm*cutNewLine:           false
 xterm*cutToBeginningOfLine: false
