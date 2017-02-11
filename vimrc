@@ -12,15 +12,18 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
 
+" Plugins
 Plugin 'Lokaltog/vim-powerline'
-" Plugin 'kien/ctrlp.vim'
- Plugin 'klen/python-mode'
-" Plugin 'ervandew/supertab'
+Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
+Plugin 'Konfekt/FastFold'
+Plugin 'scrooloose/nerdtree'
+" Plugin 'sirver/ultisnips'
+
+" Syntax Plugins
 Plugin 'lepture/vim-jinja'
 Plugin 'chase/vim-ansible-yaml'
-" Plugin 'sirver/ultisnips'
 Plugin 'cyberkov/openhab-vim'
-Plugin 'Konfekt/FastFold'
 
 call vundle#end()
 
@@ -35,6 +38,13 @@ set visualbell t_vb=            " disable visualbells completely
 colorscheme jellybeans
 
 
+" Nerdtree
+" -----------------------------------------------------------------------------
+" autocmd vimenter * NERDTree         " Autostarts nerdtree
+let mapleader = ","                 " , is easier to reach than the default
+nmap <leader>ne :NERDTree<cr>       " Shortcut to open Nerdtree
+let NERDTreeMapOpenInTab='\r'       " Default open files in Tabs
+let NERDTreeMapOpenInTab='<ENTER>'  " Default open files in Tabs
 
 " Vim Settings
 " -----------------------------------------------------------------------------
