@@ -113,6 +113,9 @@ alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
 alias chmox='chmod +x '
 alias sc='systemctl'
 
+# Archlinux Stuff
+# -----------------------------------------------------------------------------
+#
 
 # Ubuntu Stuff
 # -----------------------------------------------------------------------------
@@ -144,11 +147,13 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 # Python stuff
 # -----------------------------------------------------------------------------
 #
-export PYTHONWARNINGS=ignore                        # Give python warnings
-export FLASKPORT=50020                              # My personal dev port
-alias pyserve='python -m SimpleHTTPServer $1'       # server cwd via http
+export PYTHONWARNINGS=ignore                         # Give no python warnings
+export FLASKPORT=50020                               # My personal dev port
+alias pyserve='python -m SimpleHTTPServer $1'        # server cwd via http
 alias venv='virtualenv env && \
-            ./env/bin/pip install ipython'          # prepare virtual env
+            ./env/bin/pip install ipython'           # prepare virtualenv
+alias venv3='virtualenv -p /usr/bin/python3 env && \
+             ./env/bin/pip install ipython'          # prepare virtualenv py3
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
@@ -212,7 +217,7 @@ unset color_prompt force_color_prompt
 # Other global environment variables
 # -----------------------------------------------------------------------------
 #
-export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096"
+export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
 export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
 

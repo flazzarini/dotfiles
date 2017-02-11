@@ -64,7 +64,7 @@ xterm*AllowIconInput:       on
 xterm*termtype:             vt100
 xterm*Title:                off
 xterm*clientDecoration:     none
-xterm*visualBell:           true
+xterm*visualBell:           false
 
 xterm*cutNewLine:           false
 xterm*cutToBeginningOfLine: false
@@ -207,7 +207,7 @@ xscreensaver.passwd.uname: True
 !
 ! Include Xcolors
 ! ------------------------------------------------------------------------------
-!#include "dotfiles/Xcolors/gjm"
+#include "/home/frank/dotfiles/Xcolors/gjm"
 
 
 
