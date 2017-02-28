@@ -144,10 +144,12 @@ clean_python:
 
 install_tmux: clean_tmux
 	ln -sf `pwd`/tmux.conf ~/.tmux.conf
+	[ -d ~/.ssh ] || mkdir ~/.ssh
+	ln -sf `pwd`/sshrc ~/.ssh/rc
 
 clean_tmux:
 	rm -Rf ~/.tmux.conf
-
+	rm -Rf ~/.ssh/rc
 
 install_sqlite: clean_sqlite
 	ln -sf `pwd`/sqliterc ~/.sqliterc
