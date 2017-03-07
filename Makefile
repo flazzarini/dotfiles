@@ -58,13 +58,18 @@ clean_fonts:
 install_bash: clean_bash
 	ln -sf `pwd`/bashrc ~/.bashrc
 	ln -sf `pwd`/bash_profile ~/.bash_profile
+	ln -sf `pwd`/inputrc ~/.inputrc
 	ln -sf `pwd`/bin ~/bin
+	ln -sf `pwd`/inputrc ~/.inputrc
+	ln -sf `pwd`/htop ~/.config/
 
 clean_bash:
+	rm -Rf ~/.inputrc
 	rm -Rf ~/.bashrc
 	rm -Rf ~/.bash_profile
-	rm -Rf ~/.config/htop
 	rm -Rf ~/bin
+	rm -Rf ~/.inputrc
+	rm -Rf ~/.config/htop
 
 install_vim: clean_vim
 	@echo Installing vundle for vim
@@ -139,10 +144,12 @@ clean_python:
 
 install_tmux: clean_tmux
 	ln -sf `pwd`/tmux.conf ~/.tmux.conf
+	[ -d ~/.ssh ] || mkdir ~/.ssh
+	ln -sf `pwd`/sshrc ~/.ssh/rc
 
 clean_tmux:
 	rm -Rf ~/.tmux.conf
-
+	rm -Rf ~/.ssh/rc
 
 install_sqlite: clean_sqlite
 	ln -sf `pwd`/sqliterc ~/.sqliterc
