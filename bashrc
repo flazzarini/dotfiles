@@ -219,7 +219,7 @@ unset color_prompt force_color_prompt
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
-export ANSIBLE_CONFIG="~/workspace/ansible/ansible/ansible.cfg"
+export ANSIBLE_CONFIG="~/workspace/ansible/ansible.cfg"
 
 
 # Add local binaries to path
