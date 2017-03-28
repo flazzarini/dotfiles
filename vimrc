@@ -17,13 +17,14 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'Konfekt/FastFold'
-Plugin 'scrooloose/nerdtree'
-" Plugin 'sirver/ultisnips'
+" Plugin 'scrooloose/nerdtree'
+Plugin 'sirver/ultisnips'
+Plugin 'ervandew/supertab'
 
 " Syntax Plugins
-Plugin 'lepture/vim-jinja'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'cyberkov/openhab-vim'
+" Plugin 'lepture/vim-jinja'
+" Plugin 'chase/vim-ansible-yaml'
+" Plugin 'cyberkov/openhab-vim'
 
 call vundle#end()
 
