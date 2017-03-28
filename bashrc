@@ -45,6 +45,7 @@ command_exists() {
 # -----------------------------------------------------------------------------
 #
 export EDITOR="vim"
+export VISUAL="vim"
 
 
 # Keychain
