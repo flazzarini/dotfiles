@@ -20,6 +20,7 @@ Plugin 'Konfekt/FastFold'
 " Plugin 'scrooloose/nerdtree'
 Plugin 'sirver/ultisnips'
 Plugin 'ervandew/supertab'
+Plugin 'Yggdroot/indentLine'
 
 " Syntax Plugins
 " Plugin 'lepture/vim-jinja'
@@ -121,6 +122,12 @@ let g:pymode_lint_mccabe_complexity = 9
 let g:pymode_doc = 0
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_python = 'python3'
+
+
+" IndentLine Settings
+" -----------------------------------------------------------------------------
+let g:indentLine_char = '|'
 
 
 
@@ -142,7 +149,6 @@ function! Compilerst()
     execute 'redraw!'
 endfunction
 nnoremap <F7> :call Compilerst()<CR>
-
 
 
 " Spell check per filetype
