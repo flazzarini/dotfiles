@@ -164,6 +164,7 @@ alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 export ANSIBLE_HOME="$HOME/workspace/ansible"
 export ANSIBLE_CONFIG="$ANSIBLE_HOME/ansible.cfg"
 
+alias ansi='cd $ANSIBLE_HOME'
 alias vault='$ANSIBLE_HOME/env/bin/ansible-vault'
 alias play='$ANSIBLE_HOME/env/bin/ansible-playbook'
 
