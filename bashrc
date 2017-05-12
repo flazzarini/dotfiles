@@ -51,9 +51,9 @@ export VISUAL="vim"
 # Keychain
 # -----------------------------------------------------------------------------
 #
-if command_exists keychain ; then
-    eval `keychain --eval --agents ssh id_rsa`
-fi
+#if command_exists keychain ; then
+#    eval `keychain --eval --agents ssh id_rsa`
+#fi
 
 
 # Colorize man pages
@@ -158,6 +158,16 @@ alias venv3='virtualenv -p /usr/bin/python3 env && \
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
+# ANSIBLE stuff
+# -----------------------------------------------------------------------------
+#
+export ANSIBLE_HOME="$HOME/workspace/ansible"
+export ANSIBLE_CONFIG="$ANSIBLE_HOME/ansible.cfg"
+
+alias vault='$ANSIBLE_HOME/env/bin/ansible-vault'
+alias play='$ANSIBLE_HOME/env/bin/ansible-playbook'
+
+
 # Perl stuff
 # -----------------------------------------------------------------------------
 #
@@ -220,7 +230,6 @@ unset color_prompt force_color_prompt
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
-export ANSIBLE_CONFIG="~/workspace/ansible/ansible.cfg"
 
 
 # Add local binaries to path
