@@ -46,6 +46,8 @@ command_exists() {
 #
 export EDITOR="vim"
 export VISUAL="vim"
+export PGPASS="~/.pgpass"
+export PGUSER="flazzarini"
 
 
 # Keychain
@@ -94,6 +96,7 @@ alias lopencms='colortail -f /var/lib/tomcat6/webapps/ROOT/WEB-INF/logs/opencms.
 alias ltomcat='colortail -f /var/log/tomcat6/*'
 alias lsamba='colortail -n 50 -f /var/log/samba/log.*'
 alias ldrbd='watch -n1 cat /proc/drbd'
+alias lpgstat='sudo -u postgres psql -c "select * from pg_stat_activity;"'
 
 
 # Standard Posix aliases
@@ -239,4 +242,9 @@ export GOPATH="$HOME/src"
 
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
+fi
+
+# Add npm bin if avaiable
+if [[ -d ~/node_modules/.bin ]]; then
+    export PATH=/home/users/frank/node_modules/.bin:$PATH
 fi
