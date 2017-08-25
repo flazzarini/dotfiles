@@ -51,9 +51,9 @@ export VISUAL="vim"
 # Keychain
 # -----------------------------------------------------------------------------
 #
-#if command_exists keychain ; then
-#    eval `keychain --eval --agents ssh id_rsa`
-#fi
+if command_exists keychain ; then
+    eval `keychain --eval --agents ssh id_rsa`
+fi
 
 
 # Colorize man pages
