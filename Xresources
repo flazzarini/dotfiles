@@ -55,6 +55,9 @@ Xft*hintstyle:          hintslight
 xterm*faceName:             Anonymous Pro for Powerline
 xterm*faceSize:             11
 xterm*locale:               true
+xterm*antialias:            true
+xterm*hinting:              true
+xterm*lcdfilter:            1
 
 xterm*ScrollBar:            off
 xterm*TitleBar:             off
