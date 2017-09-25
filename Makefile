@@ -67,6 +67,7 @@ install_bash: clean_bash
 clean_bash:
 	rm -Rf ~/.inputrc
 	rm -Rf ~/.bashrc
+	rm -Rf ~/.bash_aliases
 	rm -Rf ~/.bash_profile
 	rm -Rf ~/bin
 	rm -Rf ~/.inputrc
