@@ -21,6 +21,7 @@ Plugin 'Konfekt/FastFold'
 Plugin 'sirver/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'Yggdroot/indentLine'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " Syntax Plugins
 " Plugin 'lepture/vim-jinja'
