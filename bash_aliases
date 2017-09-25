@@ -98,6 +98,7 @@ export ANSIBLE_CONFIG="$ANSIBLE_HOME/ansible.cfg"
 alias ansi='cd $ANSIBLE_HOME'
 alias vault='$ANSIBLE_HOME/env/bin/ansible-vault'
 alias play='$ANSIBLE_HOME/env/bin/ansible-playbook'
+alias mkansiblerole='mkdir -p {tasks,handlers,files,defaults}'
 
 
 # Perl stuff
