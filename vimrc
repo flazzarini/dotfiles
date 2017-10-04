@@ -12,15 +12,21 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
 
+" Plugins
 Plugin 'Lokaltog/vim-powerline'
-" Plugin 'kien/ctrlp.vim'
- Plugin 'klen/python-mode'
-" Plugin 'ervandew/supertab'
-Plugin 'lepture/vim-jinja'
-Plugin 'chase/vim-ansible-yaml'
-" Plugin 'sirver/ultisnips'
-Plugin 'cyberkov/openhab-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
 Plugin 'Konfekt/FastFold'
+" Plugin 'scrooloose/nerdtree'
+Plugin 'sirver/ultisnips'
+Plugin 'ervandew/supertab'
+Plugin 'Yggdroot/indentLine'
+Plugin 'dhruvasagar/vim-table-mode'
+
+" Syntax Plugins
+" Plugin 'lepture/vim-jinja'
+" Plugin 'chase/vim-ansible-yaml'
+" Plugin 'cyberkov/openhab-vim'
 
 call vundle#end()
 
@@ -35,6 +41,13 @@ set visualbell t_vb=            " disable visualbells completely
 colorscheme jellybeans
 
 
+" Nerdtree
+" -----------------------------------------------------------------------------
+" autocmd vimenter * NERDTree         " Autostarts nerdtree
+let mapleader = ","                 " , is easier to reach than the default
+nmap <leader>ne :NERDTree<cr>       " Shortcut to open Nerdtree
+let NERDTreeMapOpenInTab='\r'       " Default open files in Tabs
+let NERDTreeMapOpenInTab='<ENTER>'  " Default open files in Tabs
 
 " Vim Settings
 " -----------------------------------------------------------------------------
@@ -110,6 +123,12 @@ let g:pymode_lint_mccabe_complexity = 9
 let g:pymode_doc = 0
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_python = 'python3'
+
+
+" IndentLine Settings
+" -----------------------------------------------------------------------------
+let g:indentLine_char = '|'
 
 
 
@@ -131,7 +150,6 @@ function! Compilerst()
     execute 'redraw!'
 endfunction
 nnoremap <F7> :call Compilerst()<CR>
-
 
 
 " Spell check per filetype

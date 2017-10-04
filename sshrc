@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# http://techblog.appnexus.com/2011/managing-ssh-sockets-in-gnu-screen/
+# https://gist.github.com/martijnvermaat/8070533
+# http://stackoverflow.com/questions/21378569/how-to-auto-update-ssh-agent-environment-variables-when-attaching-to-existing-tm
+
+# Fix SSH auth socket location so agent forwarding works with screen.
+#if test "$SSH_AUTH_SOCK" ; then
+#    if test ! -e ~/.ssh/ssh_auth_sock; then
+#        ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+#    fi
+#fi
