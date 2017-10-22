@@ -15,7 +15,12 @@
 #
 # ---------------------------------------------------------------------------
 
-BRANCH_NAME="`git name-rev --name-only --always HEAD 2>/dev/null`"
+if [[ -d .git ]]; then
+    BRANCH_NAME="`git name-rev --name-only --always HEAD 2>/dev/null`"
+else
+    BRANCH_NAME=""
+fi
+
 PREFIX=""
 SUFFIX=""
 
