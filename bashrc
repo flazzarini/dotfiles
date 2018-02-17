@@ -134,6 +134,11 @@ if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
 
+if [[ -d ~/opt/nodeenv/node_modules/.bin/ ]]; then
+    export PATH=~/opt/nodeenv/node_modules/.bin/:$PATH
+fi
+
+
 # Add npm bin if avaiable
 if [[ -d ~/node_modules/.bin ]]; then
     export PATH=/home/users/frank/node_modules/.bin:$PATH
