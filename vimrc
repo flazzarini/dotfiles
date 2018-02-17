@@ -22,6 +22,7 @@ Plugin 'sirver/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'Yggdroot/indentLine'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'posva/vim-vue'
 
 " Syntax Plugins
 " Plugin 'lepture/vim-jinja'
