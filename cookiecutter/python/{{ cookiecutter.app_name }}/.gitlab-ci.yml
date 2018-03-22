@@ -1,0 +1,147 @@
+variables:
+    bb_oss_ci_revision: 4
+
+    # Example variables for Postgres (if needed)
+    POSTGRES_DB: "pseudopiper_ci_test"
+    POSTGRES_PASSWORD: "gitlab-ci"
+    POSTGRES_USER: "gitlab-ci"
+
+    # The following need to exist for web-access in the container (pip & co)
+    http_proxy: 'http://bbs-pylon.ipsw.dt.ept.lu:3128'
+    https_proxy: 'https://bbs-pylon.ipsw.dt.ept.lu:3128'
+    no_proxy: 'localhost .ipsw.dt.ept.lu'
+
+stages:
+    - preflight
+    - environment
+    - test
+    - analysis
+    - validate-metrics
+    - build
+    - publish
+
+validate-bb-oss-ci-revision:
+    stage: preflight
+    image: "bboss/python:3"
+    script:
+        - pyvenv env
+        - ./env/bin/pip install pyyaml
+        - ./env/bin/python /usr/local/bin/bb_oss_preflight
+    tags:
+        - docker
+
+create-environment:
+    stage: environment
+    image: "bboss/python:3"
+    script:
+        - pyvenv env
+        - ./env/bin/pip install -U pip
+        - ./env/bin/pip install wheel
+        - ./env/bin/pip install -r /usr/share/bb-oss-ci-requirements.txt
+        - ./env/bin/pip install .[test,dev]
+        - /usr/local/bin/fab create_config:unattended=True,target=ci.ini,overlay=dev_data/ini_overlays/testing.ini
+        - /usr/local/bin/fab create_config:unattended=True,target=app.ini,overlay=dev_data/ini_overlays/dev.ini
+    artifacts:
+        paths:
+            - env/
+            - .ept/
+    tags:
+        - docker
+
+unit-tests:
+    stage: test
+    image: "bboss/python:3"
+    services:
+        - postgres:9.5
+    script:
+        - EPT_PSEUDOPIPER_FILENAME=ci.ini ./env/bin/alembic upgrade head
+        - "EPT_PSEUDOPIPER_FILENAME=ci.ini ./env/bin/pytest
+          --cov-branch
+          --cov-report html
+          --cov-report xml
+          --cov-report term
+          --cov ${CI_PROJECT_NAME}
+          tests"
+    artifacts:
+        paths:
+            - coverage.xml
+            - htmlcov
+    tags:
+        - docker
+
+sonar-scanner:
+    stage: analysis
+    image: "bboss/python:3"
+    script:
+        - "/opt/sonar-scanner/sonar-scanner-3.0.3.778-linux/bin/sonar-scanner
+           -Dsonar.projectVersion=$(python setup.py --version)"
+    tags:
+        - docker
+
+validate-sonar:
+    stage: validate-metrics
+    image: "bboss/sonarqube"
+    coverage: '/^SonarQube coverage: \d+\.\d+%$/'
+    script:
+        - validate_sonar_result OK,WARNING ${CI_PROJECT_NAME}
+    tags:
+        - docker
+
+sonar-warning:
+    stage: validate-metrics
+    allow_failure: true
+    image: "bboss/sonarqube"
+    script:
+        - validate_sonar_result OK ${CI_PROJECT_NAME}
+    tags:
+        - docker
+
+build-package-wheel:
+  stage: build
+  script:
+    - NOW=`date +%s`
+    - GIT_HASH=`git rev-parse HEAD`
+    - ./env/bin/python setup.py setopt -o tag_build -s $GIT_HASH -c egg_info
+    - ./env/bin/python setup.py bdist_wheel --universal
+  artifacts:
+    paths:
+      - dist/*.whl
+    expire_in: "4 weeks"
+  tags:
+    - python
+
+build-package-source-dist:
+  stage: build
+  script:
+    - NOW=`date +%s`
+    - GIT_HASH=`git rev-parse HEAD`
+    - ./env/bin/python setup.py setopt -o tag_build -s $GIT_HASH -c egg_info
+    - ./env/bin/python setup.py sdist
+  artifacts:
+    paths:
+      - dist/*.tar.gz
+    expire_in: "4 weeks"
+  tags:
+    - python
+
+build-doc:
+    stage: build
+    image: "bboss/python:3"
+    script:
+        - fab doc
+    artifacts:
+        paths:
+        - doc/_build/html
+    tags:
+        - docker
+
+publish-doc:
+    stage: publish
+    image: "bboss/python:3"
+    only:
+        - master@flazzarini/pseudopiper
+        - develop@flazzarini/pseudopiper
+    script:
+        - fab publish_doc:unattended=True
+    tags:
+        - docker

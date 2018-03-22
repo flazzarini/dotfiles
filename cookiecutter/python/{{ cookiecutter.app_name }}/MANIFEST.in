@@ -1,0 +1,2 @@
+include README.rst
+include {{ cookiecutter.app_name }}/version.txt
