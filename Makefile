@@ -145,6 +145,8 @@ clean_python:
 	rm -Rf ~/.config/ipython
 
 install_tmux: clean_tmux
+	[ -d ~/.bin/tmux-powerline ] || mkdir -p ~/.bin/tmux-powerline
+	cd ~/.bin/tmux-powerline && git clone https://github.com/erikw/tmux-powerline.git .
 	ln -sf `pwd`/tmux.conf ~/.tmux.conf
 	[ -d ~/.ssh ] || mkdir ~/.ssh
 	ln -sf `pwd`/sshrc ~/.ssh/rc
