@@ -8,7 +8,6 @@ setxkbmap -layout gb
 udiskie --tray &
 
 # Select the session
-#DEFAULTSESSION=dbus-launch --exit-with-session --sh-syntax i3
 DEFAULTSESSION=i3
 
 
@@ -21,7 +20,6 @@ case "$1" in
     razor-qt) exec razor-session ;;
     lxde) exec lxsession ;;
     mate) exec mate-session ;;
-    #i3) exec dbus-launch --exit-with-session --sh-syntax i3 ;;
     i3) exec i3 ;;
     *) exec $DEFAULTSESSION ;;
 esac

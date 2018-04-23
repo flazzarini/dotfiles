@@ -57,6 +57,7 @@ clean_fonts:
 
 install_bash: clean_bash
 	ln -sf `pwd`/bashrc ~/.bashrc
+	ln -sf `pwd`/bash_aliases ~/.bash_aliases
 	ln -sf `pwd`/bash_profile ~/.bash_profile
 	ln -sf `pwd`/inputrc ~/.inputrc
 	ln -sf `pwd`/bin ~/bin
@@ -66,6 +67,7 @@ install_bash: clean_bash
 clean_bash:
 	rm -Rf ~/.inputrc
 	rm -Rf ~/.bashrc
+	rm -Rf ~/.bash_aliases
 	rm -Rf ~/.bash_profile
 	rm -Rf ~/bin
 	rm -Rf ~/.inputrc
@@ -143,12 +145,19 @@ clean_python:
 	rm -Rf ~/.config/ipython
 
 install_tmux: clean_tmux
+	[ -d ~/.bin/tmux-powerline ] || mkdir -p ~/.bin/tmux-powerline && cd ~/.bin/tmux-powerline && git clone https://github.com/erikw/tmux-powerline.git .
+	[ -d ~/.bin/tmux-powerline ] && cd ~/.bin/tmux-powerline && git pull
 	ln -sf `pwd`/tmux.conf ~/.tmux.conf
+	ln -sf `pwd`/tmux-powerline/tmux-powerlinerc ~/.tmux-powerlinerc
+	ln -sf `pwd`/tmux-powerline/my_theme.sh ~/.bin/tmux-powerline/themes/my_theme.sh
 	[ -d ~/.ssh ] || mkdir ~/.ssh
 	ln -sf `pwd`/sshrc ~/.ssh/rc
 
 clean_tmux:
 	rm -Rf ~/.tmux.conf
+	rm -Rf ~/.tmux-powerlinerc
+	rm -Rf ~/.bin/tmux-powerline/themes/my_theme.sh
+	rm -Rf ~/.bin/tmux-powerline
 	rm -Rf ~/.ssh/rc
 
 install_sqlite: clean_sqlite

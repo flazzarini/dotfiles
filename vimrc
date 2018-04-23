@@ -17,10 +17,12 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'Konfekt/FastFold'
-" Plugin 'scrooloose/nerdtree'
-Plugin 'sirver/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'Yggdroot/indentLine'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'posva/vim-vue'
+Plugin 'SirVer/ultisnips'
+Plugin 'vimoutliner/vimoutliner'
 
 " Syntax Plugins
 " Plugin 'lepture/vim-jinja'
@@ -116,13 +118,21 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 " python-mode settings
 " -----------------------------------------------------------------------------
 set completeopt-=preview        " Do not pop up pydoc on completing
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_mccabe_complexity = 9
 let g:pymode_doc = 0
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_python = 'python3'
+
+
+
+" Utlisnippets settings
+" -----------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " IndentLine Settings

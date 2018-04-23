@@ -1,0 +1,14 @@
+[MASTER]
+ignore=.git env tests
+persistent=no
+
+[REPORTS]
+output-format=parseable
+reports=no
+
+[BASIC]
+good-names=i,j,k,x,y,z,ex,Run,_,ui,ip
+
+[TYPECHECK]
+ignored-classes=optparse.Values,thread._local,_thread._local
+generated-members=add, all, get, delete, find, likefind, asdict, fromdict, diff, __table__
