@@ -18,13 +18,15 @@ Plugin 'Lokaltog/vim-powerline'
 
 " General Purpose Plugins
 Plugin 'kien/ctrlp.vim'
-Plugin 'Konfekt/FastFold'
+" Plugin 'Konfekt/FastFold'
+" Plugin 'Shougo/deoplete.nvim'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 
 " Python Plugins
 Plugin 'klen/python-mode'
 Plugin 'fisadev/vim-isort'
+Plugin 'w0rp/ale'
 
 " Vue Plugins
 Plugin 'posva/vim-vue'
@@ -154,8 +156,8 @@ let g:indentLine_char = '|'
 set pastetoggle=<F2>              " F2 for paste mode
 nnoremap <F3> :set hlsearch!<CR>  " Activate or disactive Search Highlighting
 let mapleader = ","               " , is easier to reach than the default
-map <Leader>a ggVG                " select all
-vmap Q gq                         " wrap 80col paragraph vertically
+map <Leader>    a ggVG            " select all
+vmap            Q gq              " wrap 80col paragraph vertically
 
 
 
