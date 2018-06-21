@@ -61,6 +61,7 @@ alias sc='systemctl'
 #
 alias aupdate='sudo aptitude update'
 alias aupgrade='sudo aptitude update && sudo aptitude upgrade'
+alias aptpkgsizes='dpkg-query -Wf "${Installed-Size}\t${Package}\n" | sort -n'
 
 
 # Exim Aliases (http://bradthemad.org/tech/notes/exim_cheatsheet.php)
