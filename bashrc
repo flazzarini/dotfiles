@@ -13,16 +13,16 @@ HISTFILESIZE=2000                             # Hitstory filesize
 shopt -s checkwinsize                         # Check window size after each
                                               # command update LINES COLUMNS
 
-# make less more friendly
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
+# Source bash aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Source bash completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
 
 # Helper functions
 # -----------------------------------------------------------------------------
@@ -35,8 +35,13 @@ command_exists() {
 # Environment Variables
 # -----------------------------------------------------------------------------
 #
-export EDITOR="vim"
-export VISUAL="vim"
+EDITOR_CMD=vim
+if [ -x "$(command -v nvim)" ]; then
+    EDITOR_CMD=nvim
+fi
+
+export EDITOR=$EDITOR_CMD
+export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
 export PGUSER="flazzarini"
 
@@ -55,6 +60,9 @@ fi
 # Colorize man pages
 # -----------------------------------------------------------------------------
 #
+# make less more friendly
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 man() {
     env \
     LESS_TERMCAP_mb=$(printf "\e[1;94m") \
@@ -130,16 +138,22 @@ export GOPATH="$HOME/src"
 # -----------------------------------------------------------------------------
 #
 
+# Add custom binaries in home folder to PATH
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
 
+# Add Node JS environment to path
 if [[ -d ~/opt/nodeenv/node_modules/.bin/ ]]; then
     export PATH=~/opt/nodeenv/node_modules/.bin/:$PATH
 fi
 
-
 # Add npm bin if avaiable
 if [[ -d ~/node_modules/.bin ]]; then
     export PATH=/home/users/frank/node_modules/.bin:$PATH
+fi
+
+# CREATE Virtualenv environment variable
+if [[ -d ~/.env ]]; then
+    export VIRTUAL_ENV=~/.env
 fi
