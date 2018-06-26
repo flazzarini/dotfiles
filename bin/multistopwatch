@@ -1,0 +1,174 @@
+#!/usr/bin/python3
+import sys
+import termios
+import tty
+from argparse import ArgumentParser
+from contextlib import contextmanager
+from datetime import timedelta
+from subprocess import call
+from threading import Thread
+from time import sleep
+
+TIMERS = {}
+GLOBALS = {
+    'current_key': None
+}
+
+
+@contextmanager
+def without_cursor():
+    call(['setterm', '-cursor', 'off'])
+    yield
+    call(['setterm', '-cursor', 'on'])
+
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+
+def parse_args():
+    parser = ArgumentParser()
+    parser.add_argument('-s', '--single',
+                        help='Only show the currently active timer',
+                        action='store_true', default=False)
+    return parser.parse_args()
+
+
+class Timer(Thread):
+
+    def __init__(self, name):
+        super().__init__(name=name)
+        self.seconds = 0
+        self.paused = False
+        self.daemon = True
+        self.stopped = False
+
+    def run(self):
+        while not self.stopped:
+            if not self.paused:
+                self.seconds += 1
+            sleep(1)
+
+    def pause(self):
+        self.paused = True
+
+    def resume(self):
+        self.paused = False
+
+    def stop(self):
+        self.stopped = True
+
+
+def colorise(key, value):
+    if key == GLOBALS['current_key']:
+        itemformat = '\033[1;32m%s: %8s\033[0;0m'
+    else:
+        itemformat = '%s: %8s'
+    return itemformat % (key, value)
+
+
+class Monitor(Thread):
+
+    def __init__(self, single):
+        super().__init__()
+        self.daemon = True
+        self.keep_running = True
+        self.single = single
+
+    def run(self):
+        while self.keep_running:
+            if self.single:
+                self.print_single()
+            else:
+                self.print_multiple()
+            sleep(1)
+
+    def print_multiple(self):
+        data = [(timer.name, timedelta(seconds=timer.seconds))
+                for timer in TIMERS.values()]
+        items = [colorise(*row) for row in sorted(data)]
+        if items:
+            print('\r', ' | '.join(items))
+
+    def print_single(self):
+        timer = TIMERS.get(GLOBALS['current_key'], None)
+        if not timer:
+            return
+        print('\r',
+              colorise(GLOBALS['current_key'],
+                       timedelta(seconds=timer.seconds)), end='')
+
+    def stop(self):
+        self.keep_running = False
+
+
+def main():
+
+    args = parse_args()
+
+    print('Press "q" to quit, "p" to pause/resume the active counter')
+    print('Press any other button to start a timer with that name')
+    print('\nAll keys (except "p" and "q") are case *sensitive*!')
+    print('... so you can have a timer "T" and "t"')
+
+    monitor = Monitor(args.single)
+    monitor.start()
+
+    last_active = None
+    paused = False
+    while True:
+        char = getch()
+        if char.lower() == 'q':
+            GLOBALS['current_key'] = None
+            break
+        if char.lower() == 'p':
+            if paused and last_active:
+                TIMERS[last_active].resume()
+                paused = False
+                GLOBALS['current_key'] = last_active
+            elif not paused:
+                for timer in TIMERS.values():
+                    timer.pause()
+                paused = True
+                GLOBALS['current_key'] = None
+            else:
+                raise Exception('Something went wrong')
+            continue
+
+        last_active = char
+        GLOBALS['current_key'] = char
+
+        if char not in TIMERS:
+            TIMERS[char] = Timer(char)
+            TIMERS[char].start()
+        for k, v in TIMERS.items():
+            if k == char:
+                v.resume()
+            else:
+                v.pause()
+
+    for timer in TIMERS.values():
+        timer.stop()
+
+    for timer in TIMERS.values():
+        timer.join()
+
+    monitor.stop()
+    monitor.join()
+
+    if args.single:
+        print('\n\n--- Report ------------')
+        for name, timer in sorted(TIMERS.items()):
+            delta = timedelta(seconds=timer.seconds)
+            print('\r', colorise(name, delta))
+
+if __name__ == "__main__":
+    with without_cursor():
+        main()

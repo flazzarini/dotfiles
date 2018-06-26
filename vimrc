@@ -12,19 +12,27 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
 
-" Plugins
+" Visual
+Plugin 'Yggdroot/indentLine'
 Plugin 'Lokaltog/vim-powerline'
+
+" General Purpose Plugins
 Plugin 'kien/ctrlp.vim'
-Plugin 'klen/python-mode'
 Plugin 'Konfekt/FastFold'
 Plugin 'ervandew/supertab'
-Plugin 'Yggdroot/indentLine'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'posva/vim-vue'
 Plugin 'SirVer/ultisnips'
-Plugin 'vimoutliner/vimoutliner'
 
-" Syntax Plugins
+" Python Plugins
+Plugin 'klen/python-mode'
+Plugin 'fisadev/vim-isort'
+
+" Vue Plugins
+Plugin 'posva/vim-vue'
+
+" Yaml
+Plugin 'stephpy/vim-yaml'
+
+" Disabled Plugins
 " Plugin 'lepture/vim-jinja'
 " Plugin 'chase/vim-ansible-yaml'
 " Plugin 'cyberkov/openhab-vim'
@@ -166,6 +174,7 @@ nnoremap <F7> :call Compilerst()<CR>
 autocmd BufRead,BufNewFile *.md  setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.rst setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.in  setlocal spell spelllang=en_us
 autocmd FileType gitcommit setlocal spell spelllang=en_us
 
 
@@ -174,6 +183,7 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
+autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 
 source ~/.vimdb
