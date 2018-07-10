@@ -120,7 +120,12 @@ function prompt_command_function() {
 }
 
 if [ "$color_prompt" = yes ]; then
+    # Set prompt
     PROMPT_COMMAND=prompt_command_function
+
+    # Set color theme
+    COLOR_THEME=molokai
+    source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
     PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
