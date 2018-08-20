@@ -14,7 +14,7 @@ Plugin 'flazz/vim-colorschemes'
 
 " Visual
 Plugin 'Yggdroot/indentLine'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 
 " General Purpose Plugins
 Plugin 'kien/ctrlp.vim'
@@ -75,9 +75,9 @@ syntax on                       " syntax highlighting
 
 " Powerline specific
 " -----------------------------------------------------------------------------
-set laststatus=2                " always show status bar
-set cmdheight=2                 " set cmd height to 2
-let g:Powerline_symbols = 'fancy'
+set laststatus=2                  " always show status bar
+set cmdheight=2                   " set cmd height to 2
+let g:airline_powerline_fonts = 1 " Use patched fonts
 
 
 
