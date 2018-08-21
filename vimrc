@@ -137,6 +137,32 @@ let g:pymode_rope_complete_on_dot = 0
 let g:pymode_python = 'python3'
 
 
+"
+" Ale config
+" -----------------------------------------------------------------------------
+let g:ale_fixers = {
+\   'python': ['isort'],
+\}
+let g:ale_linters = {
+\   'python': ['mypy', 'pylint'],
+\}
+
+" Don't lint test files
+let g:ale_pattern_options = {
+\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': []},
+\}
+
+" Test Type Anotations with strict option
+let g:ale_python_mypy_options = '--ignore-missing-imports --strict'
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
+" Format Ale Error Messages
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 
 " Utlisnippets settings
 " -----------------------------------------------------------------------------
