@@ -36,9 +36,9 @@ command_exists() {
 # -----------------------------------------------------------------------------
 #
 EDITOR_CMD=vim
-if [ -x "$(command -v nvim)" ]; then
-    EDITOR_CMD=nvim
-fi
+# if [ -x "$(command -v nvim)" ]; then
+#     EDITOR_CMD=nvim
+# fi
 
 export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
@@ -107,6 +107,7 @@ case "$TERM" in
     xterm-256color) color_prompt=yes ;;
     screen-256color) color_prompt=yes ;;
     rxvt-unicode-256color) color_prompt=yes ;;
+    tmux-256color) color_prompt=yes ;;
 esac
 
 
