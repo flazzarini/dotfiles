@@ -14,17 +14,19 @@ Plugin 'flazz/vim-colorschemes'
 
 " Visual
 Plugin 'Yggdroot/indentLine'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 
 " General Purpose Plugins
 Plugin 'kien/ctrlp.vim'
-Plugin 'Konfekt/FastFold'
+" Plugin 'Konfekt/FastFold'
+" Plugin 'Shougo/deoplete.nvim'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 
 " Python Plugins
 Plugin 'klen/python-mode'
 Plugin 'fisadev/vim-isort'
+Plugin 'w0rp/ale'
 
 " Vue Plugins
 Plugin 'posva/vim-vue'
@@ -73,9 +75,9 @@ syntax on                       " syntax highlighting
 
 " Powerline specific
 " -----------------------------------------------------------------------------
-set laststatus=2                " always show status bar
-set cmdheight=2                 " set cmd height to 2
-let g:Powerline_symbols = 'fancy'
+set laststatus=2                  " always show status bar
+set cmdheight=2                   " set cmd height to 2
+let g:airline_powerline_fonts = 1 " Use patched fonts
 
 
 
@@ -135,6 +137,32 @@ let g:pymode_rope_complete_on_dot = 0
 let g:pymode_python = 'python3'
 
 
+"
+" Ale config
+" -----------------------------------------------------------------------------
+let g:ale_fixers = {
+\   'python': ['isort'],
+\}
+let g:ale_linters = {
+\   'python': ['mypy', 'pylint'],
+\}
+
+" Don't lint test files
+let g:ale_pattern_options = {
+\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': []},
+\}
+
+" Test Type Anotations with strict option
+let g:ale_python_mypy_options = '--ignore-missing-imports --strict'
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
+" Format Ale Error Messages
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 
 " Utlisnippets settings
 " -----------------------------------------------------------------------------
@@ -154,8 +182,8 @@ let g:indentLine_char = '|'
 set pastetoggle=<F2>              " F2 for paste mode
 nnoremap <F3> :set hlsearch!<CR>  " Activate or disactive Search Highlighting
 let mapleader = ","               " , is easier to reach than the default
-map <Leader>a ggVG                " select all
-vmap Q gq                         " wrap 80col paragraph vertically
+map <Leader>    a ggVG            " select all
+vmap            Q gq              " wrap 80col paragraph vertically
 
 
 

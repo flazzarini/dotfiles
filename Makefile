@@ -63,6 +63,7 @@ install_bash: clean_bash
 	ln -sf `pwd`/bin ~/bin
 	ln -sf `pwd`/inputrc ~/.inputrc
 	ln -sf `pwd`/htop ~/.config/
+	git clone --recursive https://github.com/sona-tar/terminal-color-theme.git
 
 clean_bash:
 	rm -Rf ~/.inputrc
