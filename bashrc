@@ -31,6 +31,24 @@ command_exists() {
     type "$1" &> /dev/null ;
 }
 
+vault_grep() {
+    # $1 string to search for
+    # $2 folder to search in
+    for filename in $2/*; do
+        if [ -f "$filename" ]; then
+            if (head -n 1 $filename | grep ANSIBLE_VAULT > /dev/null 2>&1); then
+                output="$(ANSIBLE_DEPRECATION_WARNINGS=False vault view $filename | grep $1)"
+            else
+                output="$(cat $filename | grep $1)"
+            fi
+
+            if [ $? == 0 ]; then
+                echo "${filename}: ${output}"
+            fi
+        fi
+    done
+}
+
 
 # Environment Variables
 # -----------------------------------------------------------------------------
