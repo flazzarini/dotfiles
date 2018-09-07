@@ -211,6 +211,7 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
+autocmd FileType html       set tabstop=2 sw=2
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 
