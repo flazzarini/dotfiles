@@ -123,6 +123,7 @@ esac
 # If we have a colorful terminal set color_prompt to yes
 case "$TERM" in
     xterm-256color) color_prompt=yes ;;
+    tmux-256color) color_prompt=yes ;;
     screen-256color) color_prompt=yes ;;
     rxvt-unicode-256color) color_prompt=yes ;;
 esac
@@ -142,8 +143,9 @@ if [ "$color_prompt" = yes ]; then
     PROMPT_COMMAND=prompt_command_function
 
     # Set color theme
-    COLOR_THEME=molokai
-    source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
+    # Removed Theme
+    # COLOR_THEME=molokai
+    # source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
     PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
