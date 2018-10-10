@@ -117,7 +117,7 @@ source ~/dotfiles/lib/bash_colors
 
 # Remap TERM environment variable
 case "$TERM" in
-    xterm*|rxvt-unicode*) TERM="xterm-256color" ;;
+    xterm*|rxvt-unicode*) TERM="screen-256color" ;;
 esac
 
 # If we have a colorful terminal set color_prompt to yes
@@ -144,8 +144,8 @@ if [ "$color_prompt" = yes ]; then
 
     # Set color theme
     # Removed Theme
-    # COLOR_THEME=molokai
-    # source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
+    COLOR_THEME=molokai
+    source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
     PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
