@@ -29,7 +29,7 @@ Plugin 'fisadev/vim-isort'
 Plugin 'w0rp/ale'
 
 " Vue Plugins
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 " Yaml
 Plugin 'stephpy/vim-yaml'
@@ -38,6 +38,9 @@ Plugin 'stephpy/vim-yaml'
 " Plugin 'lepture/vim-jinja'
 " Plugin 'chase/vim-ansible-yaml'
 " Plugin 'cyberkov/openhab-vim'
+
+" RST
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 
@@ -129,7 +132,7 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 " -----------------------------------------------------------------------------
 set completeopt-=preview        " Do not pop up pydoc on completing
 let g:pymode_folding = 0
-let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+let g:pymode_lint_checker = ""
 let g:pymode_lint_mccabe_complexity = 9
 let g:pymode_doc = 0
 let g:pymode_rope = 0
@@ -211,6 +214,8 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
+autocmd FileType html       set tabstop=2 sw=2
+autocmd FileType sh         set tabstop=2 sw=2
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 

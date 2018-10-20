@@ -5,3 +5,11 @@ ipython/profile_default/db/
 terminal-color-theme/
 vim/
 nvim/
+
+; HTOPrc can be ignored as it changes when you changes views in the client
+htop/htoprc
+
+; Binary links
+bin/nvim
+bin/vim
+

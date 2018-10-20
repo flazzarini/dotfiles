@@ -31,6 +31,24 @@ command_exists() {
     type "$1" &> /dev/null ;
 }
 
+vault_grep() {
+    # $1 string to search for
+    # $2 folder to search in
+    for filename in $2/*; do
+        if [ -f "$filename" ]; then
+            if (head -n 1 $filename | grep ANSIBLE_VAULT > /dev/null 2>&1); then
+                output="$(ANSIBLE_DEPRECATION_WARNINGS=False vault view $filename | grep $1)"
+            else
+                output="$(cat $filename | grep $1)"
+            fi
+
+            if [ $? == 0 ]; then
+                echo "${filename}: ${output}"
+            fi
+        fi
+    done
+}
+
 
 # Environment Variables
 # -----------------------------------------------------------------------------
@@ -99,15 +117,15 @@ source ~/dotfiles/lib/bash_colors
 
 # Remap TERM environment variable
 case "$TERM" in
-    xterm*|rxvt-unicode*) TERM="xterm-256color" ;;
+    xterm*|rxvt-unicode*) TERM="screen-256color" ;;
 esac
 
 # If we have a colorful terminal set color_prompt to yes
 case "$TERM" in
     xterm-256color) color_prompt=yes ;;
+    tmux-256color) color_prompt=yes ;;
     screen-256color) color_prompt=yes ;;
     rxvt-unicode-256color) color_prompt=yes ;;
-    tmux-256color) color_prompt=yes ;;
 esac
 
 
@@ -125,6 +143,7 @@ if [ "$color_prompt" = yes ]; then
     PROMPT_COMMAND=prompt_command_function
 
     # Set color theme
+    # Removed Theme
     COLOR_THEME=molokai
     source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
