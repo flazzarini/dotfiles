@@ -13,3 +13,5 @@ htop/htoprc
 bin/nvim
 bin/vim
 
+; Ignore cookiecutter python environment if present
+cookiecutter/env
