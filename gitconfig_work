@@ -39,6 +39,8 @@
     ; Let's use vim as the default editor
     editor=vim
 
+[tag]
+sort = v:refname
 
 [diff]
     ; ... and vimdiff as diff tool
