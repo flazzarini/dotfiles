@@ -183,4 +183,4 @@ if [[ -d ~/.env ]]; then
     export VIRTUAL_ENV=~/.env
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/dotfiles/fzf/shell/key-bindings.bash ] && source ~/dotfiles/fzf/shell/key-bindings.bash
