@@ -17,4 +17,4 @@ cookiecutter/env
 bin/cookiecutter
 bin/fzf
 bin/tmux
-
+fzf/
