@@ -1,4 +1,5 @@
 set nocompatible
+set term=xterm-256color
 
 " Vundle Stuff
 " -----------------------------------------------------------------------------

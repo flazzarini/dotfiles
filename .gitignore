@@ -3,7 +3,6 @@ ipython/profile_default/history.sqlite
 ipython/profile_default/security/
 ipython/profile_default/db/
 terminal-color-theme/
-vim/
 nvim/
 
 ; HTOPrc can be ignored as it changes when you changes views in the client
@@ -13,3 +12,9 @@ htop/htoprc
 bin/nvim
 bin/vim
 
+; Ignore cookiecutter python environment if present
+cookiecutter/env
+bin/cookiecutter
+bin/fzf
+bin/tmux
+fzf/

@@ -63,7 +63,10 @@ install_bash: clean_bash
 	ln -sf `pwd`/bin ~/bin
 	ln -sf `pwd`/inputrc ~/.inputrc
 	ln -sf `pwd`/htop ~/.config/
-	git clone --recursive https://github.com/sona-tar/terminal-color-theme.git
+	[ -d terminal-color-theme ] || git clone --recursive https://github.com/sona-tar/terminal-color-theme.git
+	[ -d fzf ] || git clone --depth 1 https://github.com/junegunn/fzf.git `pwd`/fzf
+	cd fzf && ./install --bin
+	ln -sf `pwd`/fzf/bin/fzf `pwd`/bin
 
 clean_bash:
 	rm -Rf ~/.inputrc
