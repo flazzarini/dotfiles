@@ -31,7 +31,25 @@ command_exists() {
     type "$1" &> /dev/null ;
 }
 
-vault_grep() {
+vaultedit() {
+  if [ -f "$1" ]; then
+    if (head -n 1 $1 | grep ANSIBLE_VAULT > /dev/null 2>&1); then
+      ansible-vault edit $1
+    else
+      vim $1
+    fi
+  else
+    echo "File `$1` does not exist"
+    exit 1
+  fi
+}
+
+edit() {
+  # Shortcut for vaultedit
+  vaultedit $1
+}
+
+vaultgrep() {
     # $1 string to search for
     # $2 folder to search in
     for filename in $2/*; do
@@ -178,9 +196,20 @@ if [[ -d ~/node_modules/.bin ]]; then
     export PATH=/home/users/frank/node_modules/.bin:$PATH
 fi
 
+# Add .local/bin if available
+if [[ -d ~/.local/bin ]]; then
+  export PATH=~/.local/bin:$PATH
+fi
+
 # CREATE Virtualenv environment variable
 if [[ -d ~/.env ]]; then
     export VIRTUAL_ENV=~/.env
 fi
 
 [ -f ~/dotfiles/fzf/shell/key-bindings.bash ] && source ~/dotfiles/fzf/shell/key-bindings.bash
+
+
+# Docker login
+function docker-login(){
+     which oc && oc whoami && which docker && docker login --username $(oc whoami) --password $(oc whoami -t) registry.ipsw.dt.ept.lu
+}
