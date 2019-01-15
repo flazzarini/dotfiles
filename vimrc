@@ -1,5 +1,5 @@
 set nocompatible
-set term=xterm-256color
+set term=screen-256color
 
 " Vundle Stuff
 " -----------------------------------------------------------------------------
@@ -26,11 +26,13 @@ Plugin 'SirVer/ultisnips'
 
 " Python Plugins
 Plugin 'klen/python-mode'
-Plugin 'fisadev/vim-isort'
 Plugin 'w0rp/ale'
 
 " Vue Plugins
 " Plugin 'posva/vim-vue'
+
+" PHP
+Plugin 'StanAngeloff/php.vim'
 
 " Yaml
 Plugin 'stephpy/vim-yaml'
