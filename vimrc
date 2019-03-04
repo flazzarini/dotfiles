@@ -19,8 +19,6 @@ Plugin 'vim-airline/vim-airline'
 
 " General Purpose Plugins
 Plugin 'kien/ctrlp.vim'
-" Plugin 'Konfekt/FastFold'
-" Plugin 'Shougo/deoplete.nvim'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 
@@ -142,12 +140,17 @@ let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_python = 'python3'
 
+"
+" Ansible Settings
+" -----------------------------------------------------------------------------
+let g:anisble_vault_password_file = '~/workspace/ansible/vault_password'
+
 
 "
 " Ale config
 " -----------------------------------------------------------------------------
 let g:ale_fixers = {
-\   'python': ['isort'],
+\   'python': ['isort', 'autopep8'],
 \}
 let g:ale_linters = {
 \   'python': ['mypy', 'pylint'],
@@ -155,7 +158,7 @@ let g:ale_linters = {
 
 " Don't lint test files
 let g:ale_pattern_options = {
-\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': []},
+\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': ['isort', 'autopep8']},
 \}
 
 " Test Type Anotations with strict option
@@ -167,7 +170,10 @@ let g:airline#extensions#ale#enabled = 1
 " Format Ale Error Messages
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%severity%] [%linter%: %code%] %s'
+
+" Run ALEFix
+nnoremap <C-i> :ALEFix<CR>
 
 
 " Utlisnippets settings
