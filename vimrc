@@ -1,4 +1,5 @@
 set nocompatible
+set term=screen-256color
 
 " Vundle Stuff
 " -----------------------------------------------------------------------------
@@ -25,11 +26,13 @@ Plugin 'SirVer/ultisnips'
 
 " Python Plugins
 Plugin 'klen/python-mode'
-Plugin 'fisadev/vim-isort'
 Plugin 'w0rp/ale'
 
 " Vue Plugins
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
+
+" PHP
+Plugin 'StanAngeloff/php.vim'
 
 " Yaml
 Plugin 'stephpy/vim-yaml'
@@ -38,6 +41,9 @@ Plugin 'stephpy/vim-yaml'
 " Plugin 'lepture/vim-jinja'
 " Plugin 'chase/vim-ansible-yaml'
 " Plugin 'cyberkov/openhab-vim'
+
+" RST
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 
@@ -212,6 +218,7 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript set tabstop=2 sw=2
 autocmd FileType html       set tabstop=2 sw=2
+autocmd FileType sh         set tabstop=2 sw=2
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 

@@ -1,0 +1,55 @@
+snippet pp "Pretty Print" b
+from pprint import pformat; print('[debug-print-`cat /dev/urandom | hexdump | head -n 1 | cut -d ' ' -f 2`]', pformat(${1}))  # XXX debug statement
+endsnippet
+
+
+snippet dp "Debug Print" b
+print('[debug-print-`cat /dev/urandom | hexdump | head -n 1 | cut -d ' ' -f 2`]', ${1})  # XXX debug statement
+endsnippet
+
+
+snippet rp "Repr Print" b
+print('[debug-print-`cat /dev/urandom | hexdump | head -n 1 | cut -d ' ' -f 2`]', repr(${1}))  # XXX debug statement
+endsnippet
+
+
+snippet exp "Unittest Expected Assert" b
+self.assertEqual(result, expected)
+endsnippet
+
+
+snippet plbo "Post Mediatype Prefix" b
+prs.lu.post.bb.object/
+endsnippet
+
+
+snippet ifmain "ifmain" b
+if __name__ == `!p snip.rv = get_quoting_style(snip)`__main__`!p snip.rv = get_quoting_style(snip)`:
+    ${1:${VISUAL:main()}}
+endsnippet
+
+
+snippet for "for loop" b
+for ${1:item} in ${2:iterable}:
+    ${3:${VISUAL:pass}}
+endsnippet
+
+
+###############################################################################
+# Common Functions                                                            #
+###############################################################################
+global !p
+
+SINGLE_QUOTES = "'"
+DOUBLE_QUOTES = '"'
+
+def get_quoting_style(snip):
+	style = snip.opt("g:ultisnips_python_quoting_style", "double")
+	if style == 'single':
+		return SINGLE_QUOTES
+	return DOUBLE_QUOTES
+
+endglobal
+
+
+# vim:ft=snippets:
