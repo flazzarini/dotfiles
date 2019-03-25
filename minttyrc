@@ -1,0 +1,14 @@
+BellType=0
+BoldAsFont=no
+BoldAsColour=yes
+Font=Anonymice Powerline
+FontHeight=12
+FontSmoothing=full
+Term=xterm-256color
+Transparency=off
+CursorType=block
+WindowShortcuts=no
+Columns=160
+Rows=50
+Blue=202,169,250
+BoldBlue=202,169,250
