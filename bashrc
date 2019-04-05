@@ -81,7 +81,6 @@ export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
 export PGUSER="flazzarini"
 export DISPLAY=":0"
-export LESS="-#5"                        # less command options
 
 
 # Keychain
