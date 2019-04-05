@@ -80,6 +80,7 @@ export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
 export PGUSER="flazzarini"
+export DISPLAY=":0"
 
 
 # Keychain
@@ -87,7 +88,7 @@ export PGUSER="flazzarini"
 #
 if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != *.gefoo.org ]]; then
     if [ -f "$HOME/.ssh/id_rsa" ]; then
-        /usr/bin/keychain $HOME/.ssh/id_rsa
+        $(which keychain) $HOME/.ssh/id_rsa
         . ~/.keychain/$HOSTNAME-sh
     fi
 fi
