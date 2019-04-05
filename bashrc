@@ -175,6 +175,7 @@ unset color_prompt force_color_prompt
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
+export GTI_SPEED=10000
 
 
 # Add local binaries to path
