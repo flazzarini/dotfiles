@@ -26,6 +26,9 @@ Plugin 'SirVer/ultisnips'
 Plugin 'klen/python-mode'
 Plugin 'w0rp/ale'
 
+" Vagrant Plugin
+Plugin 'vim-vagrant'
+
 " Vue Plugins
 " Plugin 'posva/vim-vue'
 
