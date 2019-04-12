@@ -222,10 +222,28 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " Specific settings for filetypes
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
-autocmd FileType javascript set tabstop=2 sw=2
-autocmd FileType html       set tabstop=2 sw=2
-autocmd FileType sh         set tabstop=2 sw=2
+autocmd FileType javascript      set tabstop=2 sw=2
+autocmd FileType html            set tabstop=2 sw=2
+autocmd FileType sh              set tabstop=2 sw=2
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
+
+"
+" Scripts
+" -----------------------------------------------------------------------------
+
+function Header(width, word)
+    let a:inserted_word = ' ' . a:word . ' '
+    let a:word_width = strlen(a:inserted_word)
+    let a:length_before = (a:width - a:word_width) / 2
+    let a:hashes_before = repeat('#', a:length_before)
+    let a:hashes_after = repeat('#', a:width - (a:word_width + a:length_before))
+    let a:hash_line = repeat('#', a:width)
+    let a:word_line = a:hashes_before . a:inserted_word . a:hashes_after
+
+    :put =a:hash_line
+    :put =a:word_line
+    :put =a:hash_line
+endfunction
 
 source ~/.vimdb
