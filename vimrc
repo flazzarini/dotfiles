@@ -19,14 +19,15 @@ Plugin 'vim-airline/vim-airline'
 
 " General Purpose Plugins
 Plugin 'kien/ctrlp.vim'
-" Plugin 'Konfekt/FastFold'
-" Plugin 'Shougo/deoplete.nvim'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 
 " Python Plugins
 Plugin 'klen/python-mode'
 Plugin 'w0rp/ale'
+
+" Vagrant Plugin
+Plugin 'vim-vagrant'
 
 " Vue Plugins
 " Plugin 'posva/vim-vue'
@@ -142,12 +143,17 @@ let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_python = 'python3'
 
+"
+" Ansible Settings
+" -----------------------------------------------------------------------------
+let g:anisble_vault_password_file = '~/workspace/ansible/vault_password'
+
 
 "
 " Ale config
 " -----------------------------------------------------------------------------
 let g:ale_fixers = {
-\   'python': ['isort'],
+\   'python': ['isort', 'autopep8'],
 \}
 let g:ale_linters = {
 \   'python': ['mypy', 'pylint'],
@@ -155,7 +161,7 @@ let g:ale_linters = {
 
 " Don't lint test files
 let g:ale_pattern_options = {
-\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': []},
+\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': ['isort', 'autopep8']},
 \}
 
 " Test Type Anotations with strict option
@@ -167,7 +173,10 @@ let g:airline#extensions#ale#enabled = 1
 " Format Ale Error Messages
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%severity%] [%linter%: %code%] %s'
+
+" Run ALEFix
+nnoremap <C-i> :ALEFix<CR>
 
 
 " Utlisnippets settings
@@ -216,10 +225,28 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 " Specific settings for filetypes
 " -----------------------------------------------------------------------------
 autocmd BufRead,BufNewFile *.rst setlocal tw=80
-autocmd FileType javascript set tabstop=2 sw=2
-autocmd FileType html       set tabstop=2 sw=2
-autocmd FileType sh         set tabstop=2 sw=2
+autocmd FileType javascript      set tabstop=2 sw=2
+autocmd FileType html            set tabstop=2 sw=2
+autocmd FileType sh              set tabstop=2 sw=2
 autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
+
+"
+" Scripts
+" -----------------------------------------------------------------------------
+
+function Header(width, word)
+    let a:inserted_word = ' ' . a:word . ' '
+    let a:word_width = strlen(a:inserted_word)
+    let a:length_before = (a:width - a:word_width) / 2
+    let a:hashes_before = repeat('#', a:length_before)
+    let a:hashes_after = repeat('#', a:width - (a:word_width + a:length_before))
+    let a:hash_line = repeat('#', a:width)
+    let a:word_line = a:hashes_before . a:inserted_word . a:hashes_after
+
+    :put =a:hash_line
+    :put =a:word_line
+    :put =a:hash_line
+endfunction
 
 source ~/.vimdb
