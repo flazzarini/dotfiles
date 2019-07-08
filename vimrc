@@ -33,7 +33,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'vim-vagrant'
 
 " Vue Plugins
-" Plugin 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 
 " PHP
 Plugin 'StanAngeloff/php.vim'

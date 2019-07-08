@@ -6,12 +6,14 @@
 # -----------------------------------------------------------------------------
 #
 [ -z "$PS1" ] && return
-HISTCONTROL=ignoredups:ignorespace            # don't put duplicated to history
-shopt -s histappend                           # append to hist not overwrite
-HISTSIZE=1000                                 # History size length
-HISTFILESIZE=2000                             # Hitstory filesize
-shopt -s checkwinsize                         # Check window size after each
-                                              # command update LINES COLUMNS
+HISTCONTROL=ignoredups:ignorespace             # don't put duplicated to history
+HISTSIZE=1000                                  # History size length
+HISTFILESIZE=2000                              # Hitstory filesize
+shopt -s histappend                            # append to hist not overwrite
+shopt -s checkwinsize                          # Check window size after each
+                                               # command update LINES COLUMNS
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Source bash aliases
 if [ -f ~/.bash_aliases ]; then
@@ -81,6 +83,7 @@ export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
 export PGUSER="flazzarini"
 export DISPLAY=":0"
+export COOKIECUTTER_CONFIG="$HOME/.cookiecutter.yaml"
 
 
 # Keychain
