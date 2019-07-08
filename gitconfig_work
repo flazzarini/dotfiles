@@ -40,6 +40,7 @@
     editor=vim
 
 [tag]
+; Sort tags by version
 sort = v:refname
 
 [diff]
