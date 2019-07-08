@@ -23,8 +23,11 @@ Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 
 " Python Plugins
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 Plugin 'w0rp/ale'
+
+" Docker Plugins
+Plugin 'ekalinin/Dockerfile.vim'
 
 " Vagrant Plugin
 Plugin 'vim-vagrant'
@@ -36,7 +39,7 @@ Plugin 'vim-vagrant'
 Plugin 'StanAngeloff/php.vim'
 
 " Yaml
-Plugin 'stephpy/vim-yaml'
+" Plugin 'stephpy/vim-yaml'
 
 " Disabled Plugins
 " Plugin 'lepture/vim-jinja'
@@ -143,6 +146,12 @@ let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_python = 'python3'
 
+
+" ctrl-p settings
+" -----------------------------------------------------------------------------
+let g:ctrlp_working_path_mode = 0
+
+
 "
 " Ansible Settings
 " -----------------------------------------------------------------------------
@@ -228,7 +237,7 @@ autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript      set tabstop=2 sw=2
 autocmd FileType html            set tabstop=2 sw=2
 autocmd FileType sh              set tabstop=2 sw=2
-autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
+" autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 
 "
