@@ -6,6 +6,7 @@
 # -----------------------------------------------------------------------------
 #
 [ -z "$PS1" ] && return
+
 HISTCONTROL=ignoredups:ignorespace             # don't put duplicated to history
 HISTSIZE=1000                                  # History size length
 HISTFILESIZE=2000                              # Hitstory filesize
@@ -30,7 +31,7 @@ fi
 # -----------------------------------------------------------------------------
 #
 command_exists() {
-    type "$1" &> /dev/null ;
+  type "$1" &> /dev/null ;
 }
 
 vaultedit() {
@@ -52,21 +53,21 @@ edit() {
 }
 
 vaultgrep() {
-    # $1 string to search for
-    # $2 folder to search in
-    for filename in $2/*; do
-        if [ -f "$filename" ]; then
-            if (head -n 1 $filename | grep ANSIBLE_VAULT > /dev/null 2>&1); then
-                output="$(ANSIBLE_DEPRECATION_WARNINGS=False vault view $filename | grep $1)"
-            else
-                output="$(cat $filename | grep $1)"
-            fi
+  # $1 string to search for
+  # $2 folder to search in
+  for filename in $2/*; do
+    if [ -f "$filename" ]; then
+      if (head -n 1 $filename | grep ANSIBLE_VAULT > /dev/null 2>&1); then
+        output="$(ANSIBLE_DEPRECATION_WARNINGS=False vault view $filename | grep $1)"
+      else
+        output="$(cat $filename | grep $1)"
+      fi
 
-            if [ $? == 0 ]; then
-                echo "${filename}: ${output}"
-            fi
-        fi
-    done
+      if [ $? == 0 ]; then
+        echo "${filename}: ${output}"
+      fi
+    fi
+  done
 }
 
 
@@ -74,10 +75,6 @@ vaultgrep() {
 # -----------------------------------------------------------------------------
 #
 EDITOR_CMD=vim
-# if [ -x "$(command -v nvim)" ]; then
-#     EDITOR_CMD=nvim
-# fi
-
 export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
@@ -90,10 +87,10 @@ export COOKIECUTTER_CONFIG="$HOME/.cookiecutter.yaml"
 # -----------------------------------------------------------------------------
 #
 if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != *.gefoo.org ]]; then
-    if [ -f "$HOME/.ssh/id_rsa" ]; then
-        $(which keychain) $HOME/.ssh/id_rsa
-        . ~/.keychain/$HOSTNAME-sh
-    fi
+  if [ -f "$HOME/.ssh/id_rsa" ]; then
+    $(which keychain) $HOME/.ssh/id_rsa
+    . ~/.keychain/$HOSTNAME-sh
+  fi
 fi
 
 
@@ -104,7 +101,7 @@ fi
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 man() {
-    env \
+  env \
     LESS_TERMCAP_mb=$(printf "\e[1;94m") \
     LESS_TERMCAP_md=$(printf "\e[1;94m") \
     LESS_TERMCAP_me=$(printf "\e[0m") \
@@ -120,7 +117,7 @@ man() {
 # -----------------------------------------------------------------------------
 #
 buf() {
-    cp $1 $(date +%Y%m%d-%H_%M)-$1;
+  cp $1 $(date +%Y%m%d-%H_%M)-$1;
 }
 
 
@@ -139,37 +136,37 @@ source ~/dotfiles/lib/bash_colors
 
 # Remap TERM environment variable
 case "$TERM" in
-    xterm*|rxvt-unicode*) TERM="screen-256color" ;;
+  xterm*|rxvt-unicode*) TERM="screen-256color" ;;
 esac
 
 # If we have a colorful terminal set color_prompt to yes
 case "$TERM" in
-    xterm-256color) color_prompt=yes ;;
-    tmux-256color) color_prompt=yes ;;
-    screen-256color) color_prompt=yes ;;
-    rxvt-unicode-256color) color_prompt=yes ;;
+  xterm-256color) color_prompt=yes ;;
+  tmux-256color) color_prompt=yes ;;
+  screen-256color) color_prompt=yes ;;
+  rxvt-unicode-256color) color_prompt=yes ;;
 esac
 
 
 function prompt_command_function() {
-    GIT_BRANCH="$(~/dotfiles/bin/gitbranch.sh)"
-    SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
+  GIT_BRANCH="$(~/dotfiles/bin/gitbranch.sh)"
+  SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
 
-    PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})─> ${RED}${GIT_BRANCH}${RESET}"
-    PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})──> ${RESET}$ "
-    PS1="$PS1_LINE1\n$PS1_LINE2"
+  PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})─> ${RED}${GIT_BRANCH}${RESET}"
+  PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})──> ${RESET}$ "
+  PS1="$PS1_LINE1\n$PS1_LINE2"
 }
 
 if [ "$color_prompt" = yes ]; then
-    # Set prompt
-    PROMPT_COMMAND=prompt_command_function
+  # Set prompt
+  PROMPT_COMMAND=prompt_command_function
 
-    # Set color theme
-    # Removed Theme
-    COLOR_THEME=molokai
-    source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
+  # Set color theme
+  # Removed Theme
+  COLOR_THEME=molokai
+  source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
-    PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
+  PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -209,7 +206,14 @@ fi
 [ -f ~/dotfiles/fzf/shell/key-bindings.bash ] && source ~/dotfiles/fzf/shell/key-bindings.bash
 
 
-# Docker login
+#
+# Openshift Docker Registry Login
+#
 function docker-login(){
-     which oc && oc whoami && which docker && docker login --username $(oc whoami) --password $(oc whoami -t) registry.ipsw.dt.ept.lu
+  which oc && \
+  oc whoami && \
+  which docker && \
+  docker login --username $(oc whoami) \
+               --password $(oc whoami -t) \
+               registry.ipsw.dt.ept.lu
 }
