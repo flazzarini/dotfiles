@@ -20,6 +20,6 @@ case "$1" in
     razor-qt) exec razor-session ;;
     lxde) exec lxsession ;;
     mate) exec mate-session ;;
-    i3) i3 ;;
+    i3) exec i3 ;;
     *) exec $DEFAULTSESSION ;;
 esac

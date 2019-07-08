@@ -23,7 +23,8 @@ new_float pixel 2
 
 # i3Bar Settings
 bar {
-    status_command ~/.i3/scripts/conky-wrapper.sh
+    # status_command ~/.i3/scripts/conky-wrapper.sh
+    status_command py3status -c ~/.i3/i3status.conf
     position bottom
     font xft:Droid Sans Mono 9
     workspace_buttons yes
@@ -49,7 +50,6 @@ for_window [class="Chromium"]                            border none
 for_window [class="Firefox"]                             border none
 for_window [class="vlc"]                                 border none
 for_window [class="VirtualBox"]                          floating enabled
-for_window [class="Wicd-client.py"]                      floating enabled
 for_window [class="Stream"]                              floating enabled
 for_window [class="winff"]                               floating enabled
 for_window [class="Thunar"]                              floating enabled
@@ -100,10 +100,10 @@ workspace "[5] dwld"     output LVDS1
 # Autostart stuff
 # ------------------------------------------------------------------------------
 exec --no-startup-id compton --config ~/.config/compton.conf
-exec --no-startup-id /usr/bin/volumeicon
-exec --no-startup-id wicd-client -t
 exec --no-startup-id exec ~/.i3/scripts/wallpapers.sh
 exec --no-startup-id xscreensaver -no-splash
+exec --no-startup-id thunar --daemon
+exec --no-startup-id /usr/bin/volumeicon
 #exec --no-startup-id ~/bin/update-grive.sh
 #exec --no-startup-id exec ~/bin/update-grive.sh
 #exec --no-startup-id i3-msg 'workspace 3'; exec ~/.i3/scripts/tmux-chat.sh; workspace 1

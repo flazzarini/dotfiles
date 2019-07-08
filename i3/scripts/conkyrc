@@ -17,17 +17,17 @@ TEXT
     },
 
     {
-        "full_text": " ≈ ${if_existing /sys/class/net/wlan0/operstate up}wlan0 ${addr wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}eth0 ${addr eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}eth1${endif}",
+        "full_text": " ≈ ${if_existing /sys/class/net/wlp3s0/operstate up}wlp3s0 ${addr wlp3s0}${endif}${if_existing /sys/class/net/eth0/operstate up}eth0 ${addr eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}eth1${endif}",
         "color": "\#268BD2"
     },
 
     {
-        "full_text": " ▲ ${if_existing /sys/class/net/wlan0/operstate up}${totalup wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totalup eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}${totalup eth1}${endif}",
+        "full_text": " ▲ ${if_existing /sys/class/net/wlp3s0/operstate up}${totalup wlp3s0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totalup eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}${totalup eth1}${endif}",
         "color": "\#268BD2"
     },
 
     {
-        "full_text": " ▼ ${if_existing /sys/class/net/wlan0/operstate up}${totaldown wlan0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totaldown eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}${totaldown eth1}${endif}",
+        "full_text": " ▼ ${if_existing /sys/class/net/wlp3s0/operstate up}${totaldown wlp3s0}${endif}${if_existing /sys/class/net/eth0/operstate up}${totaldown eth0}${endif}${if_existing /sys/class/net/eth1/operstate up}${totaldown eth1}${endif}",
         "color": "\#268BD2"
     },
 
