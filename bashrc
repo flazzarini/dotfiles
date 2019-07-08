@@ -176,7 +176,7 @@ unset color_prompt force_color_prompt
 #
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
-export GTI_SPEED=10000
+export GTI_SPEED=5000
 
 
 # Add local binaries to path
@@ -201,11 +201,6 @@ fi
 # Add .local/bin if available
 if [[ -d ~/.local/bin ]]; then
   export PATH=~/.local/bin:$PATH
-fi
-
-# CREATE Virtualenv environment variable
-if [[ -d ~/.env ]]; then
-    export VIRTUAL_ENV=~/.env
 fi
 
 [ -f ~/dotfiles/fzf/shell/key-bindings.bash ] && source ~/dotfiles/fzf/shell/key-bindings.bash
