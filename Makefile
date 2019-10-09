@@ -178,6 +178,7 @@ install_tmux: clean_tmux
 	ln -sf `pwd`/tmux-powerline/my_theme.sh ~/.bin/tmux-powerline/themes/my_theme.sh
 	[ -d ~/.ssh ] || mkdir ~/.ssh
 	ln -sf `pwd`/sshrc ~/.ssh/rc
+	tic `pwd`/tmux18-256color.ti
 
 clean_tmux:
 	rm -Rf ~/.tmux.conf
