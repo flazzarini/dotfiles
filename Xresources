@@ -206,6 +206,13 @@ xscreensaver.passwd.thermometer.width: 8
 xscreensaver.passwd.asterisks: True
 xscreensaver.passwd.uname: True
 
+! ROFI Theme
+!
+!
+! ------------------------------------------------------------------------------
+rofi.theme: /home/frank/dotfiles/rofi/flat-orange.rasi
+
+
 
 !
 ! Include Xcolors
