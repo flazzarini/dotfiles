@@ -1,0 +1,64 @@
+###############################################################################
+#
+# STANDARD Bindings
+#
+###############################################################################
+
+# Start Terminal Emulator
+super + Return
+    alacritty
+
+# Program Launcher
+super + {@space,d}
+    rofi -show run
+
+# Toggle Mousepad
+super + m
+    synclient TouchpadOff={1,0}
+
+# Show Pavucontrol
+super + shift + a
+    pavucontrol
+
+XF86AudioLowerVolume
+    pamixer -d 10
+
+XF86AudioRaiseVolume
+    pamixer -i 10
+
+
+###############################################################################
+#
+# BSPWM WINDOW CONTROL
+#
+###############################################################################
+
+# Select nodes with cursor
+super + {Left,Right,Up,Down}
+    bspc node -f {west,east,north,south}
+
+# Float/Windowed Window
+super + f
+    bspc window -t {floating,fullscreen}
+
+super + Tab
+    bspc node -f last
+
+# Move focuses window to other workspace
+super + shift + {1-9}
+    id=$(bspc query -N n); bspc node -d ^{1-9}; bspc node -f ${id}
+
+# Switch workspaces
+super + {1,2,3,4,5,6,7,8,9}
+    bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+# Close a Window
+super + {q,w}
+    bspc node -c
+
+super + shift + q
+    bspc node -c
+
+# Quit BSPWM
+super + shift + e
+    bspc quit
