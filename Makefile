@@ -25,6 +25,7 @@ help:
 	@echo '   make install_git_home            install git home files             '
 	@echo '   make install_git_work            install git work files             '
 	@echo '   make install_i3                  install i3 files                   '
+	@echo '   make install_bspwm               install bspwm files                '
 	@echo '   make install_python              install ipython files              '
 	@echo '   make install_irssi               install irssi --irssipassword=X    '
 	@echo '   make install_tmux                install tmux conf files            '
@@ -117,7 +118,7 @@ install_i3: clean_i3
 	ln -sf `pwd`/Xresources ~/.Xresources
 	ln -sf `pwd`/xession ~/.xsession
 	ln -sf `pwd`/i3 ~/.i3
-	ln -sf `pwd`/comton.conf ~/.config/compton.conf
+	ln -sf `pwd`/compton.conf ~/.config/compton.conf
 
 clean_i3:
 	rm -Rf ~/.xinitrc
@@ -125,6 +126,26 @@ clean_i3:
 	rm -Rf ~/.Xdefaults
 	rm -Rf ~/.Xresources
 	rm -Rf ~/.i3
+	rm -Rf ~/.config/polybar
+	rm -Rf ~/.config/compton.conf
+
+install_bspwm: clean_bspwm
+	ln -sf `pwd`/xinitrc ~/.xinitrc
+	ln -sf `pwd`/Xresources ~/.Xresources
+	ln -sf `pwd`/xession ~/.xsession
+	ln -sf `pwd`/bspwm ~/.config/bspwm
+	ln -sf `pwd`/polybar ~/.config/polybar
+	ln -sf `pwd`/sxhkd ~/.config/sxhkd
+	ln -sf `pwd`/compton.conf ~/.config/compton.conf
+
+clean_bspwm:
+	rm -Rf ~/.xinitrc
+	rm -Rf ~/.xsession
+	rm -Rf ~/.Xdefaults
+	rm -Rf ~/.Xresources
+	rm -Rf ~/.config/bspwm
+	rm -Rf ~/.config/polybar
+	rm -Rf ~/.config/sxhkd
 	rm -Rf ~/.config/compton.conf
 
 install_irssi:
