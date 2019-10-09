@@ -4,11 +4,8 @@ xset r rate 200 55
 # Set keyboard layout to gb
 setxkbmap -layout gb
 
-# Start udiskie
-udiskie --tray &
-
 # Select the session
-DEFAULTSESSION=i3
+DEFAULTSESSION=bspwm
 
 
 case "$1" in
@@ -21,5 +18,7 @@ case "$1" in
     lxde) exec lxsession ;;
     mate) exec mate-session ;;
     i3) exec i3 ;;
+    bspwm) exec bspwm ;;
+    BSPWM) exec bspwm ;;
     *) exec $DEFAULTSESSION ;;
 esac

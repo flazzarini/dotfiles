@@ -75,6 +75,7 @@ vaultgrep() {
 # -----------------------------------------------------------------------------
 #
 EDITOR_CMD=vim
+export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
@@ -184,7 +185,7 @@ export GTI_SPEED=5000
 
 # Add custom binaries in home folder to PATH
 if [[ -d ~/bin ]]; then
-    export PATH=~/bin:$PATH
+    export PATH=~/bin:~/.local/bin:$PATH
 fi
 
 # Add Node JS environment to path
