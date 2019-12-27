@@ -83,7 +83,7 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
 #
 export PYTHONWARNINGS=ignore                         # Give no python warnings
 export FLASKPORT=50020                               # My personal dev port
-alias pyserve='python -m SimpleHTTPServer $1'        # server cwd via http
+alias pyserve='python3 -m http.server $1'            # server cwd via http
 alias venv='virtualenv env && \
             ./env/bin/pip install ipython'           # prepare virtualenv
 alias venv3='virtualenv -p /usr/bin/python3 env && \
