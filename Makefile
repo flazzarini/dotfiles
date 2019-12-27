@@ -228,9 +228,9 @@ clean_beets:
 
 install_winbox: clean_winbox
 	@echo 'Installing Winbox 3.11 to /opt/winbox'
-	sudo install -d -o `whoami` /opt/winbox
+	[ -d /opt/winbox ] || sudo install -d -o `whoami` /opt/winbox
 	cd /opt/winbox && wget https://download2.mikrotik.com/routeros/winbox/3.11/winbox.exe
 
 clean_winbox:
-	@echo 'Removing Winbox from /opt/winbox'
-	rm -Rf /opt/winbox
+	@echo 'Removing Winbox from /opt/winbox/winbox.exe'
+	if [ -f /opt/winbox/winbox.exe ]; then rm /opt/winbox/winbox.exe; fi
