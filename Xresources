@@ -206,6 +206,13 @@ xscreensaver.passwd.thermometer.width: 8
 xscreensaver.passwd.asterisks: True
 xscreensaver.passwd.uname: True
 
+!
+! KeepassX Colors
+!
+! ------------------------------------------------------------------------------
+keepassx*background:    #cfcfcf
+keepassx*foreground:    #222222
+
 ! ROFI Theme
 !
 !
