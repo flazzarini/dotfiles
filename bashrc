@@ -80,7 +80,6 @@ export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
 export PGPASS="~/.pgpass"
 export PGUSER="flazzarini"
-export COOKIECUTTER_CONFIG="$HOME/.cookiecutter.yaml"
 
 
 # Keychain

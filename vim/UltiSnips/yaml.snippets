@@ -1,0 +1,7 @@
+snippet adp "Ansible Debug Print" b
+- name: DEBUG `cat /dev/urandom | hexdump | head -n 1 | cut -d ' ' -f 2`
+  debug:
+    msg: ${1}
+endsnippet
+
+# vim:ft=snippets:
