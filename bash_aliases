@@ -78,6 +78,12 @@ alias eximremovefrozen='sudo exim -z -i | xargs exim -Mrm' # Removes all frozen
                                                            # messages
 
 
+# Openssl aliases
+# -----------------------------------------------------------------------------
+#
+alias osslenddate='openssl x509 -enddate -noout -in '   # Get expiration date
+
+
 # Python Stuff
 # -----------------------------------------------------------------------------
 #
