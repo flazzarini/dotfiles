@@ -176,6 +176,7 @@ unset color_prompt force_color_prompt
 export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
 export GTI_SPEED=5000
+export DEVELOPMENT_PORTS="50020,50025"
 
 
 # Add local binaries to path
@@ -216,3 +217,9 @@ function docker-login(){
                --password $(oc whoami -t) \
                registry.ipsw.dt.ept.lu
 }
+
+#
+# Execute additional settings for specific hosts (based on hostname)
+#
+[ -f ~/dotfiles/host_specific.d/$HOSTNAME.sh ] && source ~/dotfiles/host_specific.d/$HOSTNAME.sh
+
