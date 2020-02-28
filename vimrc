@@ -38,6 +38,9 @@ Plugin 'posva/vim-vue'
 " PHP
 Plugin 'StanAngeloff/php.vim'
 
+" Logstash highlight
+Plugin 'robbles/logstash.vim'
+
 " Yaml
 " Plugin 'stephpy/vim-yaml'
 
