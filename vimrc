@@ -96,7 +96,7 @@ let g:airline_powerline_fonts = 1 " Use patched fonts
 
 " Indentation settings
 " -----------------------------------------------------------------------------
-set autoindent                  " always set autoindenting on
+"set autoindent                  " always set autoindenting on
 set shiftwidth=4                " Force indentation to be 4 spaces
 set tabstop=4                   "          -- idem --
 set list                        " EOL, trailing spaces, tabs: show them.
@@ -240,6 +240,7 @@ autocmd BufRead,BufNewFile *.rst setlocal tw=80
 autocmd FileType javascript      set tabstop=2 sw=2
 autocmd FileType html            set tabstop=2 sw=2
 autocmd FileType sh              set tabstop=2 sw=2
+autocmd FileType xml             set tabstop=2 sw=2
 " autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 
