@@ -144,6 +144,7 @@ case "$TERM" in
   tmux-256color) color_prompt=yes ;;
   screen-256color) color_prompt=yes ;;
   rxvt-unicode-256color) color_prompt=yes ;;
+  alacritty) color_prompt=yes ;;
 esac
 
 
