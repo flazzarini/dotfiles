@@ -16,15 +16,19 @@ Plugin 'flazz/vim-colorschemes'
 " Visual
 Plugin 'Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " General Purpose Plugins
+Plugin 'ciaranm/detectindent'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
+Plugin 'ycm-core/YouCompleteMe'
 
 " Python Plugins
-Plugin 'python-mode/python-mode'
 Plugin 'w0rp/ale'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'vim-python/python-syntax'
 
 " Docker Plugins
 Plugin 'ekalinin/Dockerfile.vim'
@@ -42,15 +46,15 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'robbles/logstash.vim'
 
 " Yaml
-" Plugin 'stephpy/vim-yaml'
+Plugin 'stephpy/vim-yaml'
+
+" RST
+Plugin 'dhruvasagar/vim-table-mode'
 
 " Disabled Plugins
 " Plugin 'lepture/vim-jinja'
 " Plugin 'chase/vim-ansible-yaml'
 " Plugin 'cyberkov/openhab-vim'
-
-" RST
-Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 
@@ -86,11 +90,12 @@ syntax on                       " syntax highlighting
 
 
 
-" Powerline specific
+" Airline specific
 " -----------------------------------------------------------------------------
 set laststatus=2                  " always show status bar
 set cmdheight=2                   " set cmd height to 2
 let g:airline_powerline_fonts = 1 " Use patched fonts
+let g:airline_theme='wombat'      " Airline theme https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
 
 
@@ -118,6 +123,11 @@ vnoremap > >gv                  " indent '<' multiple times in visual mode
 "nnoremap n nzz                  " on next find center screen
 
 
+" Vim Table settings
+" -----------------------------------------------------------------------------
+let g:table_mode_corner_corner='+'  " RST Table style
+
+
 
 " Code Style settings
 " -----------------------------------------------------------------------------
@@ -141,13 +151,14 @@ vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 " python-mode settings
 " -----------------------------------------------------------------------------
 set completeopt-=preview        " Do not pop up pydoc on completing
-let g:pymode_folding = 0
-let g:pymode_lint_checker = ""
-let g:pymode_lint_mccabe_complexity = 9
-let g:pymode_doc = 0
-let g:pymode_rope = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_python = 'python3'
+" let g:pymode_folding = 0
+" let g:pymode_lint_checker = ""
+" let g:pymode_lint_mccabe_complexity = 9
+" let g:pymode_doc = 0
+" let g:pymode_rope = 0
+" let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_python = 'python3'
+let g:python_highlight_all = 1
 
 
 " ctrl-p settings
@@ -202,6 +213,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " -----------------------------------------------------------------------------
 let g:indentLine_char = '|'
 
+
+" YouCompleteMe Settings
+" -----------------------------------------------------------------------------
+let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
 
 
 " Keyboard maps
