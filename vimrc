@@ -9,16 +9,15 @@ call vundle#begin("~/.vim/bundle")
 " Vundle
 Plugin 'gmarik/Vundle.vim'
 
-"  Colorschemes
+" Visual
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'flazz/vim-colorschemes'
-
-" Visual
 Plugin 'Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " General Purpose Plugins
+Plugin 'preservim/nerdtree'
 Plugin 'ciaranm/detectindent'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
@@ -128,6 +127,12 @@ vnoremap > >gv                  " indent '<' multiple times in visual mode
 let g:table_mode_corner_corner='+'  " RST Table style
 
 
+" Ultisnippets settings
+" -----------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
 
 " Code Style settings
 " -----------------------------------------------------------------------------
@@ -146,19 +151,6 @@ nmap <C-Down> ddp               " Single line down
 vmap <C-Up>   xkP`[V`]          " Visual mode multiple lines up
 vmap <C-Down> xp`[V`]           " Visual mode multiple lines down
 
-
-
-" python-mode settings
-" -----------------------------------------------------------------------------
-set completeopt-=preview        " Do not pop up pydoc on completing
-" let g:pymode_folding = 0
-" let g:pymode_lint_checker = ""
-" let g:pymode_lint_mccabe_complexity = 9
-" let g:pymode_doc = 0
-" let g:pymode_rope = 0
-" let g:pymode_rope_complete_on_dot = 0
-" let g:pymode_python = 'python3'
-let g:python_highlight_all = 1
 
 
 " ctrl-p settings
@@ -200,13 +192,6 @@ let g:ale_echo_msg_format = '[%severity%] [%linter%: %code%] %s'
 
 " Run ALEFix
 nnoremap <C-i> :ALEFix<CR>
-
-
-" Utlisnippets settings
-" -----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " IndentLine Settings
