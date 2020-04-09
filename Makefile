@@ -12,7 +12,7 @@
 # the config. So you should use make install_irssi FREENODEPASS=somepass or
 # make all FREENODEPASS=somepass
 #
-
+SHELL=/bin/bash
 
 help:
 	@echo 'Makefile for dotfiles                                                  '
@@ -56,7 +56,7 @@ install_fonts: clean_fonts
 clean_fonts:
 	rm -Rf ~/.fonts
 
-install_bash: clean_bash
+install_bash: clean_bash install_bat
 	ln -sf `pwd`/bashrc ~/.bashrc
 	ln -sf `pwd`/bash_aliases ~/.bash_aliases
 	ln -sf `pwd`/bash_profile ~/.bash_profile
@@ -234,3 +234,7 @@ install_winbox: clean_winbox
 clean_winbox:
 	@echo 'Removing Winbox from /opt/winbox/winbox.exe'
 	if [ -f /opt/winbox/winbox.exe ]; then rm /opt/winbox/winbox.exe; fi
+
+install_bat:
+	@echo 'Install bat (cat on steroids)'
+	installers/install_bat.sh
