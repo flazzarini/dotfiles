@@ -100,9 +100,9 @@ alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 # ANSIBLE stuff
 # -----------------------------------------------------------------------------
 #
-export ANSIBLE_HOME="$HOME/workspace/ansible"
+export ANSIBLE_HOME="$HOME/devops/ansible/ansible"
 export ANSIBLE_CONFIG="$ANSIBLE_HOME/ansible.cfg"
-export ANSIBLE_VAULT_PASSWORD_FILE="$HOME/workspace/ansible/vault_password"
+export ANSIBLE_VAULT_PASSWORD_FILE="$ANSIBLE_HOME/vault_password"
 
 alias ansi='cd $ANSIBLE_HOME'
 alias vault='$ANSIBLE_HOME/env/bin/ansible-vault'
@@ -114,6 +114,13 @@ alias mkansiblerole='mkdir -p {tasks,handlers,files,defaults}'
 # -----------------------------------------------------------------------------
 #
 alias perlshell='perl -d -e 1'
+
+
+# Docker aliases
+# -----------------------------------------------------------------------------
+#
+alias dis="docker images --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | column -t | sort -hs"
+
 
 
 # vim: filetype=sh
