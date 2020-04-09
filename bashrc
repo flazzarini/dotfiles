@@ -2,84 +2,66 @@
 #
 # Author: Frank Lazzarini
 
-# Standard Ubuntu bashrc
+# Standard
 # -----------------------------------------------------------------------------
 #
 [ -z "$PS1" ] && return
 
+
+# Bash history settings
+# -----------------------------------------------------------------------------
+#
 HISTCONTROL=ignoredups:ignorespace             # don't put duplicated to history
 HISTSIZE=1000                                  # History size length
 HISTFILESIZE=2000                              # Hitstory filesize
 shopt -s histappend                            # append to hist not overwrite
 shopt -s checkwinsize                          # Check window size after each
                                                # command update LINES COLUMNS
+
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# Source bash aliases
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
-# Source bash completion
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-
-# Helper functions
+# Bash Completion
 # -----------------------------------------------------------------------------
 #
-command_exists() {
-  type "$1" &> /dev/null ;
-}
-
-vaultedit() {
-  if [ -f "$1" ]; then
-    if (head -n 1 $1 | grep ANSIBLE_VAULT > /dev/null 2>&1); then
-      ansible-vault edit $1
-    else
-      vim $1
-    fi
-  else
-    echo "File `$1` does not exist"
-    exit 1
-  fi
-}
-
-edit() {
-  # Shortcut for vaultedit
-  vaultedit $1
-}
-
-vaultgrep() {
-  # $1 string to search for
-  # $2 folder to search in
-  for filename in $2/*; do
-    if [ -f "$filename" ]; then
-      if (head -n 1 $filename | grep ANSIBLE_VAULT > /dev/null 2>&1); then
-        output="$(ANSIBLE_DEPRECATION_WARNINGS=False vault view $filename | grep $1)"
-      else
-        output="$(cat $filename | grep $1)"
-      fi
-
-      if [ $? == 0 ]; then
-        echo "${filename}: ${output}"
-      fi
-    fi
-  done
-}
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  . /etc/bash_completion
+fi
 
 
-# Environment Variables
+# Global Environment Variables
 # -----------------------------------------------------------------------------
 #
 EDITOR_CMD=vim
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
-export PGPASS="~/.pgpass"
+export DOTFILES=$HOME/dotfiles
+export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
+export GOPATH="$HOME/src"
+export GTI_SPEED=5000
+export DEVELOPMENT_PORTS="50020,50025"
+
+
+# Postgresql Env Vars
+# -----------------------------------------------------------------------------
+#
 export PGUSER="flazzarini"
+export PGPASS="$HOME/.pgpass"
+
+# Launchpad.net Env vars
+# -----------------------------------------------------------------------------
+#
+export DEBFULLNAME="Frank Lazzarini"
+export DEBEMAIL="flazzarini@gmail.com"
+export GPGKEY=C502163F
+
+# Python Env vars
+# -----------------------------------------------------------------------------
+#
+export PYTHONWARNINGS=ignore                         # Give no python warnings
+
 
 
 # Keychain
@@ -87,52 +69,31 @@ export PGUSER="flazzarini"
 #
 if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != *.gefoo.org ]]; then
   if [ -f "$HOME/.ssh/id_rsa" ]; then
-    $(which keychain) $HOME/.ssh/id_rsa
-    . ~/.keychain/$HOSTNAME-sh
+    $(which keychain) "$HOME/.ssh/id_rsa"
+    . "$HOME/.keychain/$HOSTNAME-sh"
   fi
 fi
 
 
-# Colorize man pages
+# Customizations
 # -----------------------------------------------------------------------------
 #
-# make less more friendly
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-man() {
-  env \
-    LESS_TERMCAP_mb=$(printf "\e[1;94m") \
-    LESS_TERMCAP_md=$(printf "\e[1;94m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
-    man "$@"
-}
+[ -x /usr/bin/lesspipe ] && \
+  eval "$(SHELL=/bin/sh lesspipe)"  # makes less suck less
 
 
-# Some functions
+# Source extra bash files
 # -----------------------------------------------------------------------------
 #
-buf() {
-  cp $1 $(date +%Y%m%d-%H_%M)-$1;
-}
-
-
-# Launchpad.net stuff
-# -----------------------------------------------------------------------------
-#
-export DEBFULLNAME="Frank Lazzarini"
-export DEBEMAIL="flazzarini@gmail.com"
-export GPGKEY=C502163F
+[ -f "$DOTFILES/bash_functions" ] && source "$DOTFILES/bash_functions"
+[ -f "$DOTFILES/bash_aliases" ] && source "$DOTFILES/bash_aliases"
+[ -f "$DOTFILES/host_specific.d/$HOSTNAME.sh" ] && source "$DOTFILES/host_specific.d/$HOSTNAME.sh"
+[ -f "$DOTFILES/fzf/shell/key-bindings.bash" ] && source "$DOTFILES/fzf/shell/key-bindings.bash"
 
 
 # My Prompt
 # -----------------------------------------------------------------------------
 #
-source ~/dotfiles/lib/bash_colors
-
 # Remap TERM environment variable
 case "$TERM" in
   xterm*|rxvt-unicode*) TERM="screen-256color" ;;
@@ -146,16 +107,6 @@ case "$TERM" in
   rxvt-unicode-256color) color_prompt=yes ;;
   alacritty) color_prompt=yes ;;
 esac
-
-
-function prompt_command_function() {
-  GIT_BRANCH="$(~/dotfiles/bin/gitbranch.sh)"
-  SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
-
-  PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})─> ${RED}${GIT_BRANCH}${RESET}"
-  PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})──> ${RESET}$ "
-  PS1="$PS1_LINE1\n$PS1_LINE2"
-}
 
 if [ "$color_prompt" = yes ]; then
   # Set prompt
@@ -171,56 +122,15 @@ fi
 unset color_prompt force_color_prompt
 
 
-# Other global environment variables
+# Expand PATH variables with custom folders
 # -----------------------------------------------------------------------------
 #
-export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
-export GOPATH="$HOME/src"
-export GTI_SPEED=5000
-export DEVELOPMENT_PORTS="50020,50025"
-
-
-# Add local binaries to path
-# -----------------------------------------------------------------------------
-#
-
-# Add custom binaries in home folder to PATH
-if [[ -d ~/bin ]]; then
-    export PATH=~/bin:~/.local/bin:$PATH
-fi
-
-# Add Node JS environment to path
-if [[ -d ~/opt/nodeenv/node_modules/.bin/ ]]; then
-    export PATH=~/opt/nodeenv/node_modules/.bin/:$PATH
-fi
-
-# Add npm bin if avaiable
-if [[ -d ~/node_modules/.bin ]]; then
-    export PATH=/home/users/frank/node_modules/.bin:$PATH
-fi
-
-# Add .local/bin if available
-if [[ -d ~/.local/bin ]]; then
-  export PATH=~/.local/bin:$PATH
-fi
-
-[ -f ~/dotfiles/fzf/shell/key-bindings.bash ] && source ~/dotfiles/fzf/shell/key-bindings.bash
-
-
-#
-# Openshift Docker Registry Login
-#
-function docker-login(){
-  which oc && \
-  oc whoami && \
-  which docker && \
-  docker login --username $(oc whoami) \
-               --password $(oc whoami -t) \
-               registry.ipsw.dt.ept.lu
-}
-
-#
-# Execute additional settings for specific hosts (based on hostname)
-#
-[ -f ~/dotfiles/host_specific.d/$HOSTNAME.sh ] && source ~/dotfiles/host_specific.d/$HOSTNAME.sh
-
+FOLDERS="
+  $HOME/bin
+  $HOME/opt/nodeenc/node_modules/.bin
+  $HOME/node_modules/.bin
+  $HOME/.local/bin
+"
+for FOLDER in $FOLDERS; do
+  [ -d "$FOLDER" ] && PATH="$FOLDER:$PATH"
+done
