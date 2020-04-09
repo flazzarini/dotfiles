@@ -48,13 +48,16 @@ alias dusort='du -hs $(ls -d */) 2>/dev/null | sort -nr'
 alias chmox='chmod +x '
 alias sc='systemctl'
 alias pong='ping 8.8.8.8'
+alias dmesg="dmesg --color=auto --reltime --human --nopager --decode"
+alias tree="tree --dirsfirst -C"
+alias cat="bat"
 
 
 # Archlinux Stuff
 # -----------------------------------------------------------------------------
 #
-#complete -cf sudo   # Autocompletion for sudo
-#complete -cf man    # Autocompletion for man
+complete -cf sudo   # Autocompletion for sudo
+complete -cf man    # Autocompletion for man
 
 
 # Ubuntu Stuff
@@ -87,12 +90,10 @@ alias osslenddate='openssl x509 -enddate -noout -in '   # Get expiration date
 # Python Stuff
 # -----------------------------------------------------------------------------
 #
-export PYTHONWARNINGS=ignore                         # Give no python warnings
-export FLASKPORT=50020                               # My personal dev port
-alias pyserve='python3 -m http.server $1'            # server cwd via http
-alias venv='virtualenv env && \
+alias pyserve='python3 -m http.server'               # server cwd via http
+alias venv='virtualenv env &&
             ./env/bin/pip install ipython'           # prepare virtualenv
-alias venv3='virtualenv -p /usr/bin/python3 env && \
+alias venv3='virtualenv -p /usr/bin/python3 env &&
              ./env/bin/pip install ipython'          # prepare virtualenv py3
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
@@ -100,10 +101,6 @@ alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 # ANSIBLE stuff
 # -----------------------------------------------------------------------------
 #
-export ANSIBLE_HOME="$HOME/devops/ansible/ansible"
-export ANSIBLE_CONFIG="$ANSIBLE_HOME/ansible.cfg"
-export ANSIBLE_VAULT_PASSWORD_FILE="$ANSIBLE_HOME/vault_password"
-
 alias ansi='cd $ANSIBLE_HOME'
 alias vault='$ANSIBLE_HOME/env/bin/ansible-vault'
 alias play='$ANSIBLE_HOME/env/bin/ansible-playbook'
