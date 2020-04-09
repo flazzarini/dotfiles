@@ -27,7 +27,7 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'w0rp/ale'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'vim-python/python-syntax'
+Plugin 'morhetz/gruvbox'
 
 " Docker Plugins
 Plugin 'ekalinin/Dockerfile.vim'
@@ -65,7 +65,7 @@ call vundle#end()
 " set nowrap                    " Prevent wrapping
 set title                       " display title in X.
 set visualbell t_vb=            " disable visualbells completely
-colorscheme jellybeans
+colorscheme gruvbox
 
 
 " Nerdtree
@@ -243,6 +243,13 @@ autocmd FileType html            set tabstop=2 sw=2
 autocmd FileType sh              set tabstop=2 sw=2
 autocmd FileType xml             set tabstop=2 sw=2
 " autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
+
+augroup python
+    autocmd!
+    autocmd FileType python
+        \ syn keyword pythonSelf self
+        \ | highlight def link pythonSelf Special
+augroup end
 
 
 "
