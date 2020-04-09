@@ -58,4 +58,7 @@ sort = v:refname
     default = tracking
 
 
+[submodule]
+    recurse = true
+
 ; vi: ft=gitconfig
