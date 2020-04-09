@@ -236,7 +236,8 @@ autocmd FileType gitcommit setlocal spell spelllang=en_us
 
 " Specific settings for filetypes
 " -----------------------------------------------------------------------------
-autocmd BufRead,BufNewFile *.rst setlocal tw=80
+autocmd BufRead,BufNewFile *.rst  setlocal tw=80
+autocmd BufRead,BufNewFile *.json setlocal tabstop=2 sw=2
 autocmd FileType javascript      set tabstop=2 sw=2
 autocmd FileType html            set tabstop=2 sw=2
 autocmd FileType sh              set tabstop=2 sw=2
