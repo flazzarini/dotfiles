@@ -39,7 +39,7 @@ super + {Left,Right,Up,Down}
 
 # Float/Windowed Window
 super + f
-    bspc window -t {floating,fullscreen}
+    bspc node focused -t {floating,fullscreen,tiled}
 
 super + Tab
     bspc node -f last
