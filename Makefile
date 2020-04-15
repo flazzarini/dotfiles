@@ -80,8 +80,10 @@ clean_bash:
 	rm -Rf ~/.config/htop
 
 install_vim: clean_vim
-	@echo Installing vundle for vim
-	git clone https://github.com/gmarik/Vundle.vim.git `pwd`/vim/bundle/Vundle.vim
+	@echo Installing Vim-Plug
+	curl -fLo `pwd`/vim/autoload/plug.vim --create-dirs \
+		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@echo Place vim config files
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
 	ln -sf `pwd`/vimdb ~/.vimdb

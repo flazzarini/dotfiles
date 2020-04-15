@@ -1,61 +1,52 @@
 set nocompatible
 set term=screen-256color
 
-" Vundle Stuff
+" VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin("~/.vim/bundle")
-
-" Vundle
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')  " Plugins will be installed in this folder
 
 " Visual
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'Yggdroot/indentLine'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'nanotech/jellybeans.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " General Purpose Plugins
-Plugin 'preservim/nerdtree'
-Plugin 'ciaranm/detectindent'
-Plugin 'kien/ctrlp.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'ycm-core/YouCompleteMe'
+Plug 'preservim/nerdtree'
+Plug 'ciaranm/detectindent'
+Plug 'kien/ctrlp.vim'
+Plug 'SirVer/ultisnips'
+"Plug 'ycm-core/YouCompleteMe'
 
 " Python Plugins
-Plugin 'w0rp/ale'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'morhetz/gruvbox'
+Plug 'w0rp/ale'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'morhetz/gruvbox'
 
 " Docker Plugins
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim'
 
 " Vagrant Plugin
-Plugin 'vim-vagrant'
+Plug 'hashivim/vim-vagrant'
 
 " Vue Plugins
-Plugin 'posva/vim-vue'
+Plug 'posva/vim-vue'
 
 " PHP
-Plugin 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim'
 
 " Logstash highlight
-Plugin 'robbles/logstash.vim'
+Plug 'robbles/logstash.vim'
 
 " Yaml
-Plugin 'stephpy/vim-yaml'
+Plug 'stephpy/vim-yaml'
 
 " RST
-Plugin 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode'
 
-" Disabled Plugins
-" Plugin 'lepture/vim-jinja'
-" Plugin 'chase/vim-ansible-yaml'
-" Plugin 'cyberkov/openhab-vim'
-
-call vundle#end()
+call plug#end()
 
 
 " Display
@@ -171,7 +162,7 @@ let g:ale_fixers = {
 \   'python': ['isort', 'autopep8'],
 \}
 let g:ale_linters = {
-\   'python': ['mypy', 'pylint'],
+\   'python': ['mypy', 'pylint', 'flake8'],
 \}
 
 " Don't lint test files
