@@ -82,6 +82,20 @@ fi
   eval "$(SHELL=/bin/sh lesspipe)"  # makes less suck less
 
 
+# Expand PATH variables with custom folders
+# -----------------------------------------------------------------------------
+#
+FOLDERS="
+  $HOME/bin
+  $HOME/opt/nodeenc/node_modules/.bin
+  $HOME/node_modules/.bin
+  $HOME/.local/bin
+"
+for FOLDER in $FOLDERS; do
+  [ -d "$FOLDER" ] && PATH="$FOLDER:$PATH"
+done
+
+
 # Source extra bash files
 # -----------------------------------------------------------------------------
 #
@@ -120,17 +134,3 @@ else
   PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
 unset color_prompt force_color_prompt
-
-
-# Expand PATH variables with custom folders
-# -----------------------------------------------------------------------------
-#
-FOLDERS="
-  $HOME/bin
-  $HOME/opt/nodeenc/node_modules/.bin
-  $HOME/node_modules/.bin
-  $HOME/.local/bin
-"
-for FOLDER in $FOLDERS; do
-  [ -d "$FOLDER" ] && PATH="$FOLDER:$PATH"
-done

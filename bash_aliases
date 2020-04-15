@@ -50,7 +50,7 @@ alias sc='systemctl'
 alias pong='ping 8.8.8.8'
 alias dmesg="dmesg --color=auto --reltime --human --nopager --decode"
 alias tree="tree --dirsfirst -C"
-alias cat="bat"
+alias cat="bat -p"
 
 
 # Archlinux Stuff
