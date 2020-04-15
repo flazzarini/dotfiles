@@ -26,6 +26,11 @@
     ; Show summary (git tags/branches)
     lgs = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --simplify-by-decoration
 
+
+[tag]
+; Sort tags by version
+sort = v:refname
+
 [core]
     excludesfile = ~/.gitignore
     editor=vim
