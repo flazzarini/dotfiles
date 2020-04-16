@@ -51,11 +51,13 @@ call plug#end()
 
 " Display
 " -----------------------------------------------------------------------------
-" set number
+set number relativenumber       " display relative numbers
 " set foldcolumn=2              " display up to 4 folds
 " set nowrap                    " Prevent wrapping
 set title                       " display title in X.
 set visualbell t_vb=            " disable visualbells completely
+set cursorline                  " highlight the current line
+" set cursorcolumn               " hightlight the current column
 colorscheme gruvbox
 
 
@@ -71,11 +73,13 @@ let NERDTreeMapOpenInTab='<ENTER>'  " Default open files in Tabs
 " -----------------------------------------------------------------------------
 filetype plugin indent on       " required
 set nocompatible                " be iMproved
-filetype off                    " vundle required
 
 set encoding=utf-8              " use UTF-8
 set t_Co=256                    " 256 colours
 set background=dark             " the darker the better
+set ignorecase                  " ignore case
+set smartcase                   " makes it easier to search for vim commands
+set wildmode=longest,list,full  " more intuative vim command tab completion
 syntax on                       " syntax highlighting
 
 
@@ -159,15 +163,18 @@ let g:anisble_vault_password_file = '~/workspace/ansible/vault_password'
 " Ale config
 " -----------------------------------------------------------------------------
 let g:ale_fixers = {
-\   'python': ['isort', 'autopep8'],
+    \   'python': ['isort', 'autopep8'],
 \}
 let g:ale_linters = {
-\   'python': ['mypy', 'pylint', 'flake8'],
+    \   'python': ['mypy', 'pylint', 'flake8'],
 \}
 
 " Don't lint test files
 let g:ale_pattern_options = {
-\   'tests\/': {'ale_linters': ['pylint'], 'ale_fixers': ['isort', 'autopep8']},
+    \   'tests\/': {
+    \       'ale_linters': ['pylint', 'flake8'],
+    \       'ale_fixers': ['isort', 'autopep8']
+    \   },
 \}
 
 " Test Type Anotations with strict option
