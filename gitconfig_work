@@ -61,4 +61,9 @@ sort = v:refname
 [submodule]
     recurse = true
 
+
+[url "https://"]
+    ; Redirect git:// to https:// (git:// not working at work)
+    insteadOf = git://
+
 ; vi: ft=gitconfig
