@@ -79,4 +79,7 @@ $if Bash
   "\e[A": history-search-backward
   "\e[B": history-search-forward
 
+  # Colored Tab completion
+  set colored-stats on
+
 $endif
