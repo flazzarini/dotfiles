@@ -17,7 +17,7 @@ Plug 'preservim/nerdtree'
 Plug 'ciaranm/detectindent'
 Plug 'kien/ctrlp.vim'
 Plug 'SirVer/ultisnips'
-"Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
 " Python Plugins
 Plug 'w0rp/ale'
