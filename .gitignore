@@ -1,9 +1,15 @@
+; VIM configuration folder
 vim/bundle/
+vim/plugged/
+vim/autoload/
+
+; NVIM configuration folder
+nvim/
+
 ipython/profile_default/history.sqlite
 ipython/profile_default/security/
 ipython/profile_default/db/
 terminal-color-theme/
-nvim/
 
 ; HTOPrc can be ignored as it changes when you changes views in the client
 htop/htoprc
