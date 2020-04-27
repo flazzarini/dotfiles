@@ -38,7 +38,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
 export DOTFILES=$HOME/dotfiles
-export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
 export GTI_SPEED=5000
 export DEVELOPMENT_PORTS="50020,50025"
