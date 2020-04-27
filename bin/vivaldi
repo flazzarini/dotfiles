@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/vivaldi-stable --disable-seccomp-filter-sandbox
