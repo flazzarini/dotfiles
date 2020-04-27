@@ -110,6 +110,7 @@ done
 # Remap TERM environment variable
 case "$TERM" in
   xterm*|rxvt-unicode*) TERM="screen-256color" ;;
+  alacritty) TERM="screen-256color" ;;
 esac
 
 # If we have a colorful terminal set color_prompt to yes
