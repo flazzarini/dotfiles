@@ -20,5 +20,6 @@ DOWNLOAD="/tmp/bat-$VERSION.tar.gz"
 # Actual download and install application
 wget -O $DOWNLOAD $BASEURL/$BUILD.tar.gz
 tar xzf $DOWNLOAD $BUILD/bat
+[ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
 mv $BUILD/bat $HOME/.local/bin/
 rm $DOWNLOAD && rm -rf $BUILD
