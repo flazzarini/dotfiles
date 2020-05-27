@@ -34,6 +34,9 @@ Plug 'hashivim/vim-vagrant'
 " Vue Plugins
 Plug 'posva/vim-vue'
 
+" Openhab Plugins
+Plug 'cyberkov/openhab-vim'
+
 " PHP
 Plug 'StanAngeloff/php.vim'
 
