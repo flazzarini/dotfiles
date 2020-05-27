@@ -270,5 +270,3 @@ function Header(width, word)
     :put =a:word_line
     :put =a:hash_line
 endfunction
-
-source ~/.vimdb

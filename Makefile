@@ -86,7 +86,6 @@ install_vim: clean_vim
 	@echo Place vim config files
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
-	ln -sf `pwd`/vimdb ~/.vimdb
 
 clean_vim:
 	rm -Rf ~/.vimrc
