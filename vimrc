@@ -1,5 +1,5 @@
 set nocompatible
-set term=screen-256color
+set term=xterm-256color
 
 " VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
@@ -11,6 +11,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'romainl/Apprentice'
 
 " General Purpose Plugins
 Plug 'preservim/nerdtree'
@@ -57,8 +58,10 @@ set number relativenumber       " display relative numbers
 set title                       " display title in X.
 set visualbell t_vb=            " disable visualbells completely
 set cursorline                  " highlight the current line
-" set cursorcolumn               " hightlight the current column
-colorscheme gruvbox
+set termguicolors               " Enable Truecolor support
+"set cursorcolumn               " hightlight the current column
+colorscheme apprentice
+
 
 
 " Nerdtree
@@ -68,6 +71,8 @@ let mapleader = ","                 " , is easier to reach than the default
 nmap <leader>ne :NERDTree<cr>       " Shortcut to open Nerdtree
 let NERDTreeMapOpenInTab='\r'       " Default open files in Tabs
 let NERDTreeMapOpenInTab='<ENTER>'  " Default open files in Tabs
+
+
 
 " Vim Settings
 " -----------------------------------------------------------------------------
@@ -114,7 +119,6 @@ set smartcase                   " Override the ignorecase when search
                                 " contains upper letters
 vnoremap < <gv                  " indent '>' multiple times in visual mode
 vnoremap > >gv                  " indent '<' multiple times in visual mode
-"nnoremap n nzz                  " on next find center screen
 
 
 " Vim Table settings
@@ -200,6 +204,8 @@ let g:indentLine_char = '|'
 " YouCompleteMe Settings
 " -----------------------------------------------------------------------------
 let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 
 " Keyboard maps
