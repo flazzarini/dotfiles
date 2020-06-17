@@ -13,6 +13,11 @@ print('[debug-print-`cat /dev/urandom | hexdump | head -n 1 | cut -d ' ' -f 2`]'
 endsnippet
 
 
+snippet ppod "Pretty Print OrderedDict" b
+import json; print(json.dumps(${1}, indent=4))  # XXX debug statement
+endsnippet
+
+
 snippet exp "Unittest Expected Assert" b
 self.assertEqual(result, expected)
 endsnippet
