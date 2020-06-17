@@ -28,3 +28,5 @@ bspc rule -a Screenkey manage=off
 # Start additional tools
 polybar -c ~/.config/polybar/config mybar &
 telegram-desktop &
+synergy &
+netctl-gui --minimized &

@@ -38,7 +38,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=$EDITOR_CMD
 export VISUAL=$EDITOR_CMD
 export DOTFILES=$HOME/dotfiles
-export CHROMIUM_USER_FLAGS="--memory-model=low --audio-buffer-size=4096 --enable-webgl"
 export GOPATH="$HOME/src"
 export GTI_SPEED=5000
 export DEVELOPMENT_PORTS="50020,50025"
@@ -111,6 +110,7 @@ done
 # Remap TERM environment variable
 case "$TERM" in
   xterm*|rxvt-unicode*) TERM="screen-256color" ;;
+  alacritty) TERM="screen-256color" ;;
 esac
 
 # If we have a colorful terminal set color_prompt to yes

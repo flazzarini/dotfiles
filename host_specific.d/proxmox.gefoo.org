@@ -1,0 +1,8 @@
+# Host specific environment variables for proxmox.gefoo.org
+
+# ANSIBLE variables
+# -----------------------------------------------------------------------------
+#
+export ANSIBLE_HOME="$HOME/workspace/ansible"
+export ANSIBLE_CONFIG="$ANSIBLE_HOME/ansible.cfg"
+export ANSIBLE_VAULT_PASSWORD_FILE="$HOME/.vault_password"

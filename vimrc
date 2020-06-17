@@ -35,6 +35,9 @@ Plug 'hashivim/vim-vagrant'
 " Vue Plugins
 Plug 'posva/vim-vue'
 
+" Openhab Plugins
+Plug 'cyberkov/openhab-vim'
+
 " PHP
 Plug 'StanAngeloff/php.vim'
 
@@ -273,5 +276,3 @@ function Header(width, word)
     :put =a:word_line
     :put =a:hash_line
 endfunction
-
-source ~/.vimdb
