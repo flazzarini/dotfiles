@@ -92,9 +92,9 @@ alias osslenddate='openssl x509 -enddate -noout -in '   # Get expiration date
 #
 alias pyserve='python3 -m ComplexHTTPServer'         # Needs ComplexHTTPServer
 alias venv='virtualenv env &&
-            ./env/bin/pip install ipython'           # prepare virtualenv
-alias venv3='virtualenv -p /usr/bin/python3 env &&
-             ./env/bin/pip install ipython'          # prepare virtualenv py3
+            ./env/bin/pip install -U pip wheel'           # prepare virtualenv
+alias venv3='python3 -m venv env &&
+             ./env/bin/pip install -U pip wheel'          # prepare virtualenv py3
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
 
 
