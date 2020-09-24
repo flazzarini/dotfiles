@@ -11,10 +11,10 @@
 # Bash history settings
 # -----------------------------------------------------------------------------
 #
-HISTCONTROL=ignoredups:ignorespace             # don't put duplicated to history
-HISTSIZE=1000                                  # History size length
-HISTFILESIZE=2000                              # Hitstory filesize
-shopt -s histappend                            # append to hist not overwrite
+export HISTCONTROL=ignoredups:ignorespace      # don't put duplicated to history
+export HISTSIZE=10000                          # History size length
+export HISTFILESIZE=20000                      # Hitstory filesize
+shopt -s histappend                            # append to hist after each cmd
 shopt -s checkwinsize                          # Check window size after each
                                                # command update LINES COLUMNS
 
