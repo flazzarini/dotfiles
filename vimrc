@@ -21,7 +21,7 @@ Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
 
 " Python Plugins
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'morhetz/gruvbox'
@@ -173,16 +173,21 @@ let g:ale_fixers = {
     \   'python': ['isort', 'autopep8'],
 \}
 let g:ale_linters = {
-    \   'python': ['mypy', 'pylint', 'flake8'],
+    \   'python': ['mypy', 'pylint'],
 \}
 
 " Don't lint test files
 let g:ale_pattern_options = {
     \   'tests\/': {
-    \       'ale_linters': ['pylint', 'flake8'],
+    \       'ale_linters': ['pylint'],
     \       'ale_fixers': ['isort', 'autopep8']
     \   },
 \}
+
+" General Ale Settings
+let g:ale_cache_executable_check_failures = 1
+let b:ale_python_mypy_executable = '~/.local/bin/mypy'
+let b:ale_python_mypy_use_global = 1
 
 " Test Type Anotations with strict option
 let g:ale_python_mypy_options = '--ignore-missing-imports --strict'
