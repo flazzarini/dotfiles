@@ -73,5 +73,10 @@ oc_docker_login() {
     registry.ipsw.dt.ept.lu
 }
 
+# Git Tag Alias show only latest 10 tags
+gitags() {
+  git tag --sort=-v:refname | head -n 10 | tac
+}
+
 
 # vim: set filetype=sh:
