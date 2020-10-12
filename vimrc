@@ -12,6 +12,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'romainl/Apprentice'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " General Purpose Plugins
 Plug 'preservim/nerdtree'
