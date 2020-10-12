@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------
 #
 . "$HOME/dotfiles/lib/bash_colors"
-. "$HOME/dotfiles/bash-git-prompt/gitprompt.sh"
+. "$HOME/dotfiles/git-prompt.sh"
 
 # Public: Verifies if a command exists on the system
 #
@@ -67,6 +67,7 @@ exit_code() {
 prompt_command_function() {
   EXIT_CODE=$(exit_code)
   SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
+  GIT_PS1_DESCRIBE_STYLE="contains"
   GIT_BRANCH=$(__git_ps1)  # Using bash-git-prompt https://github.com/magicmonty/bash-git-prompt
 
   PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})${RED}${GIT_BRANCH}${RESET}"
