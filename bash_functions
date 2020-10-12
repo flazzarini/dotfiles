@@ -2,6 +2,7 @@
 # -----------------------------------------------------------------------------
 #
 . "$HOME/dotfiles/lib/bash_colors"
+. "$HOME/dotfiles/bash-git-prompt/gitprompt.sh"
 
 # Public: Verifies if a command exists on the system
 #
@@ -51,13 +52,25 @@ buf() {
 }
 
 
+# Fetch last exit code and produce either checkmark or crossmark depndening on
+# the exit-code
+exit_code() {
+  if [ $? -eq 0 ]; then
+    echo "${GREEN112}✓${RESET}"
+  else
+    echo "${RED}❌${RESET}"
+  fi
+}
+
+
 # Public: Prompt Command for PS1
 prompt_command_function() {
-  GIT_BRANCH="$(~/dotfiles/bin/gitbranch.sh)"
+  EXIT_CODE=$(exit_code)
   SIZE="$(/bin/ls -lah | /bin/grep -m 1 total | /bin/sed 's/total //')"
+  GIT_BRANCH=$(__git_ps1)  # Using bash-git-prompt https://github.com/magicmonty/bash-git-prompt
 
-  PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})─> ${RED}${GIT_BRANCH}${RESET}"
-  PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})──> ${RESET}$ "
+  PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})${RED}${GIT_BRANCH}${RESET}"
+  PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})-(${EXIT_CODE}${BAR})──> ${RESET}$ "
   PS1="$PS1_LINE1\n$PS1_LINE2"
 }
 

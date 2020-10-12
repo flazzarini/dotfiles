@@ -65,6 +65,7 @@ install_bash: clean_bash install_bat
 	ln -sf `pwd`/inputrc ~/.inputrc
 	[ -d ~/.config ] || mkdir ~/.config
 	ln -sf `pwd`/htop ~/.config/
+	[ -d bash-git-prompt ] || git clone https://github.com/magicmonty/bash-git-prompt --depth 1
 	[ -d terminal-color-theme ] || git clone --recursive https://github.com/sona-tar/terminal-color-theme.git
 	[ -d fzf ] || git clone --depth 1 https://github.com/junegunn/fzf.git `pwd`/fzf
 	cd fzf && git pull && ./install --bin
