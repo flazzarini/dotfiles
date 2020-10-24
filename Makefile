@@ -228,9 +228,9 @@ clean_beets:
 	rm -Rf ~/.config/beets/whitelist.txt
 
 install_winbox: clean_winbox
-	@echo 'Installing Winbox 3.11 to /opt/winbox'
+	@echo 'Installing Winbox 3.27 to /opt/winbox'
 	[ -d /opt/winbox ] || sudo install -d -o `whoami` /opt/winbox
-	cd /opt/winbox && wget https://download2.mikrotik.com/routeros/winbox/3.11/winbox.exe
+	cd /opt/winbox && wget -O winbox.exe https://mt.lv/winbox64
 
 clean_winbox:
 	@echo 'Removing Winbox from /opt/winbox/winbox.exe'
