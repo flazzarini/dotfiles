@@ -255,6 +255,7 @@ autocmd FileType javascript      set tabstop=2 sw=2
 autocmd FileType html            set tabstop=2 sw=2
 autocmd FileType sh              set tabstop=2 sw=2
 autocmd FileType xml             set tabstop=2 sw=2
+autocmd FileType vue             set tabstop=2 sw=2
 " autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/vim-yaml/after/syntax/yaml.vim
 
 augroup python
