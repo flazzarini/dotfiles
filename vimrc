@@ -1,5 +1,5 @@
 set nocompatible
-set term=screen-256color
+set term=xterm-256color
 
 " VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
@@ -11,6 +11,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'romainl/Apprentice'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " General Purpose Plugins
 Plug 'preservim/nerdtree'
@@ -20,7 +22,7 @@ Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
 
 " Python Plugins
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'morhetz/gruvbox'
@@ -33,6 +35,9 @@ Plug 'hashivim/vim-vagrant'
 
 " Vue Plugins
 Plug 'posva/vim-vue'
+
+" Openhab Plugins
+Plug 'cyberkov/openhab-vim'
 
 " PHP
 Plug 'StanAngeloff/php.vim'
@@ -57,8 +62,10 @@ set number relativenumber       " display relative numbers
 set title                       " display title in X.
 set visualbell t_vb=            " disable visualbells completely
 set cursorline                  " highlight the current line
-" set cursorcolumn               " hightlight the current column
-colorscheme gruvbox
+set termguicolors               " Enable Truecolor support
+"set cursorcolumn               " hightlight the current column
+colorscheme apprentice
+
 
 
 " Nerdtree
@@ -68,6 +75,8 @@ let mapleader = ","                 " , is easier to reach than the default
 nmap <leader>ne :NERDTree<cr>       " Shortcut to open Nerdtree
 let NERDTreeMapOpenInTab='\r'       " Default open files in Tabs
 let NERDTreeMapOpenInTab='<ENTER>'  " Default open files in Tabs
+
+
 
 " Vim Settings
 " -----------------------------------------------------------------------------
@@ -114,7 +123,6 @@ set smartcase                   " Override the ignorecase when search
                                 " contains upper letters
 vnoremap < <gv                  " indent '>' multiple times in visual mode
 vnoremap > >gv                  " indent '<' multiple times in visual mode
-"nnoremap n nzz                  " on next find center screen
 
 
 " Vim Table settings
@@ -166,16 +174,21 @@ let g:ale_fixers = {
     \   'python': ['isort', 'autopep8'],
 \}
 let g:ale_linters = {
-    \   'python': ['mypy', 'pylint', 'flake8'],
+    \   'python': ['mypy', 'pylint'],
 \}
 
 " Don't lint test files
 let g:ale_pattern_options = {
     \   'tests\/': {
-    \       'ale_linters': ['pylint', 'flake8'],
+    \       'ale_linters': ['pylint'],
     \       'ale_fixers': ['isort', 'autopep8']
     \   },
 \}
+
+" General Ale Settings
+let g:ale_cache_executable_check_failures = 1
+let b:ale_python_mypy_executable = '~/.local/bin/mypy'
+let b:ale_python_mypy_use_global = 1
 
 " Test Type Anotations with strict option
 let g:ale_python_mypy_options = '--ignore-missing-imports --strict'
@@ -200,6 +213,8 @@ let g:indentLine_char = '|'
 " YouCompleteMe Settings
 " -----------------------------------------------------------------------------
 let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 
 " Keyboard maps
@@ -267,5 +282,3 @@ function Header(width, word)
     :put =a:word_line
     :put =a:hash_line
 endfunction
-
-source ~/.vimdb

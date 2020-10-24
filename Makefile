@@ -67,7 +67,7 @@ install_bash: clean_bash install_bat
 	ln -sf `pwd`/htop ~/.config/
 	[ -d terminal-color-theme ] || git clone --recursive https://github.com/sona-tar/terminal-color-theme.git
 	[ -d fzf ] || git clone --depth 1 https://github.com/junegunn/fzf.git `pwd`/fzf
-	cd fzf && ./install --bin
+	cd fzf && git pull && ./install --bin
 	ln -sf `pwd`/fzf/bin/fzf `pwd`/bin
 
 clean_bash:
@@ -86,7 +86,6 @@ install_vim: clean_vim
 	@echo Place vim config files
 	ln -sf `pwd`/vimrc ~/.vimrc
 	ln -sf `pwd`/vim   ~/.vim
-	ln -sf `pwd`/vimdb ~/.vimdb
 
 clean_vim:
 	rm -Rf ~/.vimrc

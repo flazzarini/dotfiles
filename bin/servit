@@ -1,5 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import http.server
+import argparse
 
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -16,4 +17,7 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    http.server.test(HandlerClass=MyHTTPRequestHandler)
+    parser = argparse.ArgumentParser(description="Serves static files via HTTP")
+    parser.add_argument("port", help="Port to bind to")
+    args = parser.parse_args()
+    http.server.test(HandlerClass=MyHTTPRequestHandler, port=int(args.port))
