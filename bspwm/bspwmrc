@@ -4,9 +4,6 @@
 xset r rate 200 50 &
 synclient TouchpadOff=1 &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
-volumeicon &
-alacritty &
-blueman-tray &
 
 bspc monitor -d I II III IV V VI VII VIII IX
 
@@ -26,7 +23,11 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # Start additional tools
-polybar -c ~/.config/polybar/config mybar &
+polybar -c ~/.config/polybar/config.ini main &
 telegram-desktop &
 synergy &
 netctl-gui --minimized &
+udiskie -t &
+volumeicon &
+alacritty &
+blueman-tray &
