@@ -59,7 +59,7 @@ export GPGKEY=C502163F
 # Python Env vars
 # -----------------------------------------------------------------------------
 #
-export PYTHONWARNINGS=ignore                         # Give no python warnings
+export PYTHONWARNINGS=default                         # Give python warnings
 
 
 
