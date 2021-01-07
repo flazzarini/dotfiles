@@ -25,6 +25,8 @@
     lgd = log --stat --abbrev-commit
     ; Show summary (git tags/branches)
     lgs = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --simplify-by-decoration
+    ; Show last 10 tags
+    tagl = ! git tag --sort=-version:refname | head -n 10
 
 
 [tag]
