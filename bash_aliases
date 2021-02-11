@@ -119,5 +119,10 @@ alias perlshell='perl -d -e 1'
 alias dis="docker images --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}' | column -t | sort -hs"
 
 
+# Radius related aliases
+# -----------------------------------------------------------------------------
+#
+alias sniffrad="radsniff -x -szopp -S"
+
 
 # vim: filetype=sh
