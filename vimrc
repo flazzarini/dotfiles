@@ -17,9 +17,9 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 " General Purpose Plugins
 Plug 'preservim/nerdtree'
 Plug 'ciaranm/detectindent'
-Plug 'kien/ctrlp.vim'
 Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'kien/ctrlp.vim'
 
 " Python Plugins
 Plug 'dense-analysis/ale'
@@ -45,11 +45,17 @@ Plug 'StanAngeloff/php.vim'
 " Logstash highlight
 Plug 'robbles/logstash.vim'
 
+" Logrotate syntax highlight
+Plug 'moon-musick/vim-logrotate'
+
 " Yaml
 Plug 'stephpy/vim-yaml'
 
 " RST
 Plug 'dhruvasagar/vim-table-mode'
+
+" Yang
+Plug 'nathanalderson/yang.vim'
 
 call plug#end()
 
