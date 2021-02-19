@@ -26,7 +26,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # -----------------------------------------------------------------------------
 #
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-  . /etc/bash_completion
+  source /etc/bash_completion
 fi
 
 
@@ -69,7 +69,9 @@ export PYTHONWARNINGS=default                         # Give python warnings
 if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != *.gefoo.org ]]; then
   if [ -f "$HOME/.ssh/id_rsa" ]; then
     $(which keychain) "$HOME/.ssh/id_rsa"
-    . "$HOME/.keychain/$HOSTNAME-sh"
+    # shellcheck disable=SC1090
+    # Ticket opened https://github.com/koalaman/shellcheck/issues/769
+    source "$HOME/.keychain/$HOSTNAME-sh"
   fi
 fi
 
@@ -98,9 +100,14 @@ done
 # Source extra bash files
 # -----------------------------------------------------------------------------
 #
+# Ticket opened https://github.com/koalaman/shellcheck/issues/769
+# shellcheck disable=SC1090
 [ -f "$DOTFILES/bash_functions" ] && source "$DOTFILES/bash_functions"
+# shellcheck disable=SC1090
 [ -f "$DOTFILES/bash_aliases" ] && source "$DOTFILES/bash_aliases"
+# shellcheck disable=SC1090
 [ -f "$DOTFILES/host_specific.d/$HOSTNAME.sh" ] && source "$DOTFILES/host_specific.d/$HOSTNAME.sh"
+# shellcheck disable=SC1090
 [ -f "$DOTFILES/fzf/shell/key-bindings.bash" ] && source "$DOTFILES/fzf/shell/key-bindings.bash"
 
 
@@ -127,10 +134,15 @@ if [ "$color_prompt" = yes ]; then
   PROMPT_COMMAND=prompt_command_function
 
   # Set color theme
-  # Removed Theme
   COLOR_THEME=molokai
+
+  # Ticket opened https://github.com/koalaman/shellcheck/issues/769
+  # shellcheck disable=SC1090
   source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
+
+  # shellcheck disable=SC2153
   PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
 fi
+
 unset color_prompt force_color_prompt
