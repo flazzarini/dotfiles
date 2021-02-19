@@ -100,13 +100,20 @@ done
 # Source extra bash files
 # -----------------------------------------------------------------------------
 #
+# Add custom bash functions
 # Ticket opened https://github.com/koalaman/shellcheck/issues/769
 # shellcheck disable=SC1090
 [ -f "$DOTFILES/bash_functions" ] && source "$DOTFILES/bash_functions"
+
+# Adds custom bash_aliases
 # shellcheck disable=SC1090
 [ -f "$DOTFILES/bash_aliases" ] && source "$DOTFILES/bash_aliases"
+
+# Adds Host specific configurations
 # shellcheck disable=SC1090
 [ -f "$DOTFILES/host_specific.d/$HOSTNAME.sh" ] && source "$DOTFILES/host_specific.d/$HOSTNAME.sh"
+
+# Adds fzf key bindings
 # shellcheck disable=SC1090
 [ -f "$DOTFILES/fzf/shell/key-bindings.bash" ] && source "$DOTFILES/fzf/shell/key-bindings.bash"
 
