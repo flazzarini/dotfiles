@@ -36,6 +36,9 @@ Plug 'hashivim/vim-vagrant'
 " Vue Plugins
 Plug 'posva/vim-vue'
 
+" Rust Plugins
+Plug 'rust-lang/rust.vim'
+
 " Openhab Plugins
 Plug 'cyberkov/openhab-vim'
 
