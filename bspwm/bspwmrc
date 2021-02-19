@@ -1,6 +1,7 @@
 #! /bin/sh
 
-# AutostartA
+# Autostart
+setxkbmap -layout gb &
 xset r rate 200 50 &
 synclient TouchpadOff=1 &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
