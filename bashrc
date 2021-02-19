@@ -117,6 +117,10 @@ done
 # shellcheck disable=SC1090
 [ -f "$DOTFILES/fzf/shell/key-bindings.bash" ] && source "$DOTFILES/fzf/shell/key-bindings.bash"
 
+# Adds direnv config
+# shellcheck disable=SC1090
+[ -f "$DOTFILES/direnv/direnv.bash" ] && source "$DOTFILES/direnv/direnv.bash"
+
 
 # My Prompt
 # -----------------------------------------------------------------------------
