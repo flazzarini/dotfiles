@@ -32,3 +32,4 @@ udiskie -t &
 volumeicon &
 alacritty &
 blueman-tray &
+feh --bg-center "`find ~/pictures/wallpapers/ | shuf -n 1`" &
