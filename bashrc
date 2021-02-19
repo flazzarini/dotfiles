@@ -18,8 +18,12 @@ shopt -s histappend                            # append to hist after each cmd
 shopt -s checkwinsize                          # Check window size after each
                                                # command update LINES COLUMNS
 
+
+# Bash prompt reload everytime
+# -----------------------------------------------------------------------------
+#
 # Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND;"
 
 
 # Bash Completion
@@ -117,9 +121,6 @@ done
 # shellcheck disable=SC1090
 [ -f "$DOTFILES/fzf/shell/key-bindings.bash" ] && source "$DOTFILES/fzf/shell/key-bindings.bash"
 
-# Adds direnv config
-# shellcheck disable=SC1090
-[ -f "$DOTFILES/direnv/direnv.bash" ] && source "$DOTFILES/direnv/direnv.bash"
 
 
 # My Prompt
@@ -154,6 +155,13 @@ else
 
   # shellcheck disable=SC2153
   PS1="${GREEN}\u@${BLUE}\h${RESET}:${RESET}\w \$ "
+fi
+
+# Load direnv if available on the system
+# direnv reads `.envrc` files from directories and sets environment variables
+# based on these files
+if [ -f /usr/bin/direnv ]; then
+  eval "$(/usr/bin/direnv hook bash)"
 fi
 
 unset color_prompt force_color_prompt
