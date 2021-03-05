@@ -20,6 +20,7 @@ Plug 'ciaranm/detectindent'
 Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
+Plug 'AndrewRadev/linediff.vim'
 
 " Python Plugins
 Plug 'dense-analysis/ale'
