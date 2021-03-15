@@ -26,8 +26,8 @@ bspc rule -a Screenkey manage=off
 # Start additional tools
 polybar -c ~/.config/polybar/config.ini main &
 telegram-desktop &
-synergy &
-netctl-gui --minimized &
+# synergy &
+# netctl-gui --minimized &
 udiskie -t &
 volumeicon &
 alacritty &
