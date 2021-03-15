@@ -96,6 +96,7 @@ alias venv='virtualenv env &&
 alias venv3='python3 -m venv env &&
              ./env/bin/pip install -U pip wheel'          # prepare virtualenv py3
 alias inotebook='ipython notebook --notebook-dir ~/workspace/notebooks/'
+alias jsonpp="python3 -mjson.tool"
 
 
 # ANSIBLE stuff

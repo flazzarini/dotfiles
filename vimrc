@@ -20,6 +20,7 @@ Plug 'ciaranm/detectindent'
 Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
+Plug 'AndrewRadev/linediff.vim'
 
 " Python Plugins
 Plug 'dense-analysis/ale'
@@ -180,7 +181,7 @@ let g:anisble_vault_password_file = '~/workspace/ansible/vault_password'
 " Ale config
 " -----------------------------------------------------------------------------
 let g:ale_fixers = {
-    \   'python': ['isort', 'autopep8'],
+    \   'python': ['isort', 'autopep8', 'black'],
 \}
 let g:ale_linters = {
     \   'python': ['mypy', 'pylint'],
