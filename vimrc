@@ -1,5 +1,6 @@
 set nocompatible
 set term=xterm-256color
+set mouse=a
 
 " VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
@@ -60,6 +61,9 @@ Plug 'dhruvasagar/vim-table-mode'
 
 " Yang
 Plug 'nathanalderson/yang.vim'
+
+" TOML
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
