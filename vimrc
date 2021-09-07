@@ -189,6 +189,7 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
     \   'python': ['mypy', 'pylint'],
+    \   'shell': ['shellcheck'],
 \}
 
 " Don't lint test files
@@ -201,8 +202,8 @@ let g:ale_pattern_options = {
 
 " General Ale Settings
 let g:ale_cache_executable_check_failures = 1
-let b:ale_python_mypy_executable = '~/.local/bin/mypy'
-let b:ale_python_mypy_use_global = 1
+let b:ale_python_mypy_use_global = 0
+let b:ale_python_pylint_use_global = 1
 
 " Test Type Anotations with strict option
 let g:ale_python_mypy_options = '--ignore-missing-imports --strict'
