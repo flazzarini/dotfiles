@@ -40,8 +40,7 @@ man() {
 #
 # Creates a copy of a file with the current timestamp preceding the filename
 #
-# $1 - File to backup
-#
+# $1 - File to backup #
 # Examples
 #   buf my_filename.txt
 #
@@ -90,6 +89,14 @@ oc_docker_login() {
 # Git Tag Alias show only latest 10 tags
 gitags() {
   git tag --sort=-v:refname | head -n 10 | tac
+}
+
+
+# Fix SSH Auth socket
+fixssh() {
+  if test "$SSH_AUTH_SOCK" ; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+  fi
 }
 
 
