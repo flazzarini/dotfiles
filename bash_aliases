@@ -108,6 +108,13 @@ alias play='$ANSIBLE_HOME/env/bin/ansible-playbook'
 alias mkansiblerole='mkdir -p {tasks,handlers,files,defaults}'
 
 
+# Dotfiles stuff
+# -----------------------------------------------------------------------------
+#
+alias dotfiles='cd ~/dotfiles'
+
+
+
 # Perl stuff
 # -----------------------------------------------------------------------------
 #

@@ -1,6 +1,6 @@
 set nocompatible
 set term=xterm-256color
-set mouse=a
+" set mouse=a
 
 " VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
@@ -22,6 +22,7 @@ Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'AndrewRadev/linediff.vim'
+Plug 'zivyangll/git-blame.vim'
 
 " Python Plugins
 Plug 'dense-analysis/ale'
@@ -203,7 +204,7 @@ let g:ale_pattern_options = {
 " General Ale Settings
 let g:ale_cache_executable_check_failures = 1
 let b:ale_python_mypy_use_global = 0
-let b:ale_python_pylint_use_global = 1
+let b:ale_python_pylint_use_global = 0
 
 " Test Type Anotations with strict option
 let g:ale_python_mypy_options = '--ignore-missing-imports --strict'
@@ -218,6 +219,13 @@ let g:ale_echo_msg_format = '[%severity%] [%linter%: %code%] %s'
 
 " Run ALEFix
 nnoremap <C-i> :ALEFix<CR>
+
+
+"
+" Git blame setting
+" -----------------------------------------------------------------------------
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
 
 
 " IndentLine Settings
