@@ -1,6 +1,6 @@
 set nocompatible
 set term=xterm-256color
-set mouse=a
+" set mouse=a
 
 " VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
