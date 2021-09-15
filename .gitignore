@@ -27,3 +27,6 @@ bin/fzf
 bin/tmux
 fzf/
 bash-git-prompt/
+
+; Ignore installer downloads
+installers/**/*.tar.gz
