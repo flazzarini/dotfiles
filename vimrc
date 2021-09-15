@@ -66,6 +66,9 @@ Plug 'nathanalderson/yang.vim'
 " TOML
 Plug 'cespare/vim-toml'
 
+" Nginx
+Plug 'chr4/nginx.vim'
+
 call plug#end()
 
 
