@@ -69,3 +69,6 @@ sort = v:refname
     insteadOf = git://
 
 ; vi: ft=gitconfig
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/users/frank/.local/bin/gh auth git-credential

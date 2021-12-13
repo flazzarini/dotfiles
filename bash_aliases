@@ -106,6 +106,8 @@ alias ansi='cd $ANSIBLE_HOME'
 alias vault='$ANSIBLE_HOME/env/bin/ansible-vault'
 alias play='$ANSIBLE_HOME/env/bin/ansible-playbook'
 alias mkansiblerole='mkdir -p {tasks,handlers,files,defaults}'
+alias freerad_rules='cd $ANSIBLE_HOME/playbooks/server_setup/freeradius/files/freerad/auth_rules'
+alias freerad_profiles='cd $ANSIBLE_HOME/playbooks/server_setup/freeradius/files/freerad/auth_profiles'
 
 
 # Dotfiles stuff

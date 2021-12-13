@@ -13,7 +13,6 @@ export ANSIBLE_HOME="$ANSIBLE_ROOT/ansible"
 # ACTUAL ANSIBLE CONFIGS
 export ANSIBLE_CONFIG="$ANSIBLE_CONFIG_ROOT/ansible.cfg"
 export ANSIBLE_VAULT_PASSWORD_FILE="$ANSIBLE_CONFIG_ROOT/vault_password"
-export TOWER_TOKEN="$(cat $ANSIBLE_CONFIG_ROOT/awx_token)"
 export TOWER_HOST="https://awx.dtt.ptech.lu"
 
 
