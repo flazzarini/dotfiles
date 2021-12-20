@@ -70,13 +70,8 @@ export PYTHONWARNINGS=default                         # Give python warnings
 # Keychain
 # -----------------------------------------------------------------------------
 #
-if [[ $HOSTNAME != BBS*.ipsw.dt.ept.lu && $HOSTNAME != *.gefoo.org ]]; then
-  if [ -f "$HOME/.ssh/id_rsa" ]; then
-    $(which keychain) "$HOME/.ssh/id_rsa"
-    # shellcheck disable=SC1090
-    # Ticket opened https://github.com/koalaman/shellcheck/issues/769
-    source "$HOME/.keychain/$HOSTNAME-sh"
-  fi
+if [ -f "$HOME/.ssh/id_rsa" ]; then
+  eval $(keychain --eval id_rsa)
 fi
 
 
