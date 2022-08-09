@@ -64,6 +64,7 @@ export GPGKEY=C502163F
 # -----------------------------------------------------------------------------
 #
 export PYTHONWARNINGS=default                         # Give python warnings
+export PYTHON_CONFIGURE_OPTS="--enable-framework"     # Enables dylib when compiling python (some vim plugins need this feature)
 
 
 
@@ -90,6 +91,7 @@ FOLDERS="
   $HOME/opt/nodeenc/node_modules/.bin
   $HOME/node_modules/.bin
   $HOME/.local/bin
+  $HOME/.cargo/bin
 "
 for FOLDER in $FOLDERS; do
   [ -d "$FOLDER" ] && PATH="$FOLDER:$PATH"
@@ -160,3 +162,9 @@ if [ -f /usr/bin/direnv ]; then
 fi
 
 unset color_prompt force_color_prompt
+
+
+# Load pyenv stuff
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
