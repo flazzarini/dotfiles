@@ -135,4 +135,9 @@ alias dis="docker images --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}
 alias sniffrad="radsniff -x -szopp -S"
 
 
+# Git related aliases
+# -----------------------------------------------------------------------------
+#
+alias pushall="git co master && git push && git push --tags && git co develop && git push"
+
 # vim: filetype=sh
