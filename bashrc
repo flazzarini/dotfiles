@@ -64,7 +64,7 @@ export GPGKEY=C502163F
 # -----------------------------------------------------------------------------
 #
 export PYTHONWARNINGS=default                         # Give python warnings
-export PYTHON_CONFIGURE_OPTS="--enable-framework"     # Enables dylib when compiling python (some vim plugins need this feature)
+# export PYTHON_CONFIGURE_OPTS="--enable-framework"     # Enables dylib when compiling python (some vim plugins need this feature)
 
 
 
