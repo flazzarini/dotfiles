@@ -10,4 +10,4 @@ parser.add_argument("input_dict", help="Dict as string to parse")
 args = parser.parse_args()
 
 dict_to_convert = eval(args.input_dict)
-print(json.dumps(dict_to_convert))
+print(json.dumps(dict_to_convert, indent=4))
