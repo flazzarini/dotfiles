@@ -24,6 +24,7 @@ help:
 	@echo '   make install_vim                 install vim files                  '
 	@echo '   make install_git_home            install git home files             '
 	@echo '   make install_git_work            install git work files             '
+	@echo '   make install_taskwarrior         installs taskrc                    '
 	@echo '   make install_i3                  install i3 files                   '
 	@echo '   make install_bspwm               install bspwm files                '
 	@echo '   make install_python              install ipython files              '
@@ -198,6 +199,12 @@ install_conky:
 	ln -sf `pwd`/conky/conky.conf ~/.conkyrc
 
 clean_conky:
+	rm -Rf ~/.taskrc
+
+install_taskwarrior:
+	ln -sf `pwd`/taskrc ~/.taskrc
+
+clean_taskwarrior:
 	rm -Rf ~/.conkyrc
 
 install_conky_work:
