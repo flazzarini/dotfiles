@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="8.2.1736"
+VERSION="9.0.0057"
 DOWNURL="https://github.com/vim/vim/archive/v$VERSION.tar.gz"
 
 BUILD="vim-$VERSION"
@@ -16,8 +16,8 @@ cd $BUILD && ./configure \
   --enable-multibyte \
   --enable-python3interp \
   --enable-cscope \
-  --with-features=huge \
-  --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu
+  --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
+  --with-features=huge
 make && make install
 rm -f $DOWNLOAD
 rm -rf $BUILD

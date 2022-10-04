@@ -51,6 +51,7 @@ alias pong='ping 8.8.8.8'
 alias dmesg="dmesg --color=auto --reltime --human --nopager --decode"
 alias tree="tree --dirsfirst -C"
 alias cat="bat -p"
+alias versiondate="date '+%Y.%m.%d.01'"
 
 
 # Archlinux Stuff
@@ -134,5 +135,10 @@ alias dis="docker images --format '{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}
 #
 alias sniffrad="radsniff -x -szopp -S"
 
+
+# Git related aliases
+# -----------------------------------------------------------------------------
+#
+alias pushall="git co master && git push && git push --tags && git co develop && git push"
 
 # vim: filetype=sh

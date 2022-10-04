@@ -23,6 +23,8 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'zivyangll/git-blame.vim'
+Plug 'christianrondeau/vim-base64'
+Plug 'mgedmin/python-imports.vim'
 
 " Python Plugins
 Plug 'dense-analysis/ale'
@@ -125,6 +127,7 @@ let g:airline_theme='wombat'      " Airline theme https://github.com/vim-airline
 "set autoindent                  " always set autoindenting on
 set shiftwidth=4                " Force indentation to be 4 spaces
 set tabstop=4                   "          -- idem --
+set ffs=unix
 set list                        " EOL, trailing spaces, tabs: show them.
 set lcs=tab:├─                  " Tabs are shown as ├──
 set lcs+=trail:␣                " Show trailing spaces as ␣
@@ -241,6 +244,8 @@ let g:indentLine_char = '|'
 let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 3
 
 
 " Keyboard maps
@@ -250,6 +255,7 @@ nnoremap <F3> :set hlsearch!<CR>  " Activate or disactive Search Highlighting
 let mapleader = ","               " , is easier to reach than the default
 map <Leader>    a ggVG            " select all
 vmap            Q gq              " wrap 80col paragraph vertically
+imap <silent> <C-l> <Plug>(YCMToggleSignatureHelp)
 
 
 
