@@ -20,7 +20,7 @@ Plug 'preservim/nerdtree'
 Plug 'ciaranm/detectindent'
 Plug 'SirVer/ultisnips'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'kien/ctrlp.vim'
+Plug 'srstevenson/vim-picker'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'zivyangll/git-blame.vim'
 Plug 'christianrondeau/vim-base64'
@@ -120,6 +120,18 @@ set cmdheight=2                   " set cmd height to 2
 let g:airline_powerline_fonts = 1 " Use patched fonts
 let g:airline_theme='wombat'      " Airline theme https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
+
+" Picker Settings
+" -----------------------------------------------------------------------------
+let g:picker_selector_executable = 'pick'
+let g:picker_selector_flags = ''
+nmap <unique> <leader>pe <Plug>(PickerEdit)
+nmap <unique> <leader>ps <Plug>(PickerSplit)
+nmap <unique> <leader>pt <Plug>(PickerTabedit)
+nmap <unique> <leader>pd <Plug>(PickerTabdrop)
+nmap <unique> <leader>pv <Plug>(PickerVsplit)
+nmap <unique> <leader>pb <Plug>(PickerBuffer)
+nmap <unique> <leader>ph <Plug>(PickerHelp)
 
 
 " Indentation settings
