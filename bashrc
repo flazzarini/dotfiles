@@ -47,12 +47,6 @@ export GTI_SPEED=5000
 export DEVELOPMENT_PORTS="50020,50025"
 
 
-# Postgresql Env Vars
-# -----------------------------------------------------------------------------
-#
-export PGUSER="flazzarini"
-export PGPASS="$HOME/.pgpass"
-
 # Launchpad.net Env vars
 # -----------------------------------------------------------------------------
 #
