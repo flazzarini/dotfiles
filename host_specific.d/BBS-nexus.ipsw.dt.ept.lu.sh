@@ -20,3 +20,12 @@ export TOWER_HOST="https://awx.dtt.ptech.lu"
 # -----------------------------------------------------------------------------
 #
 export DEVELOPMENT_PORTS=50020,50030
+
+
+# Postgresql Env Vars
+# -----------------------------------------------------------------------------
+#
+export PGUSER="ti11642"
+export PGPASS="$HOME/.pgpass"
+
+
