@@ -173,11 +173,9 @@ clean_python:
 	rm -Rf ~/.config/ipython
 
 install_tmux: clean_tmux
-	[ -d ~/.bin/tmux-powerline ] || mkdir -p ~/.bin/tmux-powerline && cd ~/.bin/tmux-powerline && git clone https://github.com/erikw/tmux-powerline.git .
-	[ -d ~/.bin/tmux-powerline ] && cd ~/.bin/tmux-powerline && git pull
+	[ -d ~/.tmux ] || mkdir ~/.tmux
+	[ -d ~/.tmux/tmux-power ] || git clone https://github.com/wfxr/tmux-power.git ~/.tmux/tmux-power
 	ln -sf `pwd`/tmux.conf ~/.tmux.conf
-	ln -sf `pwd`/tmux-powerline/tmux-powerlinerc ~/.tmux-powerlinerc
-	ln -sf `pwd`/tmux-powerline/my_theme.sh ~/.bin/tmux-powerline/themes/my_theme.sh
 	[ -d ~/.ssh ] || mkdir ~/.ssh
 	ln -sf `pwd`/sshrc ~/.ssh/rc
 	tic `pwd`/tmux18-256color.ti
