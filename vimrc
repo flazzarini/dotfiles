@@ -25,6 +25,7 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'zivyangll/git-blame.vim'
 Plug 'christianrondeau/vim-base64'
 Plug 'mgedmin/python-imports.vim'
+Plug 'tpope/vim-surround'
 
 " Python Plugins
 Plug 'dense-analysis/ale'
@@ -234,6 +235,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] [%linter%: %code%] %s'
+
+" Integrate with vim-airline
+let g:airline#extensions#ale#enabled = 1
 
 " Run ALEFix
 nnoremap <C-i> :ALEFix<CR>
