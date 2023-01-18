@@ -35,7 +35,6 @@ help:
 	@echo '   make install_conky_work          installs conky work config         '
 	@echo '   make install_psql                installs psqlrc                    '
 	@echo '   make install_roxterm             installs roxterm files             '
-	@echo '   make install_beets               installs beets files               '
 	@echo '   make install_winbox              downloads and installs winbox      '
 	@echo '                                                                       '
 	@echo 'All install commands are also available as clean commands to remove    '
@@ -231,15 +230,6 @@ install_roxterm:
 
 clean_roxterm:
 	rm -Rf ~/.config/roxterm.sourceforge.net
-
-install_beets:
-	[ -d ~/.config/beets ] || mkdir ~/.config/beets
-	ln -sf `pwd`/beets/config.yaml ~/.config/beets/config.yaml
-	ln -sf `pwd`/beets/whitelist.txt ~/.config/beets/whitelist.txt
-
-clean_beets:
-	rm -Rf ~/.config/beets/config.yaml
-	rm -Rf ~/.config/beets/whitelist.txt
 
 install_winbox: clean_winbox
 	@echo 'Installing Winbox 3.27 to /opt/winbox'
