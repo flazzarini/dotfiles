@@ -52,10 +52,19 @@ all: install_fonts install_bash install_vim install_git_home install_i3 \
 	@echo "All done."
 
 install_fonts: clean_fonts
-	ln -sf `pwd`/fonts ~/.fonts
+	DEST_FOLDER=~/.local/share/fonts ; \
+	[ -d $$DEST_FOLDER ] || mkdir -p $$DEST_FOLDER ; \
+	readarray -t NERD_FONTS < `pwd`/nerd_fonts.lst ; \
+	for nerd_font in $${NERD_FONTS[@]}; do \
+		wget $$nerd_font -O $$DEST_FOLDER/font.zip && \
+		cd $$DEST_FOLDER && unzip -o -q font.zip && \
+		rm -f ~/.local/share/fonts/font.zip; \
+	done;
+	fc-cache -fv
 
 clean_fonts:
-	rm -Rf ~/.fonts
+	rm -Rf ~/.loca/share/fonts
+	fc-cache -fv
 
 install_bash: clean_bash install_bat
 	ln -sf `pwd`/bashrc ~/.bashrc

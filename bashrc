@@ -137,11 +137,11 @@ if [ "$color_prompt" = yes ]; then
   PROMPT_COMMAND=prompt_command_function
 
   # Set color theme
-  COLOR_THEME=molokai
+  # COLOR_THEME=molokai
 
   # Ticket opened https://github.com/koalaman/shellcheck/issues/769
   # shellcheck disable=SC1090
-  source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
+  # source ~/dotfiles/terminal-color-theme/color-theme-${COLOR_THEME}/${COLOR_THEME}.sh
 else
 
   # shellcheck disable=SC2153
@@ -162,3 +162,6 @@ unset color_prompt force_color_prompt
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Citrix Receiver
+export ICAROOT="/opt/icaclient/linuxx64"
