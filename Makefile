@@ -57,7 +57,7 @@ install_fonts: clean_fonts
 	readarray -t NERD_FONTS < `pwd`/nerd_fonts.lst ; \
 	for nerd_font in $${NERD_FONTS[@]}; do \
 		wget $$nerd_font -O $$DEST_FOLDER/font.zip && \
-		cd $$DEST_FOLDER && unzip -o font.zip && \
+		cd $$DEST_FOLDER && unzip -o -q font.zip && \
 		rm -f ~/.local/share/fonts/font.zip; \
 	done;
 	fc-cache -fv
