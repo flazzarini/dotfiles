@@ -21,6 +21,7 @@ help:
 	@echo '   make all                         install everything                 '
 	@echo '   make install_fonts               install custom fonts               '
 	@echo '   make install_bash                install bashrc                     '
+	@echo '   make install_asdf                install asdf                       '
 	@echo '   make install_vim                 install vim files                  '
 	@echo '   make install_git_home            install git home files             '
 	@echo '   make install_git_work            install git work files             '
@@ -87,6 +88,19 @@ clean_bash:
 	rm -Rf ~/bin
 	rm -Rf ~/.inputrc
 	rm -Rf ~/.config/htop
+
+install_asdf: clean_asdf
+	ln -sf `pwd`/tool-versions ~/.tool-versions
+	[ -d ~/.asdf/ ] || \
+		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
+	cd ~/ && source ~/.asdf/asdf.sh && \
+		cat ~/.tool-versions | cut -d' ' -f1 | grep "^[^\#]" | xargs -i asdf plugin add  {}
+	cd ~/ && source ~/.asdf/asdf.sh && \
+		asdf install
+
+clean_asdf:
+	rm -Rf ~/.tool-versions
+	rm -Rf ~/.asdf
 
 install_vim: clean_vim
 	@echo Installing Vim-Plug
