@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="3.2a"
+VERSION="3.3"
 DOWNURL="https://github.com/tmux/tmux/archive/$VERSION.tar.gz"
 
 BUILD="tmux-$VERSION"
