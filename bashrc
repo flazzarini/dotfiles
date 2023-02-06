@@ -165,3 +165,6 @@ eval "$(pyenv init -)"
 
 # Citrix Receiver
 export ICAROOT="/opt/icaclient/linuxx64"
+
+# Use ASDF
+test -f "$(pwd)/.asdf/asdf.sh" && source $(pwd)/.asdf/asdf.sh
