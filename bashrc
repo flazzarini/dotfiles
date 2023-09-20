@@ -11,19 +11,12 @@
 # Bash history settings
 # -----------------------------------------------------------------------------
 #
-export HISTCONTROL=ignoredups:ignorespace      # don't put duplicated to history
-export HISTSIZE=10000                          # History size length
-export HISTFILESIZE=20000                      # Hitstory filesize
-shopt -s histappend                            # append to hist after each cmd
-shopt -s checkwinsize                          # Check window size after each
-                                               # command update LINES COLUMNS
-
-
-# Bash prompt reload everytime
-# -----------------------------------------------------------------------------
-#
-# Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND;"
+export HISTCONTROL=ignoredups:ignorespace:erasedups    # don't put duplicated to history
+export HISTSIZE=10000                                  # History size length
+export HISTFILESIZE=20000                              # Hitstory filesize
+shopt -s histappend                                    # append to hist after each cmd
+shopt -s checkwinsize                                  # Check window size after each
+                                                       # command update LINES COLUMNS
 
 
 # Bash Completion
@@ -58,7 +51,6 @@ export GPGKEY=C502163F
 # -----------------------------------------------------------------------------
 #
 export PYTHONWARNINGS=default                         # Give python warnings
-# export PYTHON_CONFIGURE_OPTS="--enable-framework"     # Enables dylib when compiling python (some vim plugins need this feature)
 
 
 
@@ -167,4 +159,7 @@ eval "$(pyenv init -)"
 export ICAROOT="/opt/icaclient/linuxx64"
 
 # Use ASDF
-test -f "$(pwd)/.asdf/asdf.sh" && source $(pwd)/.asdf/asdf.sh
+test -f "$HOME/.asdf/asdf.sh" && source $HOME/.asdf/asdf.sh
+
+# Enable Fabric Bash Completion
+source "$HOME/dotfiles/fabric-completion.bash"
