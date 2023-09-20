@@ -141,4 +141,12 @@ alias sniffrad="radsniff -x -szopp -S"
 #
 alias pushall="git co master && git push && git push --tags && git co develop && git push"
 
+
+# Neovim Alias
+# -----------------------------------------------------------------------------
+#
+alias vim="nvim"
+alias vi="nvim"
+
+
 # vim: filetype=sh
