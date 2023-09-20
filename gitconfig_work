@@ -17,7 +17,7 @@
 ;
 [alias]
     ; simple shortcuts
-    st = status -s
+    st = status -sb
     co = checkout
     ci = commit
 
@@ -39,7 +39,7 @@
     excludesfile = ~/.gitignore
 
     ; Let's use vim as the default editor
-    editor=vim
+    editor=nvim
 
 [tag]
 ; Sort tags by version
@@ -48,6 +48,9 @@ sort = v:refname
 [diff]
     ; ... and vimdiff as diff tool
     tool=vimdiff
+
+[pull]
+    ff = only
 
 
 [difftool]
@@ -72,3 +75,5 @@ sort = v:refname
 [credential "https://github.com"]
 	helper = 
 	helper = !/home/users/frank/.local/bin/gh auth git-credential
+[safe]
+	directory = /mnt/local/nfs-exports/configsaver_files

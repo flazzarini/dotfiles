@@ -1,17 +1,13 @@
 set nocompatible
-set term=xterm-256color
-" set mouse=a
 
 " VIM Plugins (vim-plug)
 " -----------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')  " Plugins will be installed in this folder
 
 " Visual
-Plug 'nanotech/jellybeans.vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'romainl/Apprentice'
 Plug 'Glench/Vim-Jinja2-Syntax'
 
@@ -237,7 +233,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] [%linter%: %code%] %s'
 
 " Integrate with vim-airline
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
+" 2023-01-24 try to disable to avoid refresh issue
 
 " Run ALEFix
 nnoremap <C-i> :ALEFix<CR>

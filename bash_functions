@@ -69,6 +69,9 @@ prompt_command_function() {
   GIT_PS1_DESCRIBE_STYLE="contains"
   GIT_BRANCH=$(__git_ps1)  # Using bash-git-prompt https://github.com/magicmonty/bash-git-prompt
 
+  # Save history
+  history -a; history -c; history -r
+
   PS1_LINE1="${RESET}${BAR}┌(${BLUE111}\u@\h${BAR})─(${YELLOW220}\j${BAR})─(${WHITE}\t${BAR})${RED}${GIT_BRANCH}${RESET}"
   PS1_LINE2="${RESET}${BAR}└─(${GREEN112}\w${BAR})─(${GREEN112}${SIZE}${BAR})-(${EXIT_CODE}${BAR})──> ${RESET}$ "
   PS1="$PS1_LINE1\n$PS1_LINE2"
